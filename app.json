@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.terryhendrix.smartpresence",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#2a6fe8",
@@ -76,8 +76,8 @@
   },
   "permissions": [],
   "author": {
-    "name": "Bjørnar Almli",
-    "email": "bjornar.almli@gmail.com"
+    "name": "Bretislav Kubesa",
+    "website": "https://github.com/shaarkys"
   },
   "contributors": {
     "developers": [
@@ -94,6 +94,9 @@
       {
         "name": "Bjørnar Almli",
         "email": "bjornar.almli@gmail.com"
+      },
+      {
+        "name": "ChatGPT"
       }
     ],
     "translators": [
@@ -120,7 +123,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "bjornaralmli"
+        "username": "bkubesa"
       }
     }
   },
@@ -852,12 +855,12 @@
                 "sv": "IP-adress"
               },
               "hint": {
-                "en": "The IP address must be staticly assigned to the device.",
-                "nl": "Het IP adres moet statisch zijn toegewezen aan dit apparaat.",
-                "de": "Dem Gerät muss eine feste IP-Adresse zugewiesen sein.",
-                "no": "Enheten bør tilordnes en statisk IP-adresse.",
-                "da": "Enheden bør have fast IP-adresse.",
-                "sv": "Enheten måste tilldelas en fast/statisk IP-adress."
+                "en": "The IP address must be statically assigned to the device via DHCP. Be aware that random MAC address settings on mobile phones will affect device tracking.",
+                "nl": "Het IP adres moet via DHCP statisch zijn toegewezen aan dit apparaat. Wees je ervan bewust dat willekeurige MAC-adresinstellingen op mobiele telefoons de apparaatvolging zullen beïnvloeden.",
+                "de": "Die IP-Adresse muss über DHCP fest dem Gerät zugewiesen werden. Beachten Sie, dass zufällige MAC-Adresseneinstellungen auf Mobiltelefonen das Gerätetracking beeinflussen werden.",
+                "no": "Enheten må tilordnes en statisk IP-adresse via DHCP. Vær oppmerksom på at tilfeldige MAC-adresseinnstillinger på mobiltelefoner vil påvirke enhetssporing.",
+                "da": "Enheden skal have tildelt en fast IP-adresse via DHCP. Vær opmærksom på, at tilfældige MAC-adresseindstillinger på mobiltelefoner vil påvirke enhedssporing.",
+                "sv": "Enheten måste tilldelas en fast IP-adress via DHCP. Var medveten om att slumpmässiga MAC-adressinställningar på mobiltelefoner kommer att påverka enhetsspårning."
               }
             },
             {

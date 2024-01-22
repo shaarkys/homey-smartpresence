@@ -1,4 +1,7 @@
 {
+  "0.8.5": {
+    "en": "New maintainer, attempt to prevent some crashes, fix checkboxes during pairing, fix icon not showing up, optimize detection methods, changed some graphics"
+  },
   "0.8.4": {
     "en": "Fixed token for the 'A specific user arrived / left' triggers"
   },

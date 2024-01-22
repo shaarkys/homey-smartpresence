@@ -1,6 +1,6 @@
 {
   "id": "nl.terryhendrix.smartpresence",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#2a6fe8",
@@ -75,8 +75,8 @@
   },
   "permissions": [],
   "author": {
-    "name": "Bjørnar Almli",
-    "email": "bjornar.almli@gmail.com"
+    "name": "Bretislav Kubesa",
+    "website": "https://github.com/shaarkys"
   },
   "contributors": {
     "developers": [
@@ -93,6 +93,9 @@
       {
         "name": "Bjørnar Almli",
         "email": "bjornar.almli@gmail.com"
+      },
+      {
+        "name": "ChatGPT"
       }
     ],
     "translators": [
@@ -119,7 +122,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "bjornaralmli"
+        "username": "bkubesa"
       }
     }
   },

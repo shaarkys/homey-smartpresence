@@ -99,41 +99,70 @@ module.exports = class SmartPresenceApp extends Homey.App {
   }
 
   async deviceArrived(device) {
-    const currentPrecenseStatus = this.getPresenceStatus();
+    const currentPresenceStatus = this.getPresenceStatus();
     const tokens = device.getFlowCardTokens();
-    this.log('deviceArrived', currentPrecenseStatus);
-    const deviceid = device.getData().id;
-    const presentAndNotSameDevice = currentPrecenseStatus.filter(d => d.id !== deviceid && d.present);
-    if (presentAndNotSameDevice.length === 0) {
-      await this.homey.app.firstPersonEnteredTrigger.trigger(tokens, {}).catch(this.error);
+    this.log('deviceArrived', currentPresenceStatus);
+    const deviceId = device.getData().id;
+
+    let isFirstPerson = true;
+    let isFirstHouseholdMember = device.isHouseHoldMember();
+    let isFirstKid = device.isKid();
+    let isFirstGuest = device.isGuest();
+
+    for (const status of currentPresenceStatus) {
+        if (status.id !== deviceId && status.present) {
+            isFirstPerson = false;
+            if (!status.guest) isFirstHouseholdMember = false;
+            if (!status.kid) isFirstKid = false;
+            if (!status.guest) isFirstGuest = false;
+        }
     }
-    if (device.isHouseHoldMember() && presentAndNotSameDevice.filter(d => !d.guest).length === 0) {
-      await this.homey.app.firstHouseholdMemberArrivedTrigger.trigger(tokens, {}).catch(this.error);
+
+    if (isFirstPerson) {
+        await this.homey.app.firstPersonEnteredTrigger.trigger(tokens, {}).catch(this.error);
     }
-    if (device.isKid() && presentAndNotSameDevice.filter(d => d.kid).length === 0) {
-      await this.homey.app.firstKidArrivedTrigger.trigger(tokens, {}).catch(this.error);
+    if (isFirstHouseholdMember) {
+        await this.homey.app.firstHouseholdMemberArrivedTrigger.trigger(tokens, {}).catch(this.error);
     }
-    if (device.isGuest() && presentAndNotSameDevice.filter(d => d.guest).length === 0) {
-      await this.homey.app.firstGuestArrivedTrigger.trigger(tokens, {}).catch(this.error);
+    if (isFirstKid) {
+        await this.homey.app.firstKidArrivedTrigger.trigger(tokens, {}).catch(this.error);
     }
+    if (isFirstGuest) {
+        await this.homey.app.firstGuestArrivedTrigger.trigger(tokens, {}).catch(this.error);
+    }
+}
+
+async deviceLeft(device) {
+  const currentPresenceStatus = this.getPresenceStatus();
+  const tokens = device.getFlowCardTokens();
+  this.log('deviceLeft', currentPresenceStatus);
+
+  let isLastPerson = true;
+  let isLastHouseholdMember = device.isHouseHoldMember();
+  let isLastKid = device.isKid();
+  let isLastGuest = device.isGuest();
+
+  for (const status of currentPresenceStatus) {
+      if (status.id !== device.getData().id && status.present) {
+          isLastPerson = false;
+          if (!status.guest) isLastHouseholdMember = false;
+          if (status.kid) isLastKid = false;
+          if (status.guest) isLastGuest = false;
+      }
   }
 
-  async deviceLeft(device) {
-    const currentPrecenseStatus = this.getPresenceStatus();
-    const tokens = device.getFlowCardTokens();
-    this.log('deviceLeft', currentPrecenseStatus);
-    if (currentPrecenseStatus.filter(d => d.present).length === 0) {
+  if (isLastPerson) {
       await this.homey.app.lastPersonLeftTrigger.trigger(tokens, {}).catch(this.error);
-    }
-    if (device.isHouseHoldMember() && currentPrecenseStatus.filter(d => d.present && !d.guest).length === 0) {
-      await this.homey.app.lastHouseholdMemberLeftTrigger.trigger(tokens, {}).catch(this.error);
-    }
-    if (device.isKid() && currentPrecenseStatus.filter(d => d.present && d.kid).length === 0) {
-      await this.homey.app.lastKidLeftTrigger.trigger(tokens, {}).catch(this.error);
-    }
-    if (device.isGuest() && currentPrecenseStatus.filter(d => d.present && d.guest).length === 0) {
-      await this.homey.app.lastGuestLeftTrigger.trigger(tokens, {}).catch(this.error);
-    }
   }
+  if (isLastHouseholdMember) {
+      await this.homey.app.lastHouseholdMemberLeftTrigger.trigger(tokens, {}).catch(this.error);
+  }
+  if (isLastKid) {
+      await this.homey.app.lastKidLeftTrigger.trigger(tokens, {}).catch(this.error);
+  }
+  if (isLastGuest) {
+      await this.homey.app.lastGuestLeftTrigger.trigger(tokens, {}).catch(this.error);
+  }
+}
 
 };
