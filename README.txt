@@ -11,3 +11,5 @@ For adding a device, please follow these steps:
 
 
 For more information, click the 'Visit forum' - link on this page.
+
+Ensure you are using PHONE MAC in the settings of your Wifi connection on your phone and not RANDOMIZED MAC. 

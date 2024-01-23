@@ -11,6 +11,8 @@ For adding a device, please follow these steps:
 2. Make a static reservation for the IP address.  Also done from the admin UI of the Wi-Fi router.
 3. Add the device by entering a name, and the IP address of the smartphone.  Check the 'Is guest' or 'Is kid' - checkboxes for guests or kids.
 
+Ensure you are using PHONE MAC in the settings of your Wifi connection on your phone and not RANDOMIZED MAC. 
+
 ## Device: Smartphone
 
 #### Triggers
@@ -44,9 +46,18 @@ For adding a device, please follow these steps:
 
 ## Feedback:
 
-Please report issues at the [issues section on Github](https://github.com/balmli/homey-smartpresence/issues).
+Please report issues at the [issues section on Github](https://github.com/shaarkys/homey-smartpresence/issues).
 
 ## Release Notes:
+
+
+#### 0.8.6
+
+- Add last seen as device capability, changed minimal allowed values for Host timeout and Stress timeout (500ms as new minimum to prevent false negatives), improved logging
+
+#### 0.8.5
+
+- New maintainer, attempt to prevent some crashes, fix checkboxes during pairing, fix icon not showing up, optimize detection methods, changed some graphics
 
 #### 0.8.4
 

@@ -12,8 +12,16 @@
   },
   "class": "sensor",
   "capabilities": [
-    "presence"
+    "presence",
+    "lastseen"
   ],
+  "capabilitiesOptions": {
+    "lastseen": {
+      "title": {
+        "en": "Last Seen"
+      }
+    }
+  },
   "pair": [
     {
       "id": "enter_ip"

@@ -2,7 +2,12 @@
 
   const Homey = require('homey');
   const net = require('net');
+  const moment = require('moment');
 
+  function formatLastSeen(timestamp) {
+    return moment(timestamp).format('DD/MM HH:mm:ss'); // Adjust the format as needed
+  }
+  
   module.exports = class SmartPresenceDevice extends Homey.Device {
 
     async onInit() {
@@ -10,6 +15,12 @@
       await this._migrate();
       this._present = this.getCapabilityValue('presence');
       this._lastSeen = this.getStoreValue('lastSeen') || 0;
+
+      // Check and add the lastseen capability dynamically
+      if (!this.hasCapability('lastseen')) {
+        await this.addCapability('lastseen');
+      }
+    
       this.scan();
     }
 
@@ -103,17 +114,21 @@
     }
 
     async updateLastSeen() {
-      this._lastSeen = Date.now();
-      if (!this._lastSeenStored || this._lastSeen - this._lastSeenStored > 60000) {
-          try {
-              await this.setStoreValue('lastSeen', this._lastSeen);
-              this._lastSeenStored = this._lastSeen;
-          } catch (err) {
-              this.log('Error updating last seen:', err.message);
-              // Handle the error or perform any fallback operation if necessary
-          }
+      const now = Date.now();
+      this._lastSeen = now;
+  
+      if (!this._lastSeenStored || now - this._lastSeenStored > 60000) {
+        try {
+          // Format the timestamp after updating it
+          const lastSeenFormatted = formatLastSeen(now);
+          await this.setCapabilityValue('lastseen', lastSeenFormatted); // Update lastseen capability
+          await this.setStoreValue('lastSeen', now);
+          this._lastSeenStored = now;
+        } catch (err) {
+          this.log('Error updating last seen:', err.message);
+        }
       }
-  }
+    }
 
     getSeenMillisAgo() {
       return Date.now() - this.getLastSeen();
@@ -208,6 +223,7 @@
 
       if (present) {
         this.updateLastSeen();
+        await this.updateLastSeen(); // Update last seen time when presence is detected
       }
 
       if (present && !currentPresent) {
@@ -229,7 +245,7 @@
         if (!this.shouldDelayAwayStateSwitch()) {
           this.log(`${this.getHost()} - ${this.getName()}: is marked as offline`);
           await this.setPresenceStatus(present);
-          await this.homey.app.deviceLeft(this);
+          await this.homey.app.deviceLeft(this, tokens);
           await this.homey.app.userLeftTrigger.trigger(this, tokens, {}).catch(this.error);
           await this.homey.app.someoneLeftTrigger.trigger(tokens, {}).catch(this.error);
           if (this.isHouseHoldMember()) {

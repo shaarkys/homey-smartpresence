@@ -11,7 +11,7 @@
     "sv": "Intensivtest timeout"
   },
   "attr": {
-    "min": 0.1,
+    "min": 0.5,
     "max": 5.0
   },
   "units": {

@@ -1,0 +1,25 @@
+{
+    "type": "string",
+    "title": {
+      "en": "Last Seen",
+      "nl": "Laatst Gezien",
+      "de": "Zuletzt Gesehen",
+      "no": "Sist Sett",
+      "da": "Sidst Set",
+      "sv": "Senast Sedd"
+    },
+    "getable": true,
+    "setable": false,
+    "insights": false,
+    "insightsLog": true,
+    "insightsTitle": {
+      "en": "Last Seen",
+      "nl": "Laatst Gezien",
+      "de": "Zuletzt Gesehen",
+      "no": "Sist Sett",
+      "da": "Sidst Set",
+      "sv": "Senast Sedd"
+    },
+    "icon": "./assets/lastseen.svg"
+  }
+  
