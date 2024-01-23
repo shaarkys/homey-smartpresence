@@ -1,4 +1,7 @@
 {
+  "0.8.6": {
+    "en": "Add last seen as device capability, changed minimal allowed values for Host timeout and Stress timeout (500ms as new minimum to prevent false negatives), improved logging"
+  },
   "0.8.5": {
     "en": "New maintainer, attempt to prevent some crashes, fix checkboxes during pairing, fix icon not showing up, optimize detection methods, changed some graphics"
   },
@@ -52,5 +55,8 @@
   },
   "0.5.1": {
     "en": "Device card updates. "
+  },
+  "0.8.7": {
+    "en": "Fixed crash on missing token"
   }
 }

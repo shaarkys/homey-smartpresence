@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "nl.terryhendrix.smartpresence",
-  "version": "0.8.5",
+  "version": "0.8.7",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#2a6fe8",
@@ -819,8 +819,16 @@
       },
       "class": "sensor",
       "capabilities": [
-        "presence"
+        "presence",
+        "lastseen"
       ],
+      "capabilitiesOptions": {
+        "lastseen": {
+          "title": {
+            "en": "Last Seen"
+          }
+        }
+      },
       "pair": [
         {
           "id": "enter_ip"
@@ -1018,7 +1026,7 @@
                 "sv": "Normaltest timeout"
               },
               "attr": {
-                "min": 0.1,
+                "min": 0.5,
                 "max": 5
               },
               "units": {
@@ -1130,7 +1138,7 @@
                 "sv": "Intensivtest timeout"
               },
               "attr": {
-                "min": 0.1,
+                "min": 0.5,
                 "max": 5
               },
               "units": {
@@ -1156,6 +1164,30 @@
     }
   ],
   "capabilities": {
+    "lastseen": {
+      "type": "string",
+      "title": {
+        "en": "Last Seen",
+        "nl": "Laatst Gezien",
+        "de": "Zuletzt Gesehen",
+        "no": "Sist Sett",
+        "da": "Sidst Set",
+        "sv": "Senast Sedd"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "insightsLog": true,
+      "insightsTitle": {
+        "en": "Last Seen",
+        "nl": "Laatst Gezien",
+        "de": "Zuletzt Gesehen",
+        "no": "Sist Sett",
+        "da": "Sidst Set",
+        "sv": "Senast Sedd"
+      },
+      "icon": "./assets/lastseen.svg"
+    },
     "presence": {
       "type": "boolean",
       "title": {
