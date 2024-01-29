@@ -2,12 +2,14 @@
 
   const Homey = require('homey');
   const net = require('net');
-  const moment = require('moment');
+  const moment = require('moment-timezone');
 
-  function formatLastSeen(timestamp) {
-    return moment(timestamp).format('DD/MM HH:mm:ss'); // Adjust the format as needed
-  }
-  
+  function formatLastSeen(timestamp, homey) {
+    // Use homey.clock.getTimezone() to get the user's timezone
+    const userTimezone = homey.clock.getTimezone();
+    return moment(timestamp).tz(userTimezone).format('DD/MM HH:mm:ss');
+}
+
   module.exports = class SmartPresenceDevice extends Homey.Device {
 
     async onInit() {
@@ -118,17 +120,17 @@
       this._lastSeen = now;
   
       if (!this._lastSeenStored || now - this._lastSeenStored > 60000) {
-        try {
-          // Format the timestamp after updating it
-          const lastSeenFormatted = formatLastSeen(now);
-          await this.setCapabilityValue('lastseen', lastSeenFormatted); // Update lastseen capability
-          await this.setStoreValue('lastSeen', now);
-          this._lastSeenStored = now;
-        } catch (err) {
-          this.log('Error updating last seen:', err.message);
-        }
+          try {
+              // Format the timestamp after updating it
+              const lastSeenFormatted = formatLastSeen(this._lastSeen, this.homey);
+              await this.setCapabilityValue('lastseen', lastSeenFormatted); // Update lastseen capability
+              await this.setStoreValue('lastSeen', now);
+              this._lastSeenStored = now;
+          } catch (err) {
+              this.log('Error updating last seen:', err.message);
+          }
       }
-    }
+  }
 
     getSeenMillisAgo() {
       return Date.now() - this.getLastSeen();

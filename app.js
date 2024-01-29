@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const moment = require('moment'); 
+const moment = require('moment-timezone');
 
 module.exports = class SmartPresenceApp extends Homey.App {
 
@@ -103,8 +103,9 @@ module.exports = class SmartPresenceApp extends Homey.App {
     const currentPresenceStatus = this.getPresenceStatus();
     const tokens = device.getFlowCardTokens();
     const deviceId = device.getData().id;
-    const formattedLastSeen = moment(device.getLastSeen()).format('DD/MM/YYYY HH:mm:ss'); // Format timestamp using moment
-    this.log(`Device ${device.getName()} Arrived. Last Seen: ${formattedLastSeen}`);
+    const userTimezone = this.homey.clock.getTimezone();
+    const lastSeenFormatted = moment(device.getLastSeen()).tz(userTimezone).format('DD/MM/YYYY HH:mm:ss');
+    this.log(`Device ${device.getName()} Arrived. Last Seen: ${lastSeenFormatted}`);
 
     let isFirstPerson = true;
     let isFirstHouseholdMember = device.isHouseHoldMember();
@@ -136,8 +137,9 @@ module.exports = class SmartPresenceApp extends Homey.App {
 
 async deviceLeft(device, tokens) {
   const currentPresenceStatus = this.getPresenceStatus();
-  const formattedLastSeen = moment(device.getLastSeen()).format('DD/MM/YYYY HH:mm:ss'); // Format timestamp using moment
-  this.log(`Device ${device.getName()} Left. Last Seen: ${formattedLastSeen}`);  
+  const userTimezone = this.homey.clock.getTimezone();
+  const lastSeenFormatted = moment(device.getLastSeen()).tz(userTimezone).format('DD/MM/YYYY HH:mm:ss');
+  this.log(`Device ${device.getName()} Left. Last Seen: ${lastSeenFormatted}`);
 
   let isLastPerson = true;
   let isLastHouseholdMember = device.isHouseHoldMember();
