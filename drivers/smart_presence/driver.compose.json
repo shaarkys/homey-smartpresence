@@ -22,6 +22,22 @@
       }
     }
   },
+  "mobile": {
+    "components": [
+      {
+        "id": "icon",
+        "capabilities": [
+          "presence"
+        ]
+      },
+      {
+        "id": "sensor",
+        "capabilities": [
+          "lastseen"
+        ]
+      }
+    ]
+  },
   "pair": [
     {
       "id": "enter_ip"

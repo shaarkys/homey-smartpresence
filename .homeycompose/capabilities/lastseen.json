@@ -12,6 +12,7 @@
     "setable": false,
     "insights": false,
     "insightsLog": true,
+    "uiComponent": "sensor",
     "insightsTitle": {
       "en": "Last Seen",
       "nl": "Laatst Gezien",

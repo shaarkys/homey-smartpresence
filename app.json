@@ -829,6 +829,22 @@
           }
         }
       },
+      "mobile": {
+        "components": [
+          {
+            "id": "icon",
+            "capabilities": [
+              "presence"
+            ]
+          },
+          {
+            "id": "sensor",
+            "capabilities": [
+              "lastseen"
+            ]
+          }
+        ]
+      },
       "pair": [
         {
           "id": "enter_ip"
@@ -1178,6 +1194,7 @@
       "setable": false,
       "insights": false,
       "insightsLog": true,
+      "uiComponent": "sensor",
       "insightsTitle": {
         "en": "Last Seen",
         "nl": "Laatst Gezien",
