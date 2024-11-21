@@ -6,7 +6,13 @@
     "de": "Ein bestimmter Benutzer ist gegangen",
     "no": "En bestemt person dro hjemmefra",
     "da": "En bestemt person forlod hjemmet",
-    "sv": "Personen lämnade"
+    "sv": "Personen lämnade",
+    "es": "Un usuario específico se fue",
+    "fr": "Un utilisateur spécifique est parti",
+    "it": "Un utente specifico se n'è andato",
+    "pl": "Konkretne użytkownik opuścił",
+    "ru": "Определенный пользователь ушел",
+    "ko": "특정 사용자가 떠났습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ],

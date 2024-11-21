@@ -6,6 +6,12 @@
     "de": "Kind !{{|nicht}} zu Hause",
     "no": "Barna er !{{|ikke}} hjemme",
     "da": "Børn !{{ikke}} hjemme",
-    "sv": "!{{Barn|Inget barn}} är närvarande"
+    "sv": "!{{Barn|Inget barn}} är närvarande",
+    "es": "¡Niños!{{|no}} en casa",
+    "fr": "Enfants !{{|pas}} à la maison",
+    "it": "Bambini !{{|non}} a casa",
+    "pl": "Dzieci !{{|nie}} w domu",
+    "ru": "Дети !{{|не}} дома",
+    "ko": "아이들이 !{{|없음}} 집에 있다"
   }
 }

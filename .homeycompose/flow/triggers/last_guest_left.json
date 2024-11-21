@@ -6,7 +6,13 @@
     "de": "Der letzte Gast ist gegangen",
     "no": "Den siste gjesten forlot hjemmet",
     "da": "Den sidste gæst forlod hjemmet",
-    "sv": "Den sista gästen lämnade"
+    "sv": "Den sista gästen lämnade",
+    "es": "El último invitado se fue",
+    "fr": "Le dernier invité est parti",
+    "it": "L'ultimo ospite se n'è andato",
+    "pl": "Ostatni gość wyszedł",
+    "ru": "Последний гость ушел",
+    "ko": "마지막 손님이 떠났습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]

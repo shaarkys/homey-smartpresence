@@ -6,7 +6,13 @@
     "de": "Anwesenheitserkennung",
     "no": "Tilstede",
     "da": "Tilstede",
-    "sv": "Närvarande"
+    "sv": "Närvarande",
+    "es": "Presente",
+    "fr": "Présent",
+    "it": "Presente",
+    "pl": "Obecny",
+    "ru": "Присутствует",
+    "ko": "출석한"
   },
   "getable": true,
   "setable": false,
@@ -18,7 +24,13 @@
     "de": "Anwesenheitserkennung",
     "no": "Tilstede",
     "da": "Tilstede",
-    "sv": "Närvarande"
+    "sv": "Närvarande",
+    "es": "Presente",
+    "fr": "Présent",
+    "it": "Presente",
+    "pl": "Obecny",
+    "ru": "Присутствует",
+    "ko": "출석한"
   },
   "insightsTitleFalse": {
     "en": "Not present",
@@ -26,7 +38,13 @@
     "de": "Keine Anwesenheitserkennung",
     "no": "Fraværende",
     "da": "Fraværende",
-    "sv": "Frånvarande"
+    "sv": "Frånvarande",
+    "es": "No presente",
+    "fr": "Absent",
+    "it": "Non presente",
+    "pl": "Nieobecny",
+    "ru": "Отсутствует",
+    "ko": "없는"
   },
   "uiComponent": null
 }

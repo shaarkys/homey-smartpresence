@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "스마트 출석 확인"
+  },
+  "pair": {
+    "configuration": {
+      "name": "이름:",
+      "ip_address": "IP 주소:",
+      "is_kid": "아이입니까:",
+      "is_guest": "손님입니까:",
+      "add_device_btn": "장치 추가",
+      "invalid_device_name": "장치 이름 누락",
+      "missing_ip_address": "IP 주소 누락",
+      "invalid_ip_address": "유효하지 않은 IP 주소"
+    }
+  }
+}

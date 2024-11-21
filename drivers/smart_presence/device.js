@@ -1,34 +1,45 @@
-'use strict';
+"use strict";
 
-const Homey = require('homey');
-const net = require('net');
-const moment = require('moment-timezone');
+const Homey = require("homey");
+const net = require("net");
+const moment = require("moment-timezone");
 
 function formatLastSeen(timestamp, homey) {
   // Use homey.clock.getTimezone() to get the user's timezone
   const userTimezone = homey.clock.getTimezone();
-  return moment(timestamp).tz(userTimezone).format('DD/MM HH:mm:ss');
+  return moment(timestamp).tz(userTimezone).format("DD/MM HH:mm:ss");
 }
 
 module.exports = class SmartPresenceDevice extends Homey.Device {
+  /**
+   * Override the log method to customize log format
+   */
+  log(...args) {
+    const timestamp = new Date().toISOString();
+    const deviceName = this.getName();
+    console.log(`${timestamp} [Device: ${deviceName} -`, ...args);
+  }
 
   async onInit() {
     this._settings = this.getSettings();
     await this._migrate();
-    this._present = this.getCapabilityValue('presence');
-    this._lastSeen = this.getStoreValue('lastSeen') || 0;
+    this._present = this.getCapabilityValue("presence");
+    this._lastSeen = this.getStoreValue("lastSeen") || 0;
 
     // Check and add the lastseen capability dynamically
-    if (!this.hasCapability('lastseen')) {
-      await this.addCapability('lastseen');
+    if (!this.hasCapability("lastseen")) {
+      await this.addCapability("lastseen");
     }
+
+    this._isInStressMode = false; // Initialize the stress mode status
+    this._isUnreachable = false; // Initialize device responsiveness status
 
     this.scan();
   }
 
   async _migrate() {
     try {
-      const ver = this.getStoreValue('ver');
+      const ver = this.getStoreValue("ver");
       if (ver === null) {
         if (this.getNormalModeInterval() < 3000) {
           await this.setSettings({ normal_mode_interval: 3000 });
@@ -38,16 +49,16 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         }
       }
       if (ver < 2) {
-        if (this.hasCapability('onoff')) {
-          const presence = this.getCapabilityValue('onoff');
-          await this.removeCapability('onoff');
-          await this.addCapability('presence');
-          await this.setCapabilityValue('presence', presence).catch(this.error);
+        if (this.hasCapability("onoff")) {
+          const presence = this.getCapabilityValue("onoff");
+          await this.removeCapability("onoff");
+          await this.addCapability("presence");
+          await this.setCapabilityValue("presence", presence).catch(this.error);
         }
-        await this.setStoreValue('ver', 2);
+        await this.setStoreValue("ver", 2);
       }
     } catch (err) {
-      this.log('Migration failed', err);
+      this.log("Migration failed", err);
     }
   }
 
@@ -55,7 +66,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._deleted = true;
     this.destroyClient();
     this.clearScanTimer();
-    this.log('device deleted');
+    this.log(`Device ${device.getName()} Deleted.`);
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -71,7 +82,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     if (port !== 32000) {
       return port;
     }
-    const numbers = ['1', '32000'];
+    const numbers = ["32001", "32000"];
     return numbers[Math.floor(Math.random() * numbers.length)];
   }
 
@@ -124,13 +135,13 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         // Format the timestamp after updating it
         const lastSeenFormatted = formatLastSeen(now, this.homey);
         // Update the 'lastseen' capability with the formatted timestamp
-        await this.setCapabilityValue('lastseen', lastSeenFormatted).catch(this.error); // Update lastseen capability
+        await this.setCapabilityValue("lastseen", lastSeenFormatted).catch(this.error); // Update lastseen capability
         this._lastSeen = now;
         // Store the raw timestamp in the store
-        await this.setStoreValue('lastSeen', now);
+        await this.setStoreValue("lastSeen", now);
         //this.log('Updated last seen:', lastSeenFormatted);
       } catch (err) {
-        this.log('Error updating last seen:', err.message);
+        this.log("Error updating last seen:", err.message);
       }
     }
   }
@@ -144,8 +155,13 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   }
 
   shouldStressCheck() {
-    return !!this.getPresenceStatus() &&
-      ((this.getAwayDelayInMillis() - this.getSeenMillisAgo()) < this.getStressAtInMillis());
+    const timeSinceLastSeen = this.getSeenMillisAgo();
+    const awayDelay = this.getAwayDelayInMillis();
+    const stressAt = this.getStressAtInMillis();
+
+    // previous method, triggered each time even when device was not in stress test period
+    //return !!this.getPresenceStatus() && this.getAwayDelayInMillis() - this.getSeenMillisAgo() < this.getStressAtInMillis();
+    return this._isUnreachable && timeSinceLastSeen >= awayDelay - stressAt && timeSinceLastSeen < awayDelay;
   }
 
   clearScanTimer() {
@@ -169,6 +185,17 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const stressTest = this.shouldStressCheck();
     const interval = stressTest ? this.getStressModeInterval() : this.getNormalModeInterval();
     const timeout = stressTest ? this.getStressModeTimeout() : this.getNormalModeTimeout();
+
+    // Add logging for stress period transitions
+    if (stressTest !== this._isInStressMode) {
+      this._isInStressMode = stressTest;
+      if (stressTest) {
+        this.log(`Stress period started`);
+      } else {
+        this.log(`Stress period ended`);
+      }
+    }
+
     try {
       //this.log(`${host}:${port}: scanning, timeout: ${timeout}, interval: ${interval}`);
       this.scanDevice(host, port, timeout);
@@ -194,17 +221,31 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
     this.cancelCheck = this.homey.setTimeout(() => {
       this.destroyClient();
-      //this.log(`${host}:${port}: Timeout -> Offline`);
+
+      // Log timeout only if the device was previously online
+      if (this._present) {
+        this.log(`${host}:${port} Timeout -> Offline`);
+      }
+
+      this._isUnreachable = true; // Device is unresponsive due to timeout
       this.setPresent(false);
     }, timeout);
 
-    this.client.on('error', (err) => {
+    this.client.on("error", (err) => {
       this.destroyClient();
       if (err && (err.errno === "ECONNREFUSED" || err.code === "ECONNREFUSED")) {
-        //this.log(`${host}:${port}: Connection refused -> Online`);
+        // Connection refused indicates the device is online
+        if (!this._present) {
+          this.log(`${host}:${port} Connection refused -> Online`);
+        }
+        this._isUnreachable = false; // Device is responsive
         this.setPresent(true);
       } else {
-        //this.log(`${host}:${port}: Error -> Offline`);
+        // Log error only if the device was previously online
+        if (this._present) {
+          this.log(`${host}:${port} Error -> Offline`);
+        }
+        this._isUnreachable = true; // Device is unresponsive due to error
         this.setPresent(false);
       }
     });
@@ -212,12 +253,24 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     try {
       this.client.connect(port, host, () => {
         this.destroyClient();
-        //this.log(`${host}:${port}: Connected -> Online`);
+
+        // Log connection only if the device was previously offline
+        if (!this._present) {
+          this.log(`${host}:${port}: Connected -> Online`);
+        }
+
+        this._isUnreachable = false; // Device is responsive
         this.setPresent(true);
       });
     } catch (err) {
       this.destroyClient();
-      //this.log(`${host}:${port}: Connection error -> Offline`);
+
+      // Log connection error only if the device was previously online
+      if (this._present) {
+        this.log(`${host}:${port} Connection error -> Offline`);
+      }
+
+      this._isUnreachable = true; // Device is unresponsive due to exception
       this.setPresent(false);
     }
   }
@@ -247,8 +300,9 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       }
     } else if (!present && (currentPresent || currentPresent === null)) {
       if (!this.shouldDelayAwayStateSwitch()) {
-        this.log(`${this.getHost()} - ${this.getName()}: is marked as offline`);
+        this.log(`${this.getHost()} : is marked as offline`);
         await this.setPresenceStatus(present);
+        this.log(`Device is finally marked as unavailable`);
         await this.homey.app.deviceLeft(this, tokens);
         await this.homey.app.userLeftTrigger.trigger(this, tokens, {}).catch(this.error);
         await this.homey.app.someoneLeftTrigger.trigger(tokens, {}).catch(this.error);
@@ -275,11 +329,10 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   async setPresenceStatus(present) {
     this._present = present;
-    await this.setCapabilityValue('presence', present).catch(this.error);
+    await this.setCapabilityValue("presence", present).catch(this.error);
   }
 
   async userAtHome() {
-    return !!this.getCapabilityValue('presence');
+    return !!this.getCapabilityValue("presence");
   }
-
 };

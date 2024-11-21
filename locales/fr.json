@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "Présence Intelligente"
+  },
+  "pair": {
+    "configuration": {
+      "name": "Nom :",
+      "ip_address": "Adresse IP :",
+      "is_kid": "Est-ce un enfant :",
+      "is_guest": "Est-ce un invité :",
+      "add_device_btn": "Ajouter un appareil",
+      "invalid_device_name": "Nom de l'appareil manquant",
+      "missing_ip_address": "Adresse IP manquante",
+      "invalid_ip_address": "Adresse IP invalide"
+    }
+  }
+}

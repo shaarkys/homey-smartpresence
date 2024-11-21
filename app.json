@@ -11,7 +11,13 @@
     "de": "Smart Presence",
     "no": "Smart Presence",
     "da": "Smart Presence",
-    "sv": "Smart Presence"
+    "sv": "Smart Presence",
+    "es": "Presencia Inteligente",
+    "fr": "Présence Intelligente",
+    "it": "Presenza Intelligente",
+    "pl": "Inteligentna Obecność",
+    "ru": "Умное Присутствие",
+    "ko": "스마트 프레즌스"
   },
   "description": {
     "en": "Presence detection based on smartphones connected to your Wi-Fi",
@@ -19,7 +25,13 @@
     "de": "Anwesenheitserkennung auf Grundlage mit Ihrem Wi-Fi verbundenen Smartphones",
     "no": "Tilstedeværelse basert på smarttelefon koblet til Wi-Fi-nettverket",
     "da": "Registrering af tilstedeværelse baseret på om din mobiltelefon er forbundet til Wi-Fi",
-    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket"
+    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket",
+    "es": "Detección de presencia basada en teléfonos inteligentes conectados a tu Wi-Fi",
+    "fr": "Détection de présence basée sur les smartphones connectés à votre Wi-Fi",
+    "it": "Rilevamento della presenza basato su smartphone connessi al tuo Wi-Fi",
+    "pl": "Detekcja obecności oparta na smartfonach podłączonych do twojego Wi-Fi",
+    "ru": "Обнаружение присутствия на основе смартфонов, подключенных к вашему Wi-Fi",
+    "ko": "Wi-Fi에 연결된 스마트폰을 기반으로 한 존재 감지"
   },
   "category": [
     "internet",
@@ -68,6 +80,48 @@
       "wifi",
       "wi-fi",
       "smartphone"
+    ],
+    "es": [
+      "inteligente",
+      "presencia",
+      "wifi",
+      "wi-fi",
+      "teléfono inteligente"
+    ],
+    "fr": [
+      "intelligent",
+      "présence",
+      "wifi",
+      "wi-fi",
+      "smartphone"
+    ],
+    "it": [
+      "smart",
+      "presenza",
+      "wifi",
+      "wi-fi",
+      "smartphone"
+    ],
+    "pl": [
+      "inteligentny",
+      "obecność",
+      "wifi",
+      "wi-fi",
+      "smartfon"
+    ],
+    "ru": [
+      "умный",
+      "присутствие",
+      "wifi",
+      "wi-fi",
+      "смартфон"
+    ],
+    "ko": [
+      "스마트",
+      "프레즌스",
+      "wifi",
+      "wi-fi",
+      "스마트폰"
     ]
   },
   "images": {
@@ -138,7 +192,13 @@
           "de": "Der erste Gast ist angekommen",
           "no": "Første gjest ankom",
           "da": "Den første gæst ankom",
-          "sv": "Den första gästen anlände"
+          "sv": "Den första gästen anlände",
+          "es": "El primer invitado llegó",
+          "fr": "Le premier invité est arrivé",
+          "it": "Il primo ospite è arrivato",
+          "pl": "Pierwszy gość przybył",
+          "ru": "Первый гость прибыл",
+          "ko": "첫 번째 손님이 도착했습니다"
         },
         "tokens": [
           {
@@ -150,7 +210,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -158,7 +224,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -171,7 +243,13 @@
           "de": "Das erste Haushaltsmitglied ist angekommen",
           "no": "Første medlem av husstanden kom hjem",
           "da": "Det første medlem i husstanden kom hjem",
-          "sv": "Den första personen i hushållet anlände"
+          "sv": "Den första personen i hushållet anlände",
+          "es": "El primer miembro del hogar llegó",
+          "fr": "Le premier membre du foyer est arrivé",
+          "it": "Il primo membro della famiglia è arrivato",
+          "pl": "Pierwszy członek gospodarstwa domowego przybył",
+          "ru": "Первый член семьи прибыл",
+          "ko": "첫 번째 가구 구성원이 도착했습니다"
         },
         "tokens": [
           {
@@ -183,7 +261,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -191,7 +275,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -204,7 +294,13 @@
           "de": "Das erste Kind ist angekommen",
           "no": "Første barn ankom",
           "da": "Første barn kom hjem",
-          "sv": "Det första barnet anlände"
+          "sv": "Det första barnet anlände",
+          "es": "El primer niño llegó",
+          "fr": "Le premier enfant est arrivé",
+          "it": "È arrivato il primo bambino",
+          "pl": "Pierwsze dziecko przybyło",
+          "ru": "Первый ребенок прибыл",
+          "ko": "첫 번째 아이가 도착했습니다"
         },
         "tokens": [
           {
@@ -216,7 +312,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -224,7 +326,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -237,7 +345,13 @@
           "de": "Die erste Person ist angekommen",
           "no": "Første person kom hjem",
           "da": "Den første person kom hjem",
-          "sv": "Den första personen anlände"
+          "sv": "Den första personen anlände",
+          "es": "La primera persona llegó",
+          "fr": "La première personne est arrivée",
+          "it": "La prima persona è arrivata",
+          "pl": "Pierwsza osoba przybyła",
+          "ru": "Первый человек прибыл",
+          "ko": "첫 번째 사람이 도착했습니다"
         },
         "tokens": [
           {
@@ -249,7 +363,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -257,7 +377,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -270,7 +396,13 @@
           "de": "Ein Gast ist angekommen",
           "no": "En gjest ankom",
           "da": "En gæst ankom",
-          "sv": "En gäst anlände"
+          "sv": "En gäst anlände",
+          "es": "Un invitado ha llegado",
+          "fr": "Un invité est arrivé",
+          "it": "È arrivato un ospite",
+          "pl": "Gość przybył",
+          "ru": "Гость прибыл",
+          "ko": "손님이 도착했습니다"
         },
         "tokens": [
           {
@@ -282,7 +414,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -290,7 +428,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -303,7 +447,13 @@
           "de": "Ein Gast ist gegangen",
           "no": "En gjest forlot hjemmet",
           "da": "En gæst forlod hjemmet",
-          "sv": "En gäst lämnade"
+          "sv": "En gäst lämnade",
+          "es": "Un invitado se fue",
+          "fr": "Un invité est parti",
+          "it": "Un ospite è andato via",
+          "pl": "Gość wyszedł",
+          "ru": "Гость ушел",
+          "ko": "손님이 떠났습니다"
         },
         "tokens": [
           {
@@ -315,7 +465,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -323,7 +479,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -336,7 +498,13 @@
           "de": "Ein Haushaltsmitglied ist angekommen",
           "no": "Et medlem av husstanden kom hjem",
           "da": "Et medlem af husstanden kom hjem",
-          "sv": "En person i hushållet anlände"
+          "sv": "En person i hushållet anlände",
+          "es": "Un miembro del hogar ha llegado",
+          "fr": "Un membre du foyer est arrivé",
+          "it": "Un membro della famiglia è arrivato",
+          "pl": "Członek gospodarstwa domowego przybył",
+          "ru": "Член семьи прибыл",
+          "ko": "가구 구성원이 도착했습니다"
         },
         "tokens": [
           {
@@ -348,7 +516,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -356,7 +530,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -369,7 +549,13 @@
           "de": "Ein Haushaltsmitglied ist gegangen",
           "no": "Et medlem av husstanden dro hjemmefra",
           "da": "Et medlem af husstanden forlod hjemmet",
-          "sv": "En person i hushållet lämnade"
+          "sv": "En person i hushållet lämnade",
+          "es": "Un miembro del hogar se fue",
+          "fr": "Un membre de la famille est parti",
+          "it": "Un membro della famiglia se n'è andato",
+          "pl": "Członek gospodarstwa domowego odszedł",
+          "ru": "Член домохозяйства ушел",
+          "ko": "가족 구성원이 떠났습니다"
         },
         "tokens": [
           {
@@ -381,7 +567,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -389,7 +581,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -402,7 +600,13 @@
           "de": "Ein Kind ist angekommen",
           "no": "Et barn ankom",
           "da": "Et barn kom hjem",
-          "sv": "Ett barn anlände"
+          "sv": "Ett barn anlände",
+          "es": "Un niño ha llegado",
+          "fr": "Un enfant est arrivé",
+          "it": "È arrivato un bambino",
+          "pl": "Dziecko przybyło",
+          "ru": "Ребенок прибыл",
+          "ko": "아이 도착했어요"
         },
         "tokens": [
           {
@@ -414,7 +618,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -435,7 +645,13 @@
           "de": "Ein Kind ist gegangen",
           "no": "Et barn forlot hjemmet",
           "da": "Et barn forlod hjemmet",
-          "sv": "Ett barn lämnade"
+          "sv": "Ett barn lämnade",
+          "es": "Un niño se fue",
+          "fr": "Un enfant est parti",
+          "it": "Un bambino è partito",
+          "pl": "Dziecko odeszło",
+          "ru": "Ребёнок ушел",
+          "ko": "아이 떠났다"
         },
         "tokens": [
           {
@@ -447,7 +663,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -455,7 +677,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -468,7 +696,13 @@
           "de": "Der letzte Gast ist gegangen",
           "no": "Den siste gjesten forlot hjemmet",
           "da": "Den sidste gæst forlod hjemmet",
-          "sv": "Den sista gästen lämnade"
+          "sv": "Den sista gästen lämnade",
+          "es": "El último invitado se fue",
+          "fr": "Le dernier invité est parti",
+          "it": "L'ultimo ospite se n'è andato",
+          "pl": "Ostatni gość wyszedł",
+          "ru": "Последний гость ушел",
+          "ko": "마지막 손님이 떠났습니다"
         },
         "tokens": [
           {
@@ -480,7 +714,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -488,7 +728,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -501,7 +747,13 @@
           "de": "Das letzte Haushaltsmitglied ist gegangen",
           "no": "Siste medlem av husstanden dro hjemmefra",
           "da": "Det sidste medlem af husstanden forlod hjemmet",
-          "sv": "Den sista personen i hushållet lämnade"
+          "sv": "Den sista personen i hushållet lämnade",
+          "es": "El último miembro del hogar se fue",
+          "fr": "Le dernier membre du foyer est parti",
+          "it": "L'ultimo membro della famiglia è partito",
+          "pl": "Ostatni członek gospodarstwa domowego wyszedł",
+          "ru": "Последний член семьи ушёл",
+          "ko": "마지막 가구원이 떠났습니다"
         },
         "tokens": [
           {
@@ -513,7 +765,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -521,7 +779,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -534,7 +798,13 @@
           "de": "Das letzte Kind ist gegangen",
           "no": "Det siste barnet forlot hjemmet",
           "da": "Det sidste barn forlod hjemmet",
-          "sv": "Det sista barnet lämnade"
+          "sv": "Det sista barnet lämnade",
+          "es": "El último niño se fue",
+          "fr": "Le dernier enfant est parti",
+          "it": "L'ultimo bambino è andato via",
+          "pl": "Ostatnie dziecko odeszło",
+          "ru": "Последний ребенок ушел",
+          "ko": "마지막 아이가 떠났다"
         },
         "tokens": [
           {
@@ -546,7 +816,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -554,7 +830,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -567,7 +849,13 @@
           "de": "Die letzte Person ist gegangen",
           "no": "Siste person dro hjemmefra",
           "da": "Den sidste person forlod hjemmet",
-          "sv": "Den sista personen lämnade"
+          "sv": "Den sista personen lämnade",
+          "es": "La última persona se fue",
+          "fr": "La dernière personne est partie",
+          "it": "L'ultima persona è partita",
+          "pl": "Ostatnia osoba wyszła",
+          "ru": "Последний человек ушёл",
+          "ko": "마지막 사람이 떠났습니다"
         },
         "tokens": [
           {
@@ -579,7 +867,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -587,7 +881,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -600,7 +900,13 @@
           "de": "Jemand ist angekommen",
           "no": "Noen kom hjem",
           "da": "Nogen kom hjem",
-          "sv": "Någon anlände"
+          "sv": "Någon anlände",
+          "es": "Alguien ha llegado",
+          "fr": "Quelqu'un est arrivé",
+          "it": "Qualcuno è arrivato",
+          "pl": "Ktoś przybył",
+          "ru": "Кто-то пришёл",
+          "ko": "누군가 도착했어요"
         },
         "tokens": [
           {
@@ -612,7 +918,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -620,7 +932,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -633,7 +951,13 @@
           "de": "Jemand ist gegangen",
           "no": "Noen dro hjemmefra",
           "da": "Nogen forlod hjemmet",
-          "sv": "Någon lämnade"
+          "sv": "Någon lämnade",
+          "es": "Alguien se fue",
+          "fr": "Quelqu'un est parti",
+          "it": "Qualcuno è andato via",
+          "pl": "Ktoś odszedł",
+          "ru": "Кто-то ушел",
+          "ko": "누군가 떠났습니다"
         },
         "tokens": [
           {
@@ -645,7 +969,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -653,7 +983,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ]
@@ -666,7 +1002,13 @@
           "de": "Ein bestimmter Benutzer ist angekommen",
           "no": "En bestemt person kom hjem",
           "da": "En bestemt person kom hjem",
-          "sv": "Personen anlände"
+          "sv": "Personen anlände",
+          "es": "Un usuario específico ha llegado",
+          "fr": "Un utilisateur spécifique est arrivé",
+          "it": "Un utente specifico è arrivato",
+          "pl": "Konkretna osoba dotarła",
+          "ru": "Определенный пользователь прибыл",
+          "ko": "특정 사용자가 도착했습니다"
         },
         "tokens": [
           {
@@ -678,7 +1020,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -686,7 +1034,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ],
@@ -706,7 +1060,13 @@
           "de": "Ein bestimmter Benutzer ist gegangen",
           "no": "En bestemt person dro hjemmefra",
           "da": "En bestemt person forlod hjemmet",
-          "sv": "Personen lämnade"
+          "sv": "Personen lämnade",
+          "es": "Un usuario específico se fue",
+          "fr": "Un utilisateur spécifique est parti",
+          "it": "Un utente specifico se n'è andato",
+          "pl": "Konkretne użytkownik opuścił",
+          "ru": "Определенный пользователь ушел",
+          "ko": "특정 사용자가 떠났습니다"
         },
         "tokens": [
           {
@@ -718,7 +1078,13 @@
               "de": "Wer",
               "no": "Hvem",
               "da": "Hvem",
-              "sv": "Vem"
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
             },
             "example": {
               "en": "John Doe",
@@ -726,7 +1092,13 @@
               "de": "Max Mustermann",
               "no": "Ola Nordmann",
               "da": "Navn Navnesen",
-              "sv": "Medel Svensson"
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
             }
           }
         ],
@@ -748,7 +1120,13 @@
           "de": "!{{Haushalt|Kein Haushalt}} Haushaltsmitglieder",
           "no": "!{{Medlem|Ingen medlemmer}} av husstanden er hjemme",
           "da": "!{{Medlem|Ingen medlemmer}} af hustanden er hjemme",
-          "sv": "!{{Någon|Ingen}} i hushållet är närvarande"
+          "sv": "!{{Någon|Ingen}} i hushållet är närvarande",
+          "es": "¡{{Hogar|No hay nadie}} en casa!",
+          "fr": "!{{Ménage|Pas de ménage}} à la maison",
+          "it": "!{{Famiglia|Nessuna famiglia}} a casa",
+          "pl": "!{{Gospodarstwo domowe|Brak gospodarstwa domowego}} w domu",
+          "ru": "!{{Домочадцы|Никого нет дома}} дома",
+          "ko": "!{{가구|가구 없음}} 집에 있음"
         }
       },
       {
@@ -759,7 +1137,13 @@
           "de": "!{{Haben|Nicht haben}} Gäste",
           "no": "!{{Har|Har ikke}} gjester",
           "da": "!{{Har|Har ikke}} gæster",
-          "sv": "!{{Gäst|Ingen gäst}} är närvarande"
+          "sv": "!{{Gäst|Ingen gäst}} är närvarande",
+          "es": "!{{Tener|No tener}} invitados",
+          "fr": "!{{Avoir|Ne pas avoir}} des invités",
+          "it": "!{{Avere|Non avere}} ospiti",
+          "pl": "!{{Posiadanie|Nie posiadanie}} gości",
+          "ru": "!{{Принимать|Не принимать}} гостей",
+          "ko": "!{{손님을 맞이|맞이하지 않음}}"
         }
       },
       {
@@ -770,7 +1154,13 @@
           "de": "Kind !{{|nicht}} zu Hause",
           "no": "Barna er !{{|ikke}} hjemme",
           "da": "Børn !{{ikke}} hjemme",
-          "sv": "!{{Barn|Inget barn}} är närvarande"
+          "sv": "!{{Barn|Inget barn}} är närvarande",
+          "es": "¡Niños!{{|no}} en casa",
+          "fr": "Enfants !{{|pas}} à la maison",
+          "it": "Bambini !{{|non}} a casa",
+          "pl": "Dzieci !{{|nie}} w domu",
+          "ru": "Дети !{{|не}} дома",
+          "ko": "아이들이 !{{|없음}} 집에 있다"
         }
       },
       {
@@ -781,7 +1171,13 @@
           "de": "!{{Jemand|Niemand}} ist zu Hause",
           "no": "!{{Noen|Ingen}} er hjemme",
           "da": "!{{Nogen|Ingen}} er hjemme",
-          "sv": "!{{Någon|Ingen}} är närvarande"
+          "sv": "!{{Någon|Ingen}} är närvarande",
+          "es": "¡{{Alguien|Nadie}} está en casa",
+          "fr": "!{{Quelqu'un|Personne}} est à la maison",
+          "it": "!{{Qualcuno|Nessuno}} è a casa",
+          "pl": "!{{Ktoś|Nikt}} jest w domu",
+          "ru": "!{{Кто-то|Никто}} дома",
+          "ko": "!{{누군가|아무도}} 집에 없습니다"
         }
       },
       {
@@ -792,7 +1188,13 @@
           "de": "Ein bestimmter Benutzer ist !{{zu Hause|abwesend}}",
           "no": "En bestemt bruker er !{{hjemme|borte}}",
           "da": "En bestem bruger er !{{hjemme|ude}}",
-          "sv": "En person är !{{närvarande|inte närvarande}}"
+          "sv": "En person är !{{närvarande|inte närvarande}}",
+          "es": "Un usuario específico está !{{en casa|ausente}}",
+          "fr": "Un utilisateur spécifique est !{{à la maison|absent}}",
+          "it": "Un utente specifico è !{{a casa|assente}}",
+          "pl": "Określony użytkownik jest !{{w domu|nieobecny}}",
+          "ru": "Конкретный пользователь !{{дома|отсутствует}}",
+          "ko": "특정 사용자가 !{{집에 있음|자리를 비움}}"
         },
         "args": [
           {
@@ -810,7 +1212,16 @@
       "name": {
         "en": "Smartphone",
         "nl": "Smartphone",
-        "no": "Smartphone"
+        "no": "Smartphone",
+        "da": "Smartphone",
+        "de": "Smartphone",
+        "es": "Smartphone",
+        "fr": "Smartphone",
+        "it": "Smartphone",
+        "sv": "Smartphone",
+        "pl": "Smartphone",
+        "ru": "Смартфон",
+        "ko": "스마트폰"
       },
       "icon": "/drivers/smart_presence/assets/icon.svg",
       "images": {
@@ -825,7 +1236,18 @@
       "capabilitiesOptions": {
         "lastseen": {
           "title": {
-            "en": "Last Seen"
+            "en": "Last Seen",
+            "nl": "Laatst gezien",
+            "da": "Sidst set",
+            "de": "Zuletzt gesehen",
+            "es": "Última vez visto",
+            "fr": "Vu pour la dernière fois",
+            "it": "Ultima visualizzazione",
+            "no": "Sist sett",
+            "sv": "Senast sedd",
+            "pl": "Ostatnio widziany",
+            "ru": "Последний раз видели",
+            "ko": "마지막으로 본"
           }
         }
       },
@@ -863,7 +1285,13 @@
             "de": "Grundeinstellungen",
             "no": "Grunnleggende innstillinger",
             "da": "Grundindstillinger",
-            "sv": "Grundläggande inställningar"
+            "sv": "Grundläggande inställningar",
+            "es": "Configuraciones básicas",
+            "fr": "Paramètres de base",
+            "it": "Impostazioni di base",
+            "pl": "Podstawowe ustawienia",
+            "ru": "Основные настройки",
+            "ko": "기본 설정"
           },
           "children": [
             {
@@ -876,7 +1304,13 @@
                 "de": "IP-Adresse",
                 "no": "IP-adresse",
                 "da": "IP-adresse",
-                "sv": "IP-adress"
+                "sv": "IP-adress",
+                "es": "Dirección IP",
+                "fr": "Adresse IP",
+                "it": "Indirizzo IP",
+                "pl": "Adres IP",
+                "ru": "IP-адрес",
+                "ko": "IP 주소"
               },
               "hint": {
                 "en": "The IP address must be statically assigned to the device via DHCP. Be aware that random MAC address settings on mobile phones will affect device tracking.",
@@ -884,7 +1318,13 @@
                 "de": "Die IP-Adresse muss über DHCP fest dem Gerät zugewiesen werden. Beachten Sie, dass zufällige MAC-Adresseneinstellungen auf Mobiltelefonen das Gerätetracking beeinflussen werden.",
                 "no": "Enheten må tilordnes en statisk IP-adresse via DHCP. Vær oppmerksom på at tilfeldige MAC-adresseinnstillinger på mobiltelefoner vil påvirke enhetssporing.",
                 "da": "Enheden skal have tildelt en fast IP-adresse via DHCP. Vær opmærksom på, at tilfældige MAC-adresseindstillinger på mobiltelefoner vil påvirke enhedssporing.",
-                "sv": "Enheten måste tilldelas en fast IP-adress via DHCP. Var medveten om att slumpmässiga MAC-adressinställningar på mobiltelefoner kommer att påverka enhetsspårning."
+                "sv": "Enheten måste tilldelas en fast IP-adress via DHCP. Var medveten om att slumpmässiga MAC-adressinställningar på mobiltelefoner kommer att påverka enhetsspårning.",
+                "es": "La dirección IP debe asignarse estáticamente al dispositivo a través de DHCP. Tenga en cuenta que la configuración aleatoria de direcciones MAC en los teléfonos móviles afectará el seguimiento del dispositivo.",
+                "fr": "L'adresse IP doit être attribuée statiquement à l'appareil via DHCP. Sachez que les réglages aléatoires des adresses MAC sur les téléphones mobiles affecteront le suivi de l'appareil.",
+                "it": "L'indirizzo IP deve essere assegnato staticamente al dispositivo tramite DHCP. Si prega di notare che le impostazioni casuali degli indirizzi MAC sui telefoni cellulari influenzeranno il tracciamento del dispositivo.",
+                "pl": "Adres IP musi być statycznie przypisany do urządzenia za pośrednictwem DHCP. Należy pamiętać, że losowe ustawienia adresów MAC na telefonach komórkowych wpłyną na śledzenie urządzenia.",
+                "ru": "IP-адрес должен быть статически назначен устройству через DHCP. Учтите, что случайные настройки MAC-адресов на мобильных телефонах могут повлиять на отслеживание устройств.",
+                "ko": "IP 주소는 DHCP를 통해 장치에 정적으로 할당되어야 합니다. 휴대전화의 임의 MAC 주소 설정이 장치 추적에 영향을 줄 수 있습니다."
               }
             },
             {
@@ -897,7 +1337,13 @@
                 "de": "Port-Nummer",
                 "no": "Portnummer",
                 "da": "Portnummer",
-                "sv": "Portnummer"
+                "sv": "Portnummer",
+                "es": "Número de puerto",
+                "fr": "Numéro de port",
+                "it": "Numero di porta",
+                "pl": "Numer portu",
+                "ru": "Номер порта",
+                "ko": "포트 번호"
               },
               "attr": {
                 "min": 1,
@@ -909,7 +1355,13 @@
                 "de": "Die Port-Nummer, die überprüft wird, um festzustellen, ob das Gerät online ist.",
                 "no": "Portnummer som benyttes for å se om enheten er online.",
                 "da": "Portnummeret som anvendes for at se om enheder er online.",
-                "sv": "Portnummer i nätverket som används för att testa om smartmobilen/enheten är närvarande."
+                "sv": "Portnummer i nätverket som används för att testa om smartmobilen/enheten är närvarande.",
+                "es": "El número de puerto que se verifica para ver si el dispositivo está en línea.",
+                "fr": "Le numéro de port vérifié pour voir si l'appareil est en ligne.",
+                "it": "Il numero di porta verificato per vedere se il dispositivo è online.",
+                "pl": "Numer portu sprawdzany, aby zobaczyć, czy urządzenie jest online.",
+                "ru": "Номер порта, проверяемый, чтобы узнать, в сети ли устройство.",
+                "ko": "장치가 온라인인지 확인하는 포트 번호입니다."
               }
             },
             {
@@ -922,11 +1374,27 @@
                 "de": "Ist Kind",
                 "no": "Er barn",
                 "da": "Er barn",
-                "sv": "Är barn"
+                "sv": "Är barn",
+                "es": "Es niño",
+                "fr": "Est enfant",
+                "it": "È bambino",
+                "pl": "Jest dzieckiem",
+                "ru": "Ребёнок",
+                "ko": "아이입니다"
               },
               "hint": {
                 "en": "Check the box if this person is a kid.",
-                "no": "Kryss av hvis personen er et barn."
+                "no": "Kryss av hvis personen er et barn.",
+                "nl": "Vink het vakje aan als deze persoon een kind is.",
+                "da": "Markér boksen, hvis denne person er et barn.",
+                "de": "Kreuzen Sie das Kästchen an, wenn diese Person ein Kind ist.",
+                "sv": "Markera rutan om personen är ett barn.",
+                "es": "Marca la casilla si esta persona es un niño.",
+                "fr": "Cochez la case si cette personne est un enfant.",
+                "it": "Seleziona la casella se questa persona è un bambino.",
+                "pl": "Zaznacz pole, jeśli ta osoba jest dzieckiem.",
+                "ru": "Поставьте галочку, если этот человек - ребёнок.",
+                "ko": "이 사람이 아이라면 상자를 체크하세요."
               }
             },
             {
@@ -939,15 +1407,27 @@
                 "de": "Ist Gast",
                 "no": "Er gjest",
                 "da": "Er gæst",
-                "sv": "Är gäst"
+                "sv": "Är gäst",
+                "es": "Es invitado",
+                "fr": "Est invité",
+                "it": "È ospite",
+                "pl": "Jest gościem",
+                "ru": "Гость",
+                "ko": "손님입니다"
               },
               "hint": {
                 "en": "Check the box if this person is a guest.",
                 "nl": "Vink aan als dit een gast betreft.",
-                "de": "Aktivieren Sie den Schieber, wenn diese Person ein Gast ist.",
+                "de": "Aktivieren Sie das Kästchen, wenn diese Person ein Gast ist.",
                 "no": "Kryss av hvis personen er en gjest.",
                 "da": "Sæt flueben hvis personen er gæst.",
-                "sv": "Kryssa i om personen är en gäst."
+                "sv": "Kryssa i om personen är en gäst.",
+                "es": "Marca la casilla si esta persona es un invitado.",
+                "fr": "Cochez la case si cette personne est un invité.",
+                "it": "Seleziona la casella se questa persona è un ospite.",
+                "pl": "Zaznacz pole, jeśli ta osoba jest gościem.",
+                "ru": "Отметьте, если это гость.",
+                "ko": "해당 사람이 손님이라면 체크하세요."
               }
             }
           ]
@@ -960,7 +1440,13 @@
             "de": "Einstellungen Normal-Modus",
             "no": "Innstillinger for normal modus",
             "da": "Indstillinger for normal tilstand",
-            "sv": "Inställningar för normaltest"
+            "sv": "Inställningar för normaltest",
+            "es": "Configuraciones de modo normal",
+            "fr": "Paramètres du mode normal",
+            "it": "Impostazioni modalità normale",
+            "pl": "Ustawienia trybu normalnego",
+            "ru": "Настройки нормального режима",
+            "ko": "일반 모드 설정"
           },
           "children": [
             {
@@ -972,8 +1458,14 @@
                 "nl": "Vertraging voor melden 'afwezig'",
                 "de": "Abwesenheitsverzögerung",
                 "no": "Forsinkelse for bortemodus",
-                "da": "Offline forsinkelse",
-                "sv": "Fördröjning av frånvarande"
+                "da": "Ficheramento de ausencia",
+                "sv": "Fördröjning av frånvarande",
+                "es": "Retraso de ausencia",
+                "fr": "Délai d'absence",
+                "it": "Ritardo di assenza",
+                "pl": "Opóźnienie nieobecności",
+                "ru": "Задержка отсутствия",
+                "ko": "부재중 지연"
               },
               "attr": {
                 "min": 1,
@@ -985,15 +1477,27 @@
                 "de": "Sekunden",
                 "no": "sekunder",
                 "da": "sekunder",
-                "sv": "sekunder"
+                "sv": "sekunder",
+                "es": "segundos",
+                "fr": "secondes",
+                "it": "secondi",
+                "pl": "sekundy",
+                "ru": "секунды",
+                "ko": "초"
               },
               "hint": {
                 "en": "Some devices turn off their Wi-fi when their screen is off. They re-connect their Wi-fi every now and then, only to disconnect from the WiFi again after a short while. There is a chance we can't detect them because of bad timing!\n\nIncrease the 'Away delay' to keep the device present for a certain amount of seconds. In some cases the 'Stress mode' may provide additional help. \n\nFinetuning is required! If the value is to small, a device may start flipping between 'present' and 'away'. If the value is to large, it will wait too long before triggering your flows.",
                 "nl": "Sommige apparaten zetten de WiFi uit wanneer het scherm uitgaat en re-activeren vervolgens periodiek de WiFi verbinding. Hierdoor is het mogelijk dat Smart Presence niet goed werkt. Probeer in dat geval ‘Vertraging voor melden 'afwezig' waarde te verhogen. In sommige gevallen is het ook zinnig om de “Stress Mode’ aan te zetten. \n\nExperimenteer met deze waarden om een betere aanwezigheid detectie te krijgen. Let op! Bij een te kleine waarde kan het apparaat ‘knipperen’ tussen aan- en afwezig. Een te hoge waarde levert echter te lange vertraging op bij aanwezigheid detectie en de flows die hierdoor getrieerd worden.",
                 "de": "Wenn der Bildschirm des Smartphones ausgeschaltet wird, schalten einige Geräte ihr Wi-Fi aus. Ab und zu verbinden sie sich wieder mit dem Wi-Fi, um sich nach kurzer Zeit wieder zu trennen. Aufgrund eines schlechten Timings ist es möglich, dass das nicht erkannt wird.\n\nVerlängern Sie die 'Abwesenheitsverzögerung' um einige Sekunden, damit das Gerät weiterhin erkannt wird. In einigen Fällen kann der 'Stress-Modus' zusätzlich Abhilfe schaffen.\n\nEine Feinabstimmung ist notwendig! Wenn der Wert zu klein ist, wechselt das Gerät möglicherweise zwischen 'anwesend' und 'abwesend'. Ist der Wert zu groß, dauert es eventuell zu lange bis Flows getriggert werden.",
                 "no": "Noen enheter skrur av Wi-Fi når skjermen slukkes. Enheten gjenetablerer løpende forbindelsen, og mister deretter forbindelsen igjen etter kort tid.  Det er derfor en sjanse for at enheten ikke registreres, pga. koordinering av registrering mellom Homey og enheten.\n\nHvis du øker 'Forsinkelse for bortemodus' så blir enheten værende online i et bestemt antall sekunder.  I noen tilfeller kan stress-modus hjelpe.\n\nFinjustering er nødvendig!  Hvis verdien er for lav, vil enheten bytte mellom 'online' og 'offline'.  Hvis verdien er for høy, så vil det gå lang tid før enheten markeres som 'offline'.",
-                "da": "Nogle enheder slukker for enhedens WI-FI, når skærmen er slukket. Enheden genetablerer løbende forbindelsen, hvorefter den mister forbindelsen igen efter kort tid. Der er chance for at enheden ikke registreres, grundet koordinering af registrering mellem Homey og enhed!\n\nHvis du øger 'Offline forsinkelse' så bliver enheden værende online i bestemt antal sekunder. I nogen tilfælde kan stres tilstand hjælp. \n\nFinjustering er nødvendig! Hvis værdien er for lille, vil enheden henholdsvis skifte mellem 'offline' og 'online'. Hvis værdien er for høj, så vil der gå lang tid før enheden bliver registreret som offline.",
-                "sv": "Många smartmobiler/enheter sätter WiFi i energisparläge när skärmen släcks. Enheten kopplar upp sig regelbundet och återgår därefter till energisparläget. Därför kan enheten ibland inte avläsas som närvarande och då kan inställningarna för 'Normaltest', 'Intensivtest' och 'Fördröjning av frånvarande' behöva justeras.\n\nÖka 'Fördröjning av frånvarande' så att enheten hinner koppla upp sig igen och fortsätter att vara registrerad som närvarande. I vissa fall kan justering av \"\"Intensivtest\"\" också hjälpa till.\n\nFinjustering kan behövas! Om 'Fördröjning av frånvarande' är för liten kommer enheten hoppa mellan 'närvarande' och 'frånvarande'. Om fördröjningen är för lång tar det onödigt lång tid innan den markeras som 'frånvarande'."
+                "da": "Algunas unidades desconectan el Wi-Fi cuando su pantalla está apagada. Las unidades reconectan su Wi-Fi de vez en cuando y luego se desconectan nuevamente después de un corto período de tiempo. ¡Existe la posibilidad de que no podamos detectarlas por un error de tiempo!\n\nAumenta el 'Retraso de ausencia' para mantener el dispositivo presente durante una cierta cantidad de segundos. En algunos casos, el 'Modo estrés' puede proporcionar ayuda adicional.\n\n¡Se requiere ajuste fino! Si el valor es demasiado pequeño, el dispositivo puede comenzar a cambiar entre 'presente' y 'ausente'. Si el valor es demasiado grande, tardará mucho en activar tus flujos.",
+                "sv": "Många smartmobiler/enheter sätter WiFi i energisparläge när skärmen släcks. Enheten kopplar upp sig regelbundet och återgår därefter till energisparläget. Därför kan enheten ibland inte avläsas som närvarande och då kan inställningarna för 'Normaltest', 'Intensivtest' och 'Fördröjning av frånvarande' behöva justeras.\n\nÖka 'Fördröjning av frånvarande' så att enheten hinner koppla upp sig igen och fortsätter att vara registrerad som närvarande. I vissa fall kan justering av \"\"Intensivtest\"\" också hjälpa till.\n\nFinjustering kan behövas! Om 'Fördröjning av frånvarande' är för liten kommer enheten hoppa mellan 'närvarande' och 'frånvarande'. Om fördröjningen är för lång tar det onödigt lång tid innan den markeras som 'frånvarande'.",
+                "es": "¡Algunos dispositivos apagan su Wi-Fi cuando la pantalla está apagada! Se reconectan cada tanto y se vuelven a desconectar al poco tiempo. ¡Es posible que no podamos detectarlos por mala sincronización!\n\nAumenta el 'Retraso de ausencia' para mantener el dispositivo presente por una cierta cantidad de segundos. En algunos casos, el 'Modo de estrés' puede proporcionar ayuda adicional.\n\n¡Se requiere ajuste fino! Si el valor es muy pequeño, el dispositivo puede empezar a alternar entre 'presente' y 'ausente'. Si el valor es muy grande, esperará demasiado antes de activar tus flujos.",
+                "fr": "Certains appareils désactivent leur Wi-Fi lorsque leur écran est éteint. Ils se reconnectent de temps en temps, puis se déconnectent à nouveau après un court instant. Il est possible que nous ne puissions pas les détecter à cause d'un mauvais timing !\n\nAugmentez le 'Délai d'absence' pour maintenir l'appareil présent pendant un certain nombre de secondes. Dans certains cas, le 'Mode stress' peut apporter une aide supplémentaire.\n\nUn ajustement est nécessaire ! Si la valeur est trop petite, un appareil peut commencer à basculer entre 'présent' et 'absent'. Si la valeur est trop grande, elle attendra trop longtemps avant de déclencher vos flux.",
+                "it": "Alcuni dispositivi spengono il Wi-Fi quando lo schermo è spento. Si ricollegano ogni tanto solo per disconnettersi nuovamente dopo breve. Potremmo non riuscire a rilevarli a causa di un errore di tempistica!\n\nAumenta il 'Ritardo di assenza' per mantenere il dispositivo presente per un certo numero di secondi. In alcuni casi, la 'Modalità stress' può fornire ulteriore aiuto.\n\nÈ necessario un fine-tuning! Se il valore è troppo piccolo, un dispositivo potrebbe iniziare a oscillare tra 'presente' e 'assente'. Se il valore è troppo grande, aspetterà troppo tempo prima di attivare i tuoi flussi.",
+                "pl": "Niektóre urządzenia wyłączają Wi-Fi, gdy ich ekran jest wyłączony. Co pewien czas ponownie łączą się z Wi-Fi, aby po krótkim czasie ponownie rozłączyć się. Możemy ich nie wykrywać z powodu złego zgrania czasowego!\n\nZwiększ 'Opóźnienie nieobecności', aby urządzenie pozostało obecne przez określoną liczbę sekund. W niektórych przypadkach dodatkową pomoc może zapewnić 'Tryb stresu'.\n\nWymagana jest regulacja! Jeśli wartość jest za mała, urządzenie może zacząć przełączać się między 'obecny' i 'nieobecny'. Jeśli wartość jest za duża, będzie czekać zbyt długo przed uruchomieniem przepływów.",
+                "ru": "Некоторые устройства отключают Wi-Fi, когда экран выключен. Они периодически переподключают Wi-Fi, только чтобы снова отключиться через короткое время. Есть вероятность, что мы не сможем их обнаружить из-за плохой синхронизации!\n\nУвеличьте 'Задержку отсутствия', чтобы устройство оставалось активным в течение определённого количества секунд. В некоторых случаях 'Режим стресса' может оказать дополнительную помощь.\n\nТребуется тонкая настройка! Если значение слишком мало, устройство может начать переключаться между 'дома' и 'вне дома'. Если значение слишком велико, будет слишком долго ждать перед запуском потоков.",
+                "ko": "일부 장치는 화면이 꺼질 때 Wi-Fi를 끕니다. 이들은 가끔 Wi-Fi에 다시 연결되어 짧은 시간 후에 다시 끊어집니다. 타이밍이 안 좋아 탐지하지 못할 수도 있습니다!\n\n'Away Delay'(부재중 지연)을 늘려 장치가 일정 시간 동안 남아 있도록 하세요. 특정 상황에서는 '스트레스 모드'가 추가적인 도움을 줄 수 있습니다.\n\n미세 조정이 필요합니다! 값이 너무 작으면 장치가 '프리젠트'(현재)와 '어웨이'(부재중) 사이를 계속 전환할 수 있습니다. 값이 너무 크면 플로우를 트리거하기 전에 시간이 너무 오래 걸릴 수 있습니다."
               }
             },
             {
@@ -1006,7 +1510,13 @@
                 "de": "Normal-Modus Prüfintervall",
                 "no": "Normal modus sjekk-intervall",
                 "da": "Normal-tilstand kontrolinterval",
-                "sv": "Normaltest intervall"
+                "sv": "Normaltest intervall",
+                "es": "Intervalo de verificación en modo normal",
+                "fr": "Intervalle de vérification en mode normal",
+                "it": "Intervallo di controllo in modalità normale",
+                "pl": "Interwał sprawdzania w trybie normalnym",
+                "ru": "Интервал проверки в обычном режиме",
+                "ko": "일반 모드 체크 간격"
               },
               "attr": {
                 "min": 1500,
@@ -1018,7 +1528,13 @@
                 "de": "ms",
                 "no": "ms",
                 "da": "ms",
-                "sv": "ms"
+                "sv": "ms",
+                "es": "ms",
+                "fr": "ms",
+                "it": "ms",
+                "pl": "ms",
+                "ru": "мс",
+                "ko": "ms"
               },
               "hint": {
                 "en": "Time in milliseconds between each check when in normal mode.",
@@ -1026,7 +1542,13 @@
                 "de": "Zeit in Millisekunden zwischen den einzelnen Prüfungen im Normal-Modus.",
                 "no": "Tid i millisekunder mellom hver sjekk i normal-modus.",
                 "da": "Tid i millisekunder i mellem hver kontrol i normal-tilstand.",
-                "sv": "Tid i millisekunder mellan normal närvarotest."
+                "sv": "Tid i millisekunder mellan normal närvarotest.",
+                "es": "Tiempo en milisegundos entre cada verificación en modo normal.",
+                "fr": "Temps en millisecondes entre chaque vérification en mode normal.",
+                "it": "Tempo in millisecondi tra ciascun controllo in modalità normale.",
+                "pl": "Czas w milisekundach między kolejnymi sprawdzeniami w trybie normalnym.",
+                "ru": "Время в миллисекундах между каждой проверкой в обычном режиме.",
+                "ko": "일반 모드에서 각 체크 사이의 시간(밀리초)입니다."
               }
             },
             {
@@ -1039,7 +1561,13 @@
                 "de": "Normal-Modus Time-out",
                 "no": "Normal modus timeout",
                 "da": "Normal-tilstand timeout",
-                "sv": "Normaltest timeout"
+                "sv": "Normaltest timeout",
+                "es": "Tiempo de espera en modo normal",
+                "fr": "Délai d'attente en mode normal",
+                "it": "Timeout modalità normale",
+                "pl": "Czas oczekiwania w trybie normalnym",
+                "ru": "Тайм-аут в обычном режиме",
+                "ko": "일반 모드 시간 초과"
               },
               "attr": {
                 "min": 0.5,
@@ -1051,7 +1579,13 @@
                 "de": "Sekunden",
                 "no": "sekunder",
                 "da": "sekunder",
-                "sv": "sekunder"
+                "sv": "sekunder",
+                "es": "segundos",
+                "fr": "secondes",
+                "it": "secondi",
+                "pl": "sekundy",
+                "ru": "секунды",
+                "ko": "초"
               },
               "hint": {
                 "en": "How long should it take (in seconds) before Smart Presence gives up finding your phone on the network? \n\nIf you have a fast network this setting may be lowered. \nIf you have a slow network, may want to increase this setting.",
@@ -1059,7 +1593,13 @@
                 "de": "Wie lange soll die Suche Ihres Telefons im Netz dauern (in Sekunden), bis Smart Presence aufhört zu suchen?\n\nWenn Sie ein schnelles Netzwerk haben, kann diese Einstellung heruntergesetzt werden. \nWenn Sie ein langsames Netzwerk haben, sollten Sie diese Einstellung eventuell erhöhen.",
                 "no": "Hvor lang tid i sekunder før enheten ikke kan registreres på nettverket?\n\nHvis du har et hurtig nettverk, så kan verdien være minde. \nHvis du har et tregt nettverk, bør verdien være større.",
                 "da": "Hvor lang tid i sekunder, før enheden ikke kan registeres på netværket? \n\nHvis du har et hurtigt netværk, så skal værdien værre mindre. \\nHvis du har et langtsomt netværk, så skal værdien værre højere.",
-                "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk?\n\nOm du har ett snabbt nätverk kan tiden minskas.\nOm du har ett långsamt nätverk kan tiden behöva ökas."
+                "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk?\n\nOm du har ett snabbt nätverk kan tiden minskas.\nOm du har ett långsamt nätverk kan tiden behöva ökas.",
+                "es": "¿Cuánto tiempo debería pasar (en segundos) antes de que Smart Presence deje de buscar tu teléfono en la red?\n\nSi tienes una red rápida, este ajuste se puede reducir.\nSi tienes una red lenta, puede que quieras aumentar este ajuste.",
+                "fr": "Combien de temps devrait-il s'écouler (en secondes) avant que Smart Presence n'abandonne la recherche de votre téléphone sur le réseau ?\n\nSi vous avez un réseau rapide, ce paramètre peut être abaissé.\nSi vous avez un réseau lent, vous pouvez vouloir augmenter ce paramètre.",
+                "it": "Quanto tempo dovrebbe passare (in secondi) prima che Smart Presence smetta di cercare il tuo telefono nella rete?\n\nSe hai una rete veloce, questo parametro può essere abbassato.\nSe hai una rete lenta, potresti voler aumentare questo parametro.",
+                "pl": "Jak długo (w sekundach) powinno trwać, zanim Smart Presence przestanie szukać Twojego telefonu w sieci?\n\nJeśli masz szybką sieć, to ustawienie może zostać obniżone.\nJeśli masz wolną sieć, warto zwiększyć to ustawienie.",
+                "ru": "Как долго (в секундах), прежде чем Smart Presence прекратит попытки найти ваш телефон в сети?\n\nЕсли у вас быстрая сеть, это значение может быть уменьшено.\nЕсли у вас медленная сеть, вы можете увеличить это значение.",
+                "ko": "네트워크에서 스마트 프레즌스가 휴대폰을 찾기를 포기할 때까지 걸리는 시간(초)은 얼마입니까?\n\n빠른 네트워크를 사용하는 경우 설정을 낮출 수 있습니다.\n느린 네트워크를 사용하는 경우 설정을 늘리는 것이 좋습니다."
               }
             }
           ]
@@ -1072,7 +1612,13 @@
             "de": "Einstellungen Stress-Modus",
             "no": "Innstillinger for stress-modus",
             "da": "Indstillinger for stres tilstand",
-            "sv": "Inställningar för intensivtest"
+            "sv": "Inställningar för intensivtest",
+            "es": "Configuraciones de modo de estrés",
+            "fr": "Paramètres du mode stress",
+            "it": "Impostazioni modalità stress",
+            "pl": "Ustawienia trybu stresu",
+            "ru": "Настройки стрессового режима",
+            "ko": "스트레스 모드 설정"
           },
           "children": [
             {
@@ -1085,7 +1631,13 @@
                 "de": "Stressperiode",
                 "no": "Periode for stress-sjekking",
                 "da": "Periode for stress kontrol",
-                "sv": "Period för intensivtest"
+                "sv": "Period för intensivtest",
+                "es": "Período de estrés",
+                "fr": "Période de stress",
+                "it": "Periodo di stress",
+                "pl": "Okres stresu",
+                "ru": "Период стресса",
+                "ko": "스트레스 기간"
               },
               "attr": {
                 "min": 0,
@@ -1097,7 +1649,13 @@
                 "de": "Sekunden",
                 "no": "sekunder",
                 "da": "sekunder",
-                "sv": "sekunder"
+                "sv": "sekunder",
+                "es": "segundos",
+                "fr": "secondes",
+                "it": "secondi",
+                "pl": "sekundy",
+                "ru": "секунды",
+                "ko": "초"
               },
               "hint": {
                 "en": "Stress mode activates when a device can't be reached, but because of the 'Away delay' setting, it is not yet marked as 'away'. 'x' seconds before the device will be marked as 'away', it will be checked more often. \n\nIf you have trouble with a device, it can help you to get more stable results.\n\nNever configure this value higher then the 'Away delay' value, cause then every check will be a stress check! If you configure this setting to 0, then Stress mode will be disabled.",
@@ -1105,7 +1663,13 @@
                 "de": "Der Stress-Modus wird aktiviert, wenn ein Gerät nicht erreicht werden kann. Aufgrund der Einstellung 'Abwesenheitsverzögerung' ist es jedoch noch nicht als 'abwesend' markiert. 'x' Sekunden bevor das Gerät als 'abwesend' markiert wird, wird es häufiger überprüft.\n\nWenn Sie Probleme mit einem Gerät haben, kann dies helfen stabilere Ergebnisse zu erzielen.\n\nKonfigurieren Sie diesen Wert niemals höher als den Wert für 'Abwesenheitsverzögerung', da dann jede Prüfung eine Belastungsprüfung ist! Wenn Sie diese Einstellung auf 0 konfigurieren, wird der Stress-Modus deaktiviert.",
                 "no": "Stress-modus aktiveres når enheten ikke er online, men pga. 'Offline forsinkelse' er enheten ikke ennå markerrt som offline.  Det går et angitt antall sekunder før enheten registreres som offline og intervall mellom kontroller er kortere.  \n\nHvis du har problemer med enheten, kan det hjelpe på stabil registrering.\n\nMerk at du ikke må angi en verdi som er større enn 'Offline forsinkelse', siden da blir hver kontroll stress-kontroll! Hvis du angir verdien som 0, så blir stress-modus inaktiv.",
                 "da": "Stress-tilstand aktiveres når enheden ikke er registreret online, men grundet indstilling af 'Offline forsinkelse' er enheden ikke markeret som offline. Der går det angivet antal sekunder før enheden registreres som offline og interval i mellem kontroller er kortere.\n\nHvis du har problemer med enheden, kan det hjælpe på stabil registrering. \n\nBemærk at du ikke må angive en værdi som større end 'Offline forsinkelse', fordi hver kontrol bliver stress kontrol! Hvis du angiver værdien som 0, så bliver stress-tilstand inaktiv.",
-                "sv": "Tid i sekunder innan 'Fördröjning av frånvaro' löper ut som Intensivtest ska aktiveras. När smartmobilen/enheten inte kan hittas i nätverket intensifieras testerna med kortare intervall.\n\nOm du har problem med en enhet kan detta ibland ge en stabilare närvaroavläsning.\n\nObservera att detta värde inte får vara större än 'Fördröjning av frånvarande' eftersom intensivtest då används varje gång närvaron testas. Om du anger 0 (noll) inaktiveras intensivtest helt."
+                "sv": "Tid i sekunder innan 'Fördröjning av frånvaro' löper ut som Intensivtest ska aktiveras. När smartmobilen/enheten inte kan hittas i nätverket intensifieras testerna med kortare intervall.\n\nOm du har problem med en enhet kan detta ibland ge en stabilare närvaroavläsning.\n\nObservera att detta värde inte får vara större än 'Fördröjning av frånvarande' eftersom intensivtest då används varje gång närvaron testas. Om du anger 0 (noll) inaktiveras intensivtest helt.",
+                "es": "El modo de estrés se activa cuando un dispositivo no puede ser alcanzado, pero debido a la configuración de 'Retraso de ausencia', aún no se marca como 'ausente'. 'x' segundos antes de que el dispositivo se marque como 'ausente', se verificará con más frecuencia.\n\nSi tienes problemas con un dispositivo, esto puede ayudarte a obtener resultados más estables.\n\nNunca configures este valor más alto que el valor de 'Retraso de ausencia', ¡porque entonces cada verificación será una verificación de estrés! Si configuras este ajuste a 0, el modo de estrés se desactivará.",
+                "fr": "Le mode stress s'active lorsque l'appareil ne peut pas être atteint, mais en raison du paramètre 'Délai d'absence', il n'est pas encore marqué comme 'absent'. 'x' secondes avant que l'appareil soit marqué comme 'absent', il sera vérifié plus souvent.\n\nSi vous avez des problèmes avec un appareil, cela peut vous aider à obtenir des résultats plus stables.\n\nNe configurez jamais cette valeur plus haute que la valeur de 'Délai d'absence', car dans ce cas, chaque vérification sera une vérification de stress ! Si vous configurez ce paramètre sur 0, le mode stress sera désactivé.",
+                "it": "La modalità stress si attiva quando un dispositivo non può essere raggiunto, ma a causa dell'impostazione 'Ritardo di assenza', non è ancora contrassegnato come 'assente'. 'x' secondi prima che il dispositivo venga contrassegnato come 'assente', verrà controllato più frequentemente.\n\nSe hai problemi con un dispositivo, questo può aiutarti a ottenere risultati più stabili.\n\nNon configurare mai questo valore superiore al valore di 'Ritardo di assenza', perché allora ogni controllo sarà un controllo di stress! Se imposti questo parametro a 0, la modalità stress verrà disattivata.",
+                "pl": "Tryb stresowy aktywuje się, gdy urządzenie nie może być osiągnięte, ale ze względu na ustawienie „Opóźnienie nieobecności” nie jest jeszcze oznaczone jako „nieobecne”. „x” sekund przed oznaczeniem urządzenia jako „nieobecne” będzie sprawdzane częściej.\n\nJeśli masz problemy z urządzeniem, może to pomóc w uzyskaniu bardziej stabilnych wyników.\n\nNigdy nie ustawiaj tej wartości powyżej wartości „Opóźnienie nieobecności”, ponieważ wtedy każde sprawdzenie będzie kontrolą stresową! Jeśli ustawisz tę wartość na 0, tryb stresowy zostanie wyłączony.",
+                "ru": "Режим стресса активируется, когда устройство недоступно, но из-за настройки 'Задержка отсутствия' оно еще не помечено как 'отсутствующее'. За 'x' секунд до того, как устройство будет помечено как 'отсутствующее', оно будет проверяться чаще.\n\nЕсли у вас проблемы с устройством, это может помочь вам добиться более стабильных результатов.\n\nНикогда не устанавливайте это значение выше, чем значение 'Задержка отсутствия', иначе каждая проверка будет стрессовой проверкой! Если вы установите это значение на 0, режим стресса будет отключен.",
+                "ko": "장치가 연결되지 않을 때 스트레스 모드가 활성화되며, '부재 시간 설정' 때문에 아직 '부재중'으로 표시되지 않습니다. 장치가 '부재중'으로 표시되기 'x'초 전에 더 자주 확인됩니다.\n\n장치에 문제가 있는 경우 보다 안정적인 결과를 얻을 수 있습니다.\n\n이 값을 '부재 시간 설정' 값보다 높게 설정하지 마십시오. 그렇지 않으면 모든 검사가 스트레스 검사가 됩니다! 이 설정을 0으로 구성하면 스트레스 모드가 비활성화됩니다."
               }
             },
             {
@@ -1118,7 +1682,13 @@
                 "de": "Stress-Modus Prüfintervall",
                 "no": "Stress-modus sjekk-intervall",
                 "da": "Stress-tilstand kontrolinterval",
-                "sv": "Intensivtest intervall"
+                "sv": "Intensivtest intervall",
+                "es": "Intervalo de verificación del modo estrés",
+                "fr": "Intervalle de vérification du mode stress",
+                "it": "Intervallo di controllo modalità stress",
+                "pl": "Interwał sprawdzania trybu stresowego",
+                "ru": "Интервал проверки режима стресса",
+                "ko": "스트레스 모드 점검 간격"
               },
               "attr": {
                 "min": 500,
@@ -1130,7 +1700,13 @@
                 "de": "ms",
                 "no": "ms",
                 "da": "ms",
-                "sv": "ms"
+                "sv": "ms",
+                "es": "ms",
+                "fr": "ms",
+                "it": "ms",
+                "pl": "ms",
+                "ru": "мс",
+                "ko": "밀리초"
               },
               "hint": {
                 "en": "Time in milliseconds between each check when in stress mode.",
@@ -1138,7 +1714,13 @@
                 "de": "Zeit in Millisekunden zwischen den einzelnen Prüfungen im Stress-Modus.",
                 "no": "Tid i millisekunder mellom hver sjekk i stress-modus.",
                 "da": "Tid i milisekunder i mellem hver kontrol i stress-tilstand",
-                "sv": "Tid i millisekunder mellan intensiva närvarotester (motsvarande inställningen för normaltest)."
+                "sv": "Tid i millisekunder mellan intensiva närvarotester (motsvarande inställningen för normaltest).",
+                "es": "Tiempo en milisegundos entre cada verificación cuando está en modo estrés.",
+                "fr": "Temps en millisecondes entre chaque vérification en mode stress.",
+                "it": "Tempo in millisecondi tra ogni controllo in modalità stress.",
+                "pl": "Czas w milisekundach między kolejnymi kontrolami w trybie stresowym.",
+                "ru": "Время в миллисекундах между каждой проверкой в режиме стресса.",
+                "ko": "스트레스 모드에서 점검 사이의 시간 (밀리초)."
               }
             },
             {
@@ -1151,7 +1733,13 @@
                 "de": "Stress Host Time-out",
                 "no": "Stress-modus timeout",
                 "da": "Stress-tilstand timeout",
-                "sv": "Intensivtest timeout"
+                "sv": "Intensivtest timeout",
+                "es": "Tiempo de espera del anfitrión de estrés",
+                "fr": "Délai d'attente de l'hôte de stress",
+                "it": "Timeout dell'host di stress",
+                "pl": "Limit czasu hosta stresu",
+                "ru": "Тайм-аут хоста стресса",
+                "ko": "스트레스 호스트 시간 초과"
               },
               "attr": {
                 "min": 0.5,
@@ -1163,7 +1751,13 @@
                 "de": "Sekunden",
                 "no": "sekunder",
                 "da": "sekunder",
-                "sv": "sekunder"
+                "sv": "sekunder",
+                "es": "segundos",
+                "fr": "secondes",
+                "it": "secondi",
+                "pl": "sekundy",
+                "ru": "секунды",
+                "ko": "초"
               },
               "hint": {
                 "en": "The same as 'Host timeout' but for 'Stress mode'. Just cause you might may want to deviate from the default 'Host timeout' while in distress.",
@@ -1171,7 +1765,13 @@
                 "de": "Dasselbe wie 'Host Time-out' nur für den 'Stress-Modus'. Weil Sie bei Problemen eventuell vom Standard-'Host Time-out' abweichen wollen.",
                 "no": "Det samme som 'Normal-modus timeout', men for 'Stress-modus'. Hvis du ønsker å fravike standarden 'Normal-modus timeout', mens enheten er i stress-modus.",
                 "da": "Det samme som 'Normal-tilstand timeout', men for 'Stress-tilstand'. Hvis du ønsker at fravige standarden 'Normal-tilstand timeout', mens enheden ikke er registreret online.",
-                "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk under 'Intensivtest'?\nNormalt är detta värde samma som för 'Normaltest timeout'."
+                "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk under 'Intensivtest'?\nNormalt är detta värde samma som för 'Normaltest timeout'.",
+                "es": "Lo mismo que el 'Tiempo de espera del anfitrión' pero para el 'Modo de estrés'. Por si acaso quisieras desviarte del 'Tiempo de espera del anfitrión' por defecto mientras estás estresado.",
+                "fr": "Le même que 'Délai d'attente de l'hôte' mais pour le 'Mode stress'. Au cas où vous voudriez vous écarter du 'Délai d'attente de l'hôte' par défaut en cas de stress.",
+                "it": "Lo stesso di 'Timeout dell'host' ma per 'Modalità stress'. Nel caso volessi deviare dal 'Timeout dell'host' predefinito durante lo stress.",
+                "pl": "To samo, co 'Limit czasu hosta' ale dla 'Trybu stresu'. Na wypadek, gdybyś chciał odejść od domyślnego 'Limitu czasu hosta' w sytuacjach stresowych.",
+                "ru": "То же самое, что и 'Тайм-аут хоста', но для 'Режима стресса'. На случай, если вы захотите отклониться от стандартного 'Тайм-аута хоста' в состоянии стресса.",
+                "ko": "'호스트 시간 초과'와 같지만 '스트레스 모드'에 해당합니다. 스트레스 상황에서 기본 '호스트 시간 초과'와 다른 값으로 설정하고 싶은 경우를 위한 것입니다."
               }
             }
           ]
@@ -1188,7 +1788,13 @@
         "de": "Zuletzt Gesehen",
         "no": "Sist Sett",
         "da": "Sidst Set",
-        "sv": "Senast Sedd"
+        "sv": "Senast Sedd",
+        "es": "Visto por última vez",
+        "fr": "Dernière Vue",
+        "it": "Ultima Visualizzazione",
+        "pl": "Ostatnio Widziany",
+        "ru": "Последний Раз Видели",
+        "ko": "마지막 본 시간"
       },
       "getable": true,
       "setable": false,
@@ -1201,7 +1807,13 @@
         "de": "Zuletzt Gesehen",
         "no": "Sist Sett",
         "da": "Sidst Set",
-        "sv": "Senast Sedd"
+        "sv": "Senast Sedd",
+        "es": "Visto por última vez",
+        "fr": "Dernière Vue",
+        "it": "Ultima Visualizzazione",
+        "pl": "Ostatnio Widziany",
+        "ru": "Последний Раз Видели",
+        "ko": "마지막 본 시간"
       },
       "icon": "./assets/lastseen.svg"
     },
@@ -1213,7 +1825,13 @@
         "de": "Anwesenheitserkennung",
         "no": "Tilstede",
         "da": "Tilstede",
-        "sv": "Närvarande"
+        "sv": "Närvarande",
+        "es": "Presente",
+        "fr": "Présent",
+        "it": "Presente",
+        "pl": "Obecny",
+        "ru": "Присутствует",
+        "ko": "출석한"
       },
       "getable": true,
       "setable": false,
@@ -1225,7 +1843,13 @@
         "de": "Anwesenheitserkennung",
         "no": "Tilstede",
         "da": "Tilstede",
-        "sv": "Närvarande"
+        "sv": "Närvarande",
+        "es": "Presente",
+        "fr": "Présent",
+        "it": "Presente",
+        "pl": "Obecny",
+        "ru": "Присутствует",
+        "ko": "출석한"
       },
       "insightsTitleFalse": {
         "en": "Not present",
@@ -1233,7 +1857,13 @@
         "de": "Keine Anwesenheitserkennung",
         "no": "Fraværende",
         "da": "Fraværende",
-        "sv": "Frånvarande"
+        "sv": "Frånvarande",
+        "es": "No presente",
+        "fr": "Absent",
+        "it": "Non presente",
+        "pl": "Nieobecny",
+        "ru": "Отсутствует",
+        "ko": "없는"
       },
       "uiComponent": null
     }

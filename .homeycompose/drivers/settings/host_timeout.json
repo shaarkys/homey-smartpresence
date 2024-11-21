@@ -1,18 +1,24 @@
 {
   "id": "host_timeout",
   "type": "number",
-  "value": 2.0,
+  "value": 2,
   "label": {
     "en": "Normal mode timeout",
     "nl": "Normaal mode time-out",
     "de": "Normal-Modus Time-out",
     "no": "Normal modus timeout",
     "da": "Normal-tilstand timeout",
-    "sv": "Normaltest timeout"
+    "sv": "Normaltest timeout",
+    "es": "Tiempo de espera en modo normal",
+    "fr": "Délai d'attente en mode normal",
+    "it": "Timeout modalità normale",
+    "pl": "Czas oczekiwania w trybie normalnym",
+    "ru": "Тайм-аут в обычном режиме",
+    "ko": "일반 모드 시간 초과"
   },
   "attr": {
     "min": 0.5,
-    "max": 5.0
+    "max": 5
   },
   "units": {
     "en": "seconds",
@@ -20,7 +26,13 @@
     "de": "Sekunden",
     "no": "sekunder",
     "da": "sekunder",
-    "sv": "sekunder"
+    "sv": "sekunder",
+    "es": "segundos",
+    "fr": "secondes",
+    "it": "secondi",
+    "pl": "sekundy",
+    "ru": "секунды",
+    "ko": "초"
   },
   "hint": {
     "en": "How long should it take (in seconds) before Smart Presence gives up finding your phone on the network? \n\nIf you have a fast network this setting may be lowered. \nIf you have a slow network, may want to increase this setting.",
@@ -28,6 +40,12 @@
     "de": "Wie lange soll die Suche Ihres Telefons im Netz dauern (in Sekunden), bis Smart Presence aufhört zu suchen?\n\nWenn Sie ein schnelles Netzwerk haben, kann diese Einstellung heruntergesetzt werden. \nWenn Sie ein langsames Netzwerk haben, sollten Sie diese Einstellung eventuell erhöhen.",
     "no": "Hvor lang tid i sekunder før enheten ikke kan registreres på nettverket?\n\nHvis du har et hurtig nettverk, så kan verdien være minde. \nHvis du har et tregt nettverk, bør verdien være større.",
     "da": "Hvor lang tid i sekunder, før enheden ikke kan registeres på netværket? \n\nHvis du har et hurtigt netværk, så skal værdien værre mindre. \\nHvis du har et langtsomt netværk, så skal værdien værre højere.",
-    "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk?\n\nOm du har ett snabbt nätverk kan tiden minskas.\nOm du har ett långsamt nätverk kan tiden behöva ökas."
+    "sv": "Hur lång tid (sekunder) ska det ta innan Smart Presence slutar söka efter smartmobilen/enheten i ditt nätverk?\n\nOm du har ett snabbt nätverk kan tiden minskas.\nOm du har ett långsamt nätverk kan tiden behöva ökas.",
+    "es": "¿Cuánto tiempo debería pasar (en segundos) antes de que Smart Presence deje de buscar tu teléfono en la red?\n\nSi tienes una red rápida, este ajuste se puede reducir.\nSi tienes una red lenta, puede que quieras aumentar este ajuste.",
+    "fr": "Combien de temps devrait-il s'écouler (en secondes) avant que Smart Presence n'abandonne la recherche de votre téléphone sur le réseau ?\n\nSi vous avez un réseau rapide, ce paramètre peut être abaissé.\nSi vous avez un réseau lent, vous pouvez vouloir augmenter ce paramètre.",
+    "it": "Quanto tempo dovrebbe passare (in secondi) prima che Smart Presence smetta di cercare il tuo telefono nella rete?\n\nSe hai una rete veloce, questo parametro può essere abbassato.\nSe hai una rete lenta, potresti voler aumentare questo parametro.",
+    "pl": "Jak długo (w sekundach) powinno trwać, zanim Smart Presence przestanie szukać Twojego telefonu w sieci?\n\nJeśli masz szybką sieć, to ustawienie może zostać obniżone.\nJeśli masz wolną sieć, warto zwiększyć to ustawienie.",
+    "ru": "Как долго (в секундах), прежде чем Smart Presence прекратит попытки найти ваш телефон в сети?\n\nЕсли у вас быстрая сеть, это значение может быть уменьшено.\nЕсли у вас медленная сеть, вы можете увеличить это значение.",
+    "ko": "네트워크에서 스마트 프레즌스가 휴대폰을 찾기를 포기할 때까지 걸리는 시간(초)은 얼마입니까?\n\n빠른 네트워크를 사용하는 경우 설정을 낮출 수 있습니다.\n느린 네트워크를 사용하는 경우 설정을 늘리는 것이 좋습니다."
   }
 }

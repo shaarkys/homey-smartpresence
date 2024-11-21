@@ -8,7 +8,13 @@
     "de": "Port-Nummer",
     "no": "Portnummer",
     "da": "Portnummer",
-    "sv": "Portnummer"
+    "sv": "Portnummer",
+    "es": "Número de puerto",
+    "fr": "Numéro de port",
+    "it": "Numero di porta",
+    "pl": "Numer portu",
+    "ru": "Номер порта",
+    "ko": "포트 번호"
   },
   "attr": {
     "min": 1,
@@ -20,6 +26,12 @@
     "de": "Die Port-Nummer, die überprüft wird, um festzustellen, ob das Gerät online ist.",
     "no": "Portnummer som benyttes for å se om enheten er online.",
     "da": "Portnummeret som anvendes for at se om enheder er online.",
-    "sv": "Portnummer i nätverket som används för att testa om smartmobilen/enheten är närvarande."
+    "sv": "Portnummer i nätverket som används för att testa om smartmobilen/enheten är närvarande.",
+    "es": "El número de puerto que se verifica para ver si el dispositivo está en línea.",
+    "fr": "Le numéro de port vérifié pour voir si l'appareil est en ligne.",
+    "it": "Il numero di porta verificato per vedere se il dispositivo è online.",
+    "pl": "Numer portu sprawdzany, aby zobaczyć, czy urządzenie jest online.",
+    "ru": "Номер порта, проверяемый, чтобы узнать, в сети ли устройство.",
+    "ko": "장치가 온라인인지 확인하는 포트 번호입니다."
   }
 }

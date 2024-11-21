@@ -8,7 +8,13 @@
     "de": "Normal-Modus Prüfintervall",
     "no": "Normal modus sjekk-intervall",
     "da": "Normal-tilstand kontrolinterval",
-    "sv": "Normaltest intervall"
+    "sv": "Normaltest intervall",
+    "es": "Intervalo de verificación en modo normal",
+    "fr": "Intervalle de vérification en mode normal",
+    "it": "Intervallo di controllo in modalità normale",
+    "pl": "Interwał sprawdzania w trybie normalnym",
+    "ru": "Интервал проверки в обычном режиме",
+    "ko": "일반 모드 체크 간격"
   },
   "attr": {
     "min": 1500,
@@ -20,7 +26,13 @@
     "de": "ms",
     "no": "ms",
     "da": "ms",
-    "sv": "ms"
+    "sv": "ms",
+    "es": "ms",
+    "fr": "ms",
+    "it": "ms",
+    "pl": "ms",
+    "ru": "мс",
+    "ko": "ms"
   },
   "hint": {
     "en": "Time in milliseconds between each check when in normal mode.",
@@ -28,6 +40,12 @@
     "de": "Zeit in Millisekunden zwischen den einzelnen Prüfungen im Normal-Modus.",
     "no": "Tid i millisekunder mellom hver sjekk i normal-modus.",
     "da": "Tid i millisekunder i mellem hver kontrol i normal-tilstand.",
-    "sv": "Tid i millisekunder mellan normal närvarotest."
+    "sv": "Tid i millisekunder mellan normal närvarotest.",
+    "es": "Tiempo en milisegundos entre cada verificación en modo normal.",
+    "fr": "Temps en millisecondes entre chaque vérification en mode normal.",
+    "it": "Tempo in millisecondi tra ciascun controllo in modalità normale.",
+    "pl": "Czas w milisekundach między kolejnymi sprawdzeniami w trybie normalnym.",
+    "ru": "Время в миллисекундах между каждой проверкой в обычном режиме.",
+    "ko": "일반 모드에서 각 체크 사이의 시간(밀리초)입니다."
   }
 }

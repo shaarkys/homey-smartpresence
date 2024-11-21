@@ -6,7 +6,13 @@
     "de": "Die letzte Person ist gegangen",
     "no": "Siste person dro hjemmefra",
     "da": "Den sidste person forlod hjemmet",
-    "sv": "Den sista personen lämnade"
+    "sv": "Den sista personen lämnade",
+    "es": "La última persona se fue",
+    "fr": "La dernière personne est partie",
+    "it": "L'ultima persona è partita",
+    "pl": "Ostatnia osoba wyszła",
+    "ru": "Последний человек ушёл",
+    "ko": "마지막 사람이 떠났습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]

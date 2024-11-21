@@ -6,6 +6,12 @@
     "de": "!{{Jemand|Niemand}} ist zu Hause",
     "no": "!{{Noen|Ingen}} er hjemme",
     "da": "!{{Nogen|Ingen}} er hjemme",
-    "sv": "!{{Någon|Ingen}} är närvarande"
+    "sv": "!{{Någon|Ingen}} är närvarande",
+    "es": "¡{{Alguien|Nadie}} está en casa",
+    "fr": "!{{Quelqu'un|Personne}} est à la maison",
+    "it": "!{{Qualcuno|Nessuno}} è a casa",
+    "pl": "!{{Ktoś|Nikt}} jest w domu",
+    "ru": "!{{Кто-то|Никто}} дома",
+    "ko": "!{{누군가|아무도}} 집에 없습니다"
   }
 }

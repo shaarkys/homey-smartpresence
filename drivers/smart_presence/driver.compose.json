@@ -3,7 +3,16 @@
   "name": {
     "en": "Smartphone",
     "nl": "Smartphone",
-    "no": "Smartphone"
+    "no": "Smartphone",
+    "da": "Smartphone",
+    "de": "Smartphone",
+    "es": "Smartphone",
+    "fr": "Smartphone",
+    "it": "Smartphone",
+    "sv": "Smartphone",
+    "pl": "Smartphone",
+    "ru": "Смартфон",
+    "ko": "스마트폰"
   },
   "icon": "{{driverAssetsPath}}/icon.svg",
   "images": {
@@ -18,7 +27,18 @@
   "capabilitiesOptions": {
     "lastseen": {
       "title": {
-        "en": "Last Seen"
+        "en": "Last Seen",
+        "nl": "Laatst gezien",
+        "da": "Sidst set",
+        "de": "Zuletzt gesehen",
+        "es": "Última vez visto",
+        "fr": "Vu pour la dernière fois",
+        "it": "Ultima visualizzazione",
+        "no": "Sist sett",
+        "sv": "Senast sedd",
+        "pl": "Ostatnio widziany",
+        "ru": "Последний раз видели",
+        "ko": "마지막으로 본"
       }
     }
   },

@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "Inteligentna Obecność"
+  },
+  "pair": {
+    "configuration": {
+      "name": "Nazwa:",
+      "ip_address": "Adres IP:",
+      "is_kid": "Czy dziecko:",
+      "is_guest": "Czy gość:",
+      "add_device_btn": "Dodaj urządzenie",
+      "invalid_device_name": "Brak nazwy urządzenia",
+      "missing_ip_address": "Brak adresu IP",
+      "invalid_ip_address": "Nieprawidłowy adres IP"
+    }
+  }
+}

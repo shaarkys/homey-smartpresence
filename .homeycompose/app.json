@@ -10,7 +10,13 @@
     "de": "Smart Presence",
     "no": "Smart Presence",
     "da": "Smart Presence",
-    "sv": "Smart Presence"
+    "sv": "Smart Presence",
+    "es": "Presencia Inteligente",
+    "fr": "Présence Intelligente",
+    "it": "Presenza Intelligente",
+    "pl": "Inteligentna Obecność",
+    "ru": "Умное Присутствие",
+    "ko": "스마트 프레즌스"
   },
   "description": {
     "en": "Presence detection based on smartphones connected to your Wi-Fi",
@@ -18,7 +24,13 @@
     "de": "Anwesenheitserkennung auf Grundlage mit Ihrem Wi-Fi verbundenen Smartphones",
     "no": "Tilstedeværelse basert på smarttelefon koblet til Wi-Fi-nettverket",
     "da": "Registrering af tilstedeværelse baseret på om din mobiltelefon er forbundet til Wi-Fi",
-    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket"
+    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket",
+    "es": "Detección de presencia basada en teléfonos inteligentes conectados a tu Wi-Fi",
+    "fr": "Détection de présence basée sur les smartphones connectés à votre Wi-Fi",
+    "it": "Rilevamento della presenza basato su smartphone connessi al tuo Wi-Fi",
+    "pl": "Detekcja obecności oparta na smartfonach podłączonych do twojego Wi-Fi",
+    "ru": "Обнаружение присутствия на основе смартфонов, подключенных к вашему Wi-Fi",
+    "ko": "Wi-Fi에 연결된 스마트폰을 기반으로 한 존재 감지"
   },
   "category": [
     "internet",
@@ -67,6 +79,48 @@
       "wifi",
       "wi-fi",
       "smartphone"
+    ],
+    "es": [
+      "inteligente",
+      "presencia",
+      "wifi",
+      "wi-fi",
+      "teléfono inteligente"
+    ],
+    "fr": [
+      "intelligent",
+      "présence",
+      "wifi",
+      "wi-fi",
+      "smartphone"
+    ],
+    "it": [
+      "smart",
+      "presenza",
+      "wifi",
+      "wi-fi",
+      "smartphone"
+    ],
+    "pl": [
+      "inteligentny",
+      "obecność",
+      "wifi",
+      "wi-fi",
+      "smartfon"
+    ],
+    "ru": [
+      "умный",
+      "присутствие",
+      "wifi",
+      "wi-fi",
+      "смартфон"
+    ],
+    "ko": [
+      "스마트",
+      "프레즌스",
+      "wifi",
+      "wi-fi",
+      "스마트폰"
     ]
   },
   "images": {

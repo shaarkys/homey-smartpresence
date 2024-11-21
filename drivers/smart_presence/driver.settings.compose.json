@@ -7,7 +7,13 @@
       "de": "Grundeinstellungen",
       "no": "Grunnleggende innstillinger",
       "da": "Grundindstillinger",
-      "sv": "Grundläggande inställningar"
+      "sv": "Grundläggande inställningar",
+      "es": "Configuraciones básicas",
+      "fr": "Paramètres de base",
+      "it": "Impostazioni di base",
+      "pl": "Podstawowe ustawienia",
+      "ru": "Основные настройки",
+      "ko": "기본 설정"
     },
     "children": [
       {
@@ -36,7 +42,13 @@
       "de": "Einstellungen Normal-Modus",
       "no": "Innstillinger for normal modus",
       "da": "Indstillinger for normal tilstand",
-      "sv": "Inställningar för normaltest"
+      "sv": "Inställningar för normaltest",
+      "es": "Configuraciones de modo normal",
+      "fr": "Paramètres du mode normal",
+      "it": "Impostazioni modalità normale",
+      "pl": "Ustawienia trybu normalnego",
+      "ru": "Настройки нормального режима",
+      "ko": "일반 모드 설정"
     },
     "children": [
       {
@@ -61,7 +73,13 @@
       "de": "Einstellungen Stress-Modus",
       "no": "Innstillinger for stress-modus",
       "da": "Indstillinger for stres tilstand",
-      "sv": "Inställningar för intensivtest"
+      "sv": "Inställningar för intensivtest",
+      "es": "Configuraciones de modo de estrés",
+      "fr": "Paramètres du mode stress",
+      "it": "Impostazioni modalità stress",
+      "pl": "Ustawienia trybu stresu",
+      "ru": "Настройки стрессового режима",
+      "ko": "스트레스 모드 설정"
     },
     "children": [
       {

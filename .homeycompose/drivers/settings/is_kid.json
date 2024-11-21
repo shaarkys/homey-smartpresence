@@ -8,10 +8,26 @@
     "de": "Ist Kind",
     "no": "Er barn",
     "da": "Er barn",
-    "sv": "Är barn"
+    "sv": "Är barn",
+    "es": "Es niño",
+    "fr": "Est enfant",
+    "it": "È bambino",
+    "pl": "Jest dzieckiem",
+    "ru": "Ребёнок",
+    "ko": "아이입니다"
   },
   "hint": {
     "en": "Check the box if this person is a kid.",
-    "no": "Kryss av hvis personen er et barn."
+    "no": "Kryss av hvis personen er et barn.",
+    "nl": "Vink het vakje aan als deze persoon een kind is.",
+    "da": "Markér boksen, hvis denne person er et barn.",
+    "de": "Kreuzen Sie das Kästchen an, wenn diese Person ein Kind ist.",
+    "sv": "Markera rutan om personen är ett barn.",
+    "es": "Marca la casilla si esta persona es un niño.",
+    "fr": "Cochez la case si cette personne est un enfant.",
+    "it": "Seleziona la casella se questa persona è un bambino.",
+    "pl": "Zaznacz pole, jeśli ta osoba jest dzieckiem.",
+    "ru": "Поставьте галочку, если этот человек - ребёнок.",
+    "ko": "이 사람이 아이라면 상자를 체크하세요."
   }
 }

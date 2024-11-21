@@ -6,7 +6,13 @@
     "de": "Ein Kind ist angekommen",
     "no": "Et barn ankom",
     "da": "Et barn kom hjem",
-    "sv": "Ett barn anlände"
+    "sv": "Ett barn anlände",
+    "es": "Un niño ha llegado",
+    "fr": "Un enfant est arrivé",
+    "it": "È arrivato un bambino",
+    "pl": "Dziecko przybyło",
+    "ru": "Ребенок прибыл",
+    "ko": "아이 도착했어요"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",

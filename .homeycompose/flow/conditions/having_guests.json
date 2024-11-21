@@ -6,6 +6,12 @@
     "de": "!{{Haben|Nicht haben}} Gäste",
     "no": "!{{Har|Har ikke}} gjester",
     "da": "!{{Har|Har ikke}} gæster",
-    "sv": "!{{Gäst|Ingen gäst}} är närvarande"
+    "sv": "!{{Gäst|Ingen gäst}} är närvarande",
+    "es": "!{{Tener|No tener}} invitados",
+    "fr": "!{{Avoir|Ne pas avoir}} des invités",
+    "it": "!{{Avere|Non avere}} ospiti",
+    "pl": "!{{Posiadanie|Nie posiadanie}} gości",
+    "ru": "!{{Принимать|Не принимать}} гостей",
+    "ko": "!{{손님을 맞이|맞이하지 않음}}"
   }
 }

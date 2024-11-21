@@ -6,7 +6,13 @@
     "de": "Ein Haushaltsmitglied ist angekommen",
     "no": "Et medlem av husstanden kom hjem",
     "da": "Et medlem af husstanden kom hjem",
-    "sv": "En person i hushållet anlände"
+    "sv": "En person i hushållet anlände",
+    "es": "Un miembro del hogar ha llegado",
+    "fr": "Un membre du foyer est arrivé",
+    "it": "Un membro della famiglia è arrivato",
+    "pl": "Członek gospodarstwa domowego przybył",
+    "ru": "Член семьи прибыл",
+    "ko": "가구 구성원이 도착했습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]

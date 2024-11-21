@@ -8,14 +8,26 @@
     "de": "Ist Gast",
     "no": "Er gjest",
     "da": "Er gæst",
-    "sv": "Är gäst"
+    "sv": "Är gäst",
+    "es": "Es invitado",
+    "fr": "Est invité",
+    "it": "È ospite",
+    "pl": "Jest gościem",
+    "ru": "Гость",
+    "ko": "손님입니다"
   },
   "hint": {
     "en": "Check the box if this person is a guest.",
     "nl": "Vink aan als dit een gast betreft.",
-    "de": "Aktivieren Sie den Schieber, wenn diese Person ein Gast ist.",
+    "de": "Aktivieren Sie das Kästchen, wenn diese Person ein Gast ist.",
     "no": "Kryss av hvis personen er en gjest.",
     "da": "Sæt flueben hvis personen er gæst.",
-    "sv": "Kryssa i om personen är en gäst."
+    "sv": "Kryssa i om personen är en gäst.",
+    "es": "Marca la casilla si esta persona es un invitado.",
+    "fr": "Cochez la case si cette personne est un invité.",
+    "it": "Seleziona la casella se questa persona è un ospite.",
+    "pl": "Zaznacz pole, jeśli ta osoba jest gościem.",
+    "ru": "Отметьте, если это гость.",
+    "ko": "해당 사람이 손님이라면 체크하세요."
   }
 }

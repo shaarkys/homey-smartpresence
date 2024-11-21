@@ -6,7 +6,13 @@
     "de": "Ein Haushaltsmitglied ist gegangen",
     "no": "Et medlem av husstanden dro hjemmefra",
     "da": "Et medlem af husstanden forlod hjemmet",
-    "sv": "En person i hushållet lämnade"
+    "sv": "En person i hushållet lämnade",
+    "es": "Un miembro del hogar se fue",
+    "fr": "Un membre de la famille est parti",
+    "it": "Un membro della famiglia se n'è andato",
+    "pl": "Członek gospodarstwa domowego odszedł",
+    "ru": "Член домохозяйства ушел",
+    "ko": "가족 구성원이 떠났습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]

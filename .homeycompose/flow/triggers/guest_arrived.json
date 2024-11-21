@@ -6,7 +6,13 @@
     "de": "Ein Gast ist angekommen",
     "no": "En gjest ankom",
     "da": "En gæst ankom",
-    "sv": "En gäst anlände"
+    "sv": "En gäst anlände",
+    "es": "Un invitado ha llegado",
+    "fr": "Un invité est arrivé",
+    "it": "È arrivato un ospite",
+    "pl": "Gość przybył",
+    "ru": "Гость прибыл",
+    "ko": "손님이 도착했습니다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]

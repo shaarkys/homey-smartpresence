@@ -6,7 +6,13 @@
     "de": "Ein Kind ist gegangen",
     "no": "Et barn forlot hjemmet",
     "da": "Et barn forlod hjemmet",
-    "sv": "Ett barn lämnade"
+    "sv": "Ett barn lämnade",
+    "es": "Un niño se fue",
+    "fr": "Un enfant est parti",
+    "it": "Un bambino è partito",
+    "pl": "Dziecko odeszło",
+    "ru": "Ребёнок ушел",
+    "ko": "아이 떠났다"
   },
   "tokens": [
     {
@@ -18,7 +24,13 @@
         "de": "Wer",
         "no": "Hvem",
         "da": "Hvem",
-        "sv": "Vem"
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
       },
       "example": {
         "en": "John Doe",
@@ -26,7 +38,13 @@
         "de": "Max Mustermann",
         "no": "Ola Nordmann",
         "da": "Navn Navnesen",
-        "sv": "Medel Svensson"
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
       }
     }
   ]
