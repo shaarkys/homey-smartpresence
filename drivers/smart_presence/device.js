@@ -185,14 +185,15 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const stressTest = this.shouldStressCheck();
     const interval = stressTest ? this.getStressModeInterval() : this.getNormalModeInterval();
     const timeout = stressTest ? this.getStressModeTimeout() : this.getNormalModeTimeout();
+    const timeSinceLastSeen = Math.floor(this.getSeenMillisAgo() / 1000); // Time since last seen in seconds
 
     // Add logging for stress period transitions
     if (stressTest !== this._isInStressMode) {
       this._isInStressMode = stressTest;
       if (stressTest) {
-        this.log(`Stress period started`);
+        this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period started`);
       } else {
-        this.log(`Stress period ended`);
+        //        this.log(`Stress period ended`);
       }
     }
 
@@ -301,6 +302,14 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     } else if (!present && (currentPresent || currentPresent === null)) {
       if (!this.shouldDelayAwayStateSwitch()) {
         this.log(`${this.getHost()} : is marked as offline`);
+
+        // Update stress mode status
+        if (this._isInStressMode) {
+          const timeSinceLastSeen = Math.floor(this.getSeenMillisAgo() / 1000);
+          this._isInStressMode = false;
+          this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period ended`);
+        }
+
         await this.setPresenceStatus(present);
         this.log(`Device is finally marked as unavailable`);
         await this.homey.app.deviceLeft(this, tokens);

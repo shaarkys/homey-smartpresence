@@ -64,5 +64,8 @@
   },
   "0.8.9": {
     "en": "Lastseen Capability not showing up"
+  },
+  "0.9.0": {
+    "en": "Added translations for all supported languages, fixed the \"First Kid\" and \"Guest\" triggers, and enhanced logging to handle edge cases."
   }
 }

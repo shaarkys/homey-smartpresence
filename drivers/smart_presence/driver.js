@@ -15,8 +15,18 @@ module.exports = class SmartPresenceDriver extends Homey.Driver {
   onInit() {
     this.log("SmartPresence driver has been initialized");
     const devices = this.getDevices();
+
     devices.forEach((device) => {
       const settings = device.getSettings();
+
+      // Determine the device type based on settings
+      let deviceType = "Normal Household Member";
+      if (settings.is_guest) {
+        deviceType = "Guest";
+      } else if (settings.is_kid) {
+        deviceType = "Kid";
+      }
+
       this.log(`Device Settings for ${device.getName()}:`, {
         Host: settings.host,
         Port: settings.port,
@@ -26,6 +36,7 @@ module.exports = class SmartPresenceDriver extends Homey.Driver {
         "Stress Period": `${settings.start_stressing_at} seconds`,
         "Stress Mode Check Interval": `${settings.stress_mode_interval} ms`,
         "Stress Host Timeout": `${settings.stress_host_timeout} seconds`,
+        "Device Type": deviceType,
       });
     });
   }
