@@ -3,15 +3,15 @@
     "title": "Smart Presence"
   },
   "pair": {
-    "configuration" : {
+    "configuration": {
       "name": "Navn:",
-      "ip_address" : "IP-adresse:",
-      "is_kid" : "Er barn:",
-      "is_guest" : "Er gjest:",
+      "ip_address": "Vertsnavn eller IP-adresse:",
+      "is_kid": "Er barn:",
+      "is_guest": "Er gjest:",
       "add_device_btn": "Legg til enhet",
       "invalid_device_name": "Mangler navn på enhet",
-      "missing_ip_address": "Mangler IP-adresse",
-      "invalid_ip_address": "Ugyldig IP-adresse"
+      "missing_ip_address": "Vertsnavn eller IP-adresse mangler",
+      "invalid_ip_address": "Ugyldig vertsnavn eller IP-adresse"
     }
   }
 }

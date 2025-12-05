@@ -44,13 +44,18 @@ module.exports = class SmartPresenceDriver extends Homey.Driver {
   async onPair(session) {
     session.setHandler("device_input", async (data) => {
       //this.log('device_input', data);
+      const host = (data.ip_address || "").trim();
+      const hostnamePattern = /^(?=.{1,253}$)(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.(?!-)[A-Za-z0-9-]{1,63}(?<!-))*$/;
+
       if (!data.devicename) {
         throw new Error(this.homey.__("pair.configuration.invalid_device_name"));
-      } else if (!data.ip_address) {
+      } else if (!host) {
         throw new Error(this.homey.__("pair.configuration.missing_ip_address"));
-      } else if (!net.isIP(data.ip_address)) {
+      } else if (!net.isIP(host) && !hostnamePattern.test(host)) {
         throw new Error(this.homey.__("pair.configuration.invalid_ip_address"));
       }
+
+      data.ip_address = host;
     });
   }
 };

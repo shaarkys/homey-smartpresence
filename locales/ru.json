@@ -5,13 +5,13 @@
   "pair": {
     "configuration": {
       "name": "Имя:",
-      "ip_address": "IP адрес:",
+      "ip_address": "Имя хоста или IP-адрес:",
       "is_kid": "Ребёнок:",
       "is_guest": "Гость:",
       "add_device_btn": "Добавить устройство",
       "invalid_device_name": "Отсутствует имя устройства",
-      "missing_ip_address": "Отсутствует IP адрес",
-      "invalid_ip_address": "Некорректный IP адрес"
+      "missing_ip_address": "Отсутствует имя хоста или IP-адрес",
+      "invalid_ip_address": "Неверное имя хоста или IP-адрес"
     }
   }
 }

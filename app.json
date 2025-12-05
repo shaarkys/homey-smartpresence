@@ -1299,7 +1299,7 @@
               "type": "text",
               "value": "0.0.0.0",
               "label": {
-                "en": "IP address",
+                "en": "Host or IP address",
                 "nl": "IP adres",
                 "de": "IP-Adresse",
                 "no": "IP-adresse",
@@ -1313,7 +1313,7 @@
                 "ko": "IP 주소"
               },
               "hint": {
-                "en": "The IP address must be statically assigned to the device via DHCP. Be aware that random MAC address settings on mobile phones will affect device tracking.",
+                "en": "Enter the hostname or IP address. Prefer a static IP/DHCP reservation; random MAC address settings on phones can affect tracking.",
                 "nl": "Het IP adres moet via DHCP statisch zijn toegewezen aan dit apparaat. Wees je ervan bewust dat willekeurige MAC-adresinstellingen op mobiele telefoons de apparaatvolging zullen beïnvloeden.",
                 "de": "Die IP-Adresse muss über DHCP fest dem Gerät zugewiesen werden. Beachten Sie, dass zufällige MAC-Adresseneinstellungen auf Mobiltelefonen das Gerätetracking beeinflussen werden.",
                 "no": "Enheten må tilordnes en statisk IP-adresse via DHCP. Vær oppmerksom på at tilfeldige MAC-adresseinnstillinger på mobiltelefoner vil påvirke enhetssporing.",

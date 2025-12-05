@@ -3,15 +3,15 @@
     "title": "Smart Presence"
   },
   "pair": {
-    "configuration" : {
+    "configuration": {
       "name": "Name:",
-      "ip_address" : "IP address:",
-      "is_kid" : "Is kid:",
-      "is_guest" : "Is guest:",
+      "ip_address": "Host or IP address:",
+      "is_kid": "Is kid:",
+      "is_guest": "Is guest:",
       "add_device_btn": "Add device",
       "invalid_device_name": "Missing device name",
-      "missing_ip_address": "Missing IP address",
-      "invalid_ip_address": "Invalid IP address"
+      "missing_ip_address": "Missing host or IP address",
+      "invalid_ip_address": "Invalid host or IP address"
     }
   }
 }

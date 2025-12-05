@@ -5,13 +5,13 @@
   "pair": {
     "configuration": {
       "name": "Nombre:",
-      "ip_address": "Dirección IP:",
+      "ip_address": "Host o dirección IP:",
       "is_kid": "¿Es niño?",
       "is_guest": "¿Es invitado?",
       "add_device_btn": "Agregar dispositivo",
       "invalid_device_name": "Falta el nombre del dispositivo",
-      "missing_ip_address": "Falta la dirección IP",
-      "invalid_ip_address": "Dirección IP no válida"
+      "missing_ip_address": "Falta host o dirección IP",
+      "invalid_ip_address": "Host o dirección IP no válida"
     }
   }
 }

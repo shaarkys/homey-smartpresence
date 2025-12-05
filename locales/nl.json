@@ -3,15 +3,15 @@
     "title": "Smart Presence"
   },
   "pair": {
-    "configuration" : {
+    "configuration": {
       "name": "Naam:",
-      "ip_address": "IP adres:",
-      "is_kid" : "Is kind:",
+      "ip_address": "Host of IP-adres:",
+      "is_kid": "Is kind:",
       "is_guest": "Is gast:",
       "add_device_btn": "Voeg apparaat toe",
       "invalid_device_name": "Apparaat naam ontbreekt",
-      "missing_ip_address": "IP-adres ontbreekt",
-      "invalid_ip_address": "IP-adres is ongeldig"
+      "missing_ip_address": "Host of IP-adres ontbreekt",
+      "invalid_ip_address": "Ongeldig host- of IP-adres"
     }
   }
 }
