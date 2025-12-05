@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": {
+    "en": "Device type"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "icon": "./assets/home.svg"
+}

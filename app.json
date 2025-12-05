@@ -1231,23 +1231,19 @@
       "class": "sensor",
       "capabilities": [
         "presence",
-        "lastseen"
+        "lastseen_date",
+        "lastseen_time",
+        "device_type"
       ],
       "capabilitiesOptions": {
-        "lastseen": {
+        "lastseen_date": {
           "title": {
-            "en": "Last Seen",
-            "nl": "Laatst gezien",
-            "da": "Sidst set",
-            "de": "Zuletzt gesehen",
-            "es": "Última vez visto",
-            "fr": "Vu pour la dernière fois",
-            "it": "Ultima visualizzazione",
-            "no": "Sist sett",
-            "sv": "Senast sedd",
-            "pl": "Ostatnio widziany",
-            "ru": "Последний раз видели",
-            "ko": "마지막으로 본"
+            "en": "Date seen"
+          }
+        },
+        "lastseen_time": {
+          "title": {
+            "en": "Time seen"
           }
         }
       },
@@ -1262,7 +1258,8 @@
           {
             "id": "sensor",
             "capabilities": [
-              "lastseen"
+              "lastseen_date",
+              "lastseen_time"
             ]
           }
         ]
@@ -1300,31 +1297,31 @@
               "value": "0.0.0.0",
               "label": {
                 "en": "Host or IP address",
-                "nl": "IP adres",
-                "de": "IP-Adresse",
-                "no": "IP-adresse",
-                "da": "IP-adresse",
-                "sv": "IP-adress",
-                "es": "Dirección IP",
-                "fr": "Adresse IP",
-                "it": "Indirizzo IP",
-                "pl": "Adres IP",
-                "ru": "IP-адрес",
-                "ko": "IP 주소"
+                "nl": "Host of IP-adres",
+                "de": "Host- oder IP-Adresse",
+                "no": "Vertsnavn eller IP-adresse",
+                "da": "Værtsnavn eller IP-adresse",
+                "sv": "Värdnamn eller IP-adress",
+                "es": "Host o dirección IP",
+                "fr": "Nom d'hôte ou adresse IP",
+                "it": "Host o indirizzo IP",
+                "pl": "Nazwa hosta lub adres IP",
+                "ru": "Имя хоста или IP-адрес",
+                "ko": "호스트 또는 IP 주소"
               },
               "hint": {
                 "en": "Enter the hostname or IP address. Prefer a static IP/DHCP reservation; random MAC address settings on phones can affect tracking.",
-                "nl": "Het IP adres moet via DHCP statisch zijn toegewezen aan dit apparaat. Wees je ervan bewust dat willekeurige MAC-adresinstellingen op mobiele telefoons de apparaatvolging zullen beïnvloeden.",
-                "de": "Die IP-Adresse muss über DHCP fest dem Gerät zugewiesen werden. Beachten Sie, dass zufällige MAC-Adresseneinstellungen auf Mobiltelefonen das Gerätetracking beeinflussen werden.",
-                "no": "Enheten må tilordnes en statisk IP-adresse via DHCP. Vær oppmerksom på at tilfeldige MAC-adresseinnstillinger på mobiltelefoner vil påvirke enhetssporing.",
-                "da": "Enheden skal have tildelt en fast IP-adresse via DHCP. Vær opmærksom på, at tilfældige MAC-adresseindstillinger på mobiltelefoner vil påvirke enhedssporing.",
-                "sv": "Enheten måste tilldelas en fast IP-adress via DHCP. Var medveten om att slumpmässiga MAC-adressinställningar på mobiltelefoner kommer att påverka enhetsspårning.",
-                "es": "La dirección IP debe asignarse estáticamente al dispositivo a través de DHCP. Tenga en cuenta que la configuración aleatoria de direcciones MAC en los teléfonos móviles afectará el seguimiento del dispositivo.",
-                "fr": "L'adresse IP doit être attribuée statiquement à l'appareil via DHCP. Sachez que les réglages aléatoires des adresses MAC sur les téléphones mobiles affecteront le suivi de l'appareil.",
-                "it": "L'indirizzo IP deve essere assegnato staticamente al dispositivo tramite DHCP. Si prega di notare che le impostazioni casuali degli indirizzi MAC sui telefoni cellulari influenzeranno il tracciamento del dispositivo.",
-                "pl": "Adres IP musi być statycznie przypisany do urządzenia za pośrednictwem DHCP. Należy pamiętać, że losowe ustawienia adresów MAC na telefonach komórkowych wpłyną na śledzenie urządzenia.",
-                "ru": "IP-адрес должен быть статически назначен устройству через DHCP. Учтите, что случайные настройки MAC-адресов на мобильных телефонах могут повлиять на отслеживание устройств.",
-                "ko": "IP 주소는 DHCP를 통해 장치에 정적으로 할당되어야 합니다. 휴대전화의 임의 MAC 주소 설정이 장치 추적에 영향을 줄 수 있습니다."
+                "nl": "Voer de hostnaam of het IP-adres in. Geef voorkeur aan een statisch IP/DHCP-reservering; willekeurige MAC-adressen op telefoons kunnen tracking beïnvloeden.",
+                "de": "Geben Sie Hostname oder IP-Adresse ein. Bevorzugen Sie eine statische IP/DHCP-Reservierung; zufällige MAC-Adressen auf Handys können das Tracking beeinträchtigen.",
+                "no": "Angi vertsnavn eller IP-adresse. Bruk helst statisk IP/DHCP-reservasjon; tilfeldige MAC-adresser på telefoner kan påvirke sporing.",
+                "da": "Angiv værtsnavn eller IP-adresse. Brug helst statisk IP/DHCP-reservation; tilfældige MAC-adresser på telefoner kan påvirke sporing.",
+                "sv": "Ange värdnamn eller IP-adress. Använd helst statisk IP/DHCP-reservation; slumpmässiga MAC-adresser på telefoner kan påverka spårning.",
+                "es": "Introduzca el nombre de host o la dirección IP. Prefiera una IP estática/reserva DHCP; las MAC aleatorias en los teléfonos pueden afectar el seguimiento.",
+                "fr": "Saisissez le nom d'hôte ou l'adresse IP. Préférez une IP statique/réservation DHCP ; les adresses MAC aléatoires sur les téléphones peuvent affecter le suivi.",
+                "it": "Inserire il nome host o l'indirizzo IP. Preferire un IP statico/prenotazione DHCP; MAC casuali sui telefoni possono influire sul tracciamento.",
+                "pl": "Wprowadź nazwę hosta lub adres IP. Preferuj statyczny adres IP/rezerwację DHCP; losowe adresy MAC w telefonach mogą wpływać na śledzenie.",
+                "ru": "Укажите имя хоста или IP-адрес. Лучше использовать статический IP/резервацию DHCP; случайные MAC-адреса на телефонах могут влиять на отслеживание.",
+                "ko": "호스트 이름 또는 IP 주소를 입력하세요. 고정 IP/DHCP 예약을 권장하며, 휴대폰의 랜덤 MAC 설정은 추적에 영향을 줄 수 있습니다."
               }
             },
             {
@@ -1780,42 +1777,35 @@
     }
   ],
   "capabilities": {
-    "lastseen": {
+    "device_type": {
       "type": "string",
       "title": {
-        "en": "Last Seen",
-        "nl": "Laatst Gezien",
-        "de": "Zuletzt Gesehen",
-        "no": "Sist Sett",
-        "da": "Sidst Set",
-        "sv": "Senast Sedd",
-        "es": "Visto por última vez",
-        "fr": "Dernière Vue",
-        "it": "Ultima Visualizzazione",
-        "pl": "Ostatnio Widziany",
-        "ru": "Последний Раз Видели",
-        "ko": "마지막 본 시간"
+        "en": "Device type"
       },
       "getable": true,
       "setable": false,
       "insights": false,
-      "insightsLog": true,
-      "uiComponent": "sensor",
-      "insightsTitle": {
-        "en": "Last Seen",
-        "nl": "Laatst Gezien",
-        "de": "Zuletzt Gesehen",
-        "no": "Sist Sett",
-        "da": "Sidst Set",
-        "sv": "Senast Sedd",
-        "es": "Visto por última vez",
-        "fr": "Dernière Vue",
-        "it": "Ultima Visualizzazione",
-        "pl": "Ostatnio Widziany",
-        "ru": "Последний Раз Видели",
-        "ko": "마지막 본 시간"
+      "icon": "./assets/home.svg"
+    },
+    "lastseen_date": {
+      "type": "string",
+      "title": {
+        "en": "Last seen (date)"
       },
-      "icon": "./assets/lastseen.svg"
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "icon": "./assets/datesuccess.svg"
+    },
+    "lastseen_time": {
+      "type": "string",
+      "title": {
+        "en": "Last seen (time)"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "icon": "./assets/timesuccess.svg"
     },
     "presence": {
       "type": "boolean",

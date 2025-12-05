@@ -22,23 +22,19 @@
   "class": "sensor",
   "capabilities": [
     "presence",
-    "lastseen"
+    "lastseen_date",
+    "lastseen_time",
+    "device_type"
   ],
   "capabilitiesOptions": {
-    "lastseen": {
+    "lastseen_date": {
       "title": {
-        "en": "Last Seen",
-        "nl": "Laatst gezien",
-        "da": "Sidst set",
-        "de": "Zuletzt gesehen",
-        "es": "Última vez visto",
-        "fr": "Vu pour la dernière fois",
-        "it": "Ultima visualizzazione",
-        "no": "Sist sett",
-        "sv": "Senast sedd",
-        "pl": "Ostatnio widziany",
-        "ru": "Последний раз видели",
-        "ko": "마지막으로 본"
+        "en": "Date seen"
+      }
+    },
+    "lastseen_time": {
+      "title": {
+        "en": "Time seen"
       }
     }
   },
@@ -53,7 +49,8 @@
       {
         "id": "sensor",
         "capabilities": [
-          "lastseen"
+          "lastseen_date",
+          "lastseen_time"
         ]
       }
     ]

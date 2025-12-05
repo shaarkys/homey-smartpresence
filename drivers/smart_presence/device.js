@@ -3,8 +3,8 @@
 const Homey = require("homey");
 const net = require("net");
 
-function formatLastSeen(timestamp, homey) {
-  // Format using the user's timezone and locale so date order matches region (US/UK/EU)
+function formatLastSeenDate(timestamp, homey) {
+  // Locale-aware date only (e.g., 17.11.2025 or 11/17/2025)
   const userTimezone = homey.clock.getTimezone();
   const language = homey.i18n?.getLanguage?.();
   const country = homey.i18n?.getCountry?.();
@@ -15,9 +15,20 @@ function formatLastSeen(timestamp, homey) {
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
+  }).format(new Date(timestamp));
+}
+
+function formatLastSeenTime(timestamp, homey) {
+  // Locale-aware time only, forced 24h (e.g., 15:45)
+  const userTimezone = homey.clock.getTimezone();
+  const language = homey.i18n?.getLanguage?.();
+  const country = homey.i18n?.getCountry?.();
+  const locale = [language, country].filter(Boolean).join("-") || "en-US";
+
+  return new Intl.DateTimeFormat(locale, {
+    timeZone: userTimezone,
     hour: "2-digit",
     minute: "2-digit",
-    second: "2-digit",
     hour12: false,
   }).format(new Date(timestamp));
 }
@@ -38,15 +49,36 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._present = this.getCapabilityValue("presence");
     this._lastSeen = this.getStoreValue("lastSeen") || 0;
 
-    // Check and add the lastseen capability dynamically
-    if (!this.hasCapability("lastseen")) {
-      await this.addCapability("lastseen");
+    if (this.hasCapability("lastseen")) {
+      await this.removeCapability("lastseen").catch(this.error);
+    }
+    if (!this.hasCapability("lastseen_date")) {
+      await this.addCapability("lastseen_date");
+    }
+    if (!this.hasCapability("lastseen_time")) {
+      await this.addCapability("lastseen_time");
+    }
+    if (!this.hasCapability("device_type")) {
+      await this.addCapability("device_type");
+    }
+    await this.updateDeviceTypeCapability();
+
+    if (this._lastSeen) {
+      await this.setLastSeenCapabilities(this._lastSeen);
     }
 
     this._isInStressMode = false; // Initialize the stress mode status
     this._isUnreachable = false; // Initialize device responsiveness status
 
     this.scan();
+  }
+
+  async notifyTimeline(excerpt) {
+    try {
+      await this.homey.notifications.createNotification({ excerpt });
+    } catch (err) {
+      this.log("Timeline notification failed", err.message);
+    }
   }
 
   async _migrate() {
@@ -83,6 +115,9 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this._settings = newSettings;
+    if (changedKeys.includes("is_guest") || changedKeys.includes("is_kid")) {
+      await this.updateDeviceTypeCapability();
+    }
   }
 
   getHost() {
@@ -138,20 +173,23 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     return this._lastSeen;
   }
 
+  async setLastSeenCapabilities(timestamp) {
+    const lastSeenDate = formatLastSeenDate(timestamp, this.homey);
+    const lastSeenTime = formatLastSeenTime(timestamp, this.homey);
+    await this.setCapabilityValue("lastseen_date", lastSeenDate).catch(this.error);
+    await this.setCapabilityValue("lastseen_time", lastSeenTime).catch(this.error);
+  }
+
   async updateLastSeen() {
     const now = Date.now();
 
     // Update the last seen time in store if more than 60 seconds have passed since the last update
     if (!this._lastSeen || now - this._lastSeen > 60000) {
       try {
-        // Format the timestamp after updating it
-        const lastSeenFormatted = formatLastSeen(now, this.homey);
-        // Update the 'lastseen' capability with the formatted timestamp
-        await this.setCapabilityValue("lastseen", lastSeenFormatted).catch(this.error); // Update lastseen capability
+        await this.setLastSeenCapabilities(now);
         this._lastSeen = now;
         // Store the raw timestamp in the store
         await this.setStoreValue("lastSeen", now);
-        //this.log('Updated last seen:', lastSeenFormatted);
       } catch (err) {
         this.log("Error updating last seen:", err.message);
       }
@@ -198,14 +236,19 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const interval = stressTest ? this.getStressModeInterval() : this.getNormalModeInterval();
     const timeout = stressTest ? this.getStressModeTimeout() : this.getNormalModeTimeout();
     const timeSinceLastSeen = Math.floor(this.getSeenMillisAgo() / 1000); // Time since last seen in seconds
+    const deviceName = this.getName();
 
     // Add logging for stress period transitions
     if (stressTest !== this._isInStressMode) {
       this._isInStressMode = stressTest;
       if (stressTest) {
-        this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period started`);
+        const msg = `Time since last seen: ${timeSinceLastSeen}s - Stress period started for ${deviceName}`;
+        this.log(msg);
+        await this.notifyTimeline(msg);
       } else {
-        //        this.log(`Stress period ended`);
+        const msg = `Stress period ended for ${deviceName}`;
+        this.log(msg);
+        await this.notifyTimeline(msg);
       }
     }
 
@@ -238,6 +281,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       // Log timeout only if the device was previously online
       if (this._present) {
         this.log(`${host}:${port} Timeout -> Offline`);
+        const msg = `${this.getName()} timeout after ${Math.floor(timeout / 1000)}s (${host}:${port}) -> Offline`;
+        this.notifyTimeline(msg);
       }
 
       this._isUnreachable = true; // Device is unresponsive due to timeout
@@ -346,6 +391,18 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   getPresenceStatus() {
     return this._present;
+  }
+
+  getDeviceTypeValue() {
+    if (this.isGuest() && this.isKid()) return "Guest (Kid)";
+    if (this.isGuest()) return "Guest";
+    if (this.isKid()) return "Kid";
+    return "Member";
+  }
+
+  async updateDeviceTypeCapability() {
+    const value = this.getDeviceTypeValue();
+    await this.setCapabilityValue("device_type", value).catch(this.error);
   }
 
   async setPresenceStatus(present) {
