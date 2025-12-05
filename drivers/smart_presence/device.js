@@ -66,7 +66,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._deleted = true;
     this.destroyClient();
     this.clearScanTimer();
-    this.log(`Device ${device.getName()} Deleted.`);
+    this.log(`Device ${this.getName()} Deleted.`);
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {

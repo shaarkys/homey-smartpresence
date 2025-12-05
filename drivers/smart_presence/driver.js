@@ -9,7 +9,7 @@ module.exports = class SmartPresenceDriver extends Homey.Driver {
    */
   log(...args) {
     const timestamp = new Date().toISOString();
-    console.log(`${timestamp} [Driver log : `, ...args);
+    console.log(`${timestamp} [Driver log]:`, ...args);
   }
 
   onInit() {
