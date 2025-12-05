@@ -2,12 +2,23 @@
 
 const Homey = require("homey");
 const net = require("net");
-const moment = require("moment-timezone");
 
 function formatLastSeen(timestamp, homey) {
-  // Use homey.clock.getTimezone() to get the user's timezone
+  // Format using the user's timezone and locale so date order matches region (US/UK/EU)
   const userTimezone = homey.clock.getTimezone();
-  return moment(timestamp).tz(userTimezone).format("DD/MM HH:mm:ss");
+  const language = homey.i18n?.getLanguage?.();
+  const country = homey.i18n?.getCountry?.();
+  const locale = [language, country].filter(Boolean).join("-") || "en-US";
+
+  return new Intl.DateTimeFormat(locale, {
+    timeZone: userTimezone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).format(new Date(timestamp));
 }
 
 module.exports = class SmartPresenceDevice extends Homey.Device {
