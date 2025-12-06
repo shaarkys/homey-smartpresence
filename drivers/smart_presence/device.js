@@ -47,6 +47,9 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._settings = this.getSettings();
     await this._migrate();
     this._present = this.getCapabilityValue("presence");
+    if (this._present === null || typeof this._present === "undefined") {
+      this._present = false; // default to offline so first detection always records a full cycle
+    }
     this._lastSeen = this.getStoreValue("lastSeen") || 0;
 
     if (this.hasCapability("lastseen")) {
@@ -126,11 +129,11 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   getPort() {
     const port = this._settings.port;
-    if (port !== 32000) {
-      return port;
+    if (port === null || typeof port === "undefined") {
+      const numbers = ["32001", "32000"];
+      return numbers[Math.floor(Math.random() * numbers.length)];
     }
-    const numbers = ["32001", "32000"];
-    return numbers[Math.floor(Math.random() * numbers.length)];
+    return port;
   }
 
   getNormalModeInterval() {
@@ -337,11 +340,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const currentPresent = this.getPresenceStatus();
     const tokens = this.getFlowCardTokens();
 
-    if (present) {
-      await this.updateLastSeen(); // Update last seen time when presence is detected
-    }
-
     if (present && !currentPresent) {
+      await this.updateLastSeen(); // Update last seen only when transitioning to present
       this.log(`${this.getHost()} - ${this.getName()}: is online`);
       await this.setPresenceStatus(present);
       await this.homey.app.deviceArrived(this);
@@ -356,7 +356,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       if (this.isGuest()) {
         await this.homey.app.guestArrivedTrigger.trigger(tokens, {}).catch(this.error);
       }
-    } else if (!present && (currentPresent || currentPresent === null)) {
+    } else if (!present && currentPresent !== false) {
       if (!this.shouldDelayAwayStateSwitch()) {
         this.log(`${this.getHost()} : is marked as offline`);
 
