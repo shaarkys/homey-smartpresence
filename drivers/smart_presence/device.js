@@ -76,14 +76,6 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this.scan();
   }
 
-  async notifyTimeline(excerpt) {
-    try {
-      await this.homey.notifications.createNotification({ excerpt });
-    } catch (err) {
-      this.log("Timeline notification failed", err.message);
-    }
-  }
-
   async _migrate() {
     try {
       const ver = this.getStoreValue("ver");
@@ -245,13 +237,9 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     if (stressTest !== this._isInStressMode) {
       this._isInStressMode = stressTest;
       if (stressTest) {
-        const msg = `Time since last seen: ${timeSinceLastSeen}s - Stress period started for ${deviceName}`;
-        this.log(msg);
-        await this.notifyTimeline(msg);
+        this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period started for ${deviceName}`);
       } else {
-        const msg = `Stress period ended for ${deviceName}`;
-        this.log(msg);
-        await this.notifyTimeline(msg);
+        this.log(`Stress period ended for ${deviceName}`);
       }
     }
 
@@ -283,9 +271,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
       // Log timeout only if the device was previously online
       if (this._present) {
-        this.log(`${host}:${port} Timeout -> Offline`);
-        const msg = `${this.getName()} timeout after ${Math.floor(timeout / 1000)}s (${host}:${port}) -> Offline`;
-        this.notifyTimeline(msg);
+        this.log(`${host}:${port} Timeout after ${Math.floor(timeout / 1000)}s -> Offline`);
       }
 
       this._isUnreachable = true; // Device is unresponsive due to timeout
