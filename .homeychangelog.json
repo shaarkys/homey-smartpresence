@@ -76,5 +76,8 @@
   },
   "0.9.3": {
     "en": "Time seen to be updated only after device detected present"
+  },
+  "0.9.4": {
+    "en": "Remove timeline notify"
   }
 }
