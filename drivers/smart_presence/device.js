@@ -51,6 +51,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       this._present = false; // default to offline so first detection always records a full cycle
     }
     this._lastSeen = this.getStoreValue("lastSeen") || 0;
+    this._lastSeenPersisted = this._lastSeen;
 
     if (this.hasCapability("lastseen")) {
       await this.removeCapability("lastseen").catch(this.error);
@@ -178,13 +179,15 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   async updateLastSeen() {
     const now = Date.now();
 
-    // Update the last seen time in store if more than 60 seconds have passed since the last update
-    if (!this._lastSeen || now - this._lastSeen > 60000) {
+    // Always refresh in-memory timestamp so short drops do not accumulate "time since last seen"
+    this._lastSeen = now;
+
+    // Persist to capabilities/store at most once per minute to avoid noisy writes
+    if (!this._lastSeenPersisted || now - this._lastSeenPersisted > 60000) {
       try {
         await this.setLastSeenCapabilities(now);
-        this._lastSeen = now;
-        // Store the raw timestamp in the store
         await this.setStoreValue("lastSeen", now);
+        this._lastSeenPersisted = now;
       } catch (err) {
         this.log("Error updating last seen:", err.message);
       }
@@ -326,21 +329,25 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const currentPresent = this.getPresenceStatus();
     const tokens = this.getFlowCardTokens();
 
-    if (present && !currentPresent) {
-      await this.updateLastSeen(); // Update last seen only when transitioning to present
-      this.log(`${this.getHost()} - ${this.getName()}: is online`);
-      await this.setPresenceStatus(present);
-      await this.homey.app.deviceArrived(this);
-      await this.homey.app.userEnteredTrigger.trigger(this, tokens, {}).catch(this.error);
-      await this.homey.app.someoneEnteredTrigger.trigger(tokens, {}).catch(this.error);
-      if (this.isHouseHoldMember()) {
-        await this.homey.app.householdMemberArrivedTrigger.trigger(tokens, {}).catch(this.error);
-      }
-      if (this.isKid()) {
-        await this.homey.app.kidArrivedTrigger.trigger(tokens, {}).catch(this.error);
-      }
-      if (this.isGuest()) {
-        await this.homey.app.guestArrivedTrigger.trigger(tokens, {}).catch(this.error);
+    if (present) {
+      // Refresh last-seen even when already marked present so short drops don't trip away delay
+      await this.updateLastSeen();
+
+      if (!currentPresent) {
+        this.log(`${this.getHost()} - ${this.getName()}: is online`);
+        await this.setPresenceStatus(present);
+        await this.homey.app.deviceArrived(this);
+        await this.homey.app.userEnteredTrigger.trigger(this, tokens, {}).catch(this.error);
+        await this.homey.app.someoneEnteredTrigger.trigger(tokens, {}).catch(this.error);
+        if (this.isHouseHoldMember()) {
+          await this.homey.app.householdMemberArrivedTrigger.trigger(tokens, {}).catch(this.error);
+        }
+        if (this.isKid()) {
+          await this.homey.app.kidArrivedTrigger.trigger(tokens, {}).catch(this.error);
+        }
+        if (this.isGuest()) {
+          await this.homey.app.guestArrivedTrigger.trigger(tokens, {}).catch(this.error);
+        }
       }
     } else if (!present && currentPresent !== false) {
       if (!this.shouldDelayAwayStateSwitch()) {
