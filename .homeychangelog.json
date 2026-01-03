@@ -82,5 +82,8 @@
   },
   "0.9.5": {
     "en": "Internal optimisations"
+  },
+  "0.9.6": {
+    "en": "New logo + re-added combined last seen date time"
   }
 }
