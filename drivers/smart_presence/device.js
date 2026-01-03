@@ -4,18 +4,32 @@ const Homey = require("homey");
 const net = require("net");
 
 function formatLastSeenDate(timestamp, homey) {
-  // Locale-aware date only (e.g., 17.11.2025 or 11/17/2025)
+  // Locale-aware date only (US uses month-first, others day-first)
   const userTimezone = homey.clock.getTimezone();
   const language = homey.i18n?.getLanguage?.();
   const country = homey.i18n?.getCountry?.();
-  const locale = [language, country].filter(Boolean).join("-") || "en-US";
+  const locale = [language, country].filter(Boolean).join("-") || "en-GB";
+  const isUsFormat = typeof country === "string" && country.toUpperCase() === "US";
 
-  return new Intl.DateTimeFormat(locale, {
+  const formatter = new Intl.DateTimeFormat(locale, {
     timeZone: userTimezone,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(new Date(timestamp));
+  });
+  const parts = formatter.formatToParts(new Date(timestamp));
+  const values = {};
+  for (const part of parts) {
+    if (part.type === "day" || part.type === "month" || part.type === "year") {
+      values[part.type] = part.value;
+    }
+  }
+  if (!values.day || !values.month || !values.year) {
+    return formatter.format(new Date(timestamp));
+  }
+  return isUsFormat
+    ? `${values.month}/${values.day}/${values.year}`
+    : `${values.day}/${values.month}/${values.year}`;
 }
 
 function formatLastSeenTime(timestamp, homey) {
@@ -31,6 +45,12 @@ function formatLastSeenTime(timestamp, homey) {
     minute: "2-digit",
     hour12: false,
   }).format(new Date(timestamp));
+}
+
+function formatLastSeenDateTime(timestamp, homey) {
+  const lastSeenDate = formatLastSeenDate(timestamp, homey);
+  const lastSeenTime = formatLastSeenTime(timestamp, homey);
+  return `${lastSeenDate} ${lastSeenTime}`;
 }
 
 module.exports = class SmartPresenceDevice extends Homey.Device {
@@ -53,17 +73,24 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._lastSeen = this.getStoreValue("lastSeen") || 0;
     this._lastSeenPersisted = this._lastSeen;
 
-    if (this.hasCapability("lastseen")) {
-      await this.removeCapability("lastseen").catch(this.error);
-    }
-    if (!this.hasCapability("lastseen_date")) {
-      await this.addCapability("lastseen_date");
-    }
-    if (!this.hasCapability("lastseen_time")) {
-      await this.addCapability("lastseen_time");
-    }
-    if (!this.hasCapability("device_type")) {
-      await this.addCapability("device_type");
+    try {
+      if (this.hasCapability("lastseen")) {
+        await this.removeCapability("lastseen");
+      }
+      if (!this.hasCapability("lastseen_date")) {
+        await this.addCapability("lastseen_date");
+      }
+      if (!this.hasCapability("lastseen_time")) {
+        await this.addCapability("lastseen_time");
+      }
+      if (!this.hasCapability("lastseen_datetime")) {
+        await this.addCapability("lastseen_datetime");
+      }
+      if (!this.hasCapability("device_type")) {
+        await this.addCapability("device_type");
+      }
+    } catch (err) {
+      this.log("Capability update failed during init", err);
     }
     await this.updateDeviceTypeCapability();
 
@@ -172,8 +199,10 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   async setLastSeenCapabilities(timestamp) {
     const lastSeenDate = formatLastSeenDate(timestamp, this.homey);
     const lastSeenTime = formatLastSeenTime(timestamp, this.homey);
+    const lastSeenDateTime = formatLastSeenDateTime(timestamp, this.homey);
     await this.setCapabilityValue("lastseen_date", lastSeenDate).catch(this.error);
     await this.setCapabilityValue("lastseen_time", lastSeenTime).catch(this.error);
+    await this.setCapabilityValue("lastseen_datetime", lastSeenDateTime).catch(this.error);
   }
 
   async updateLastSeen() {

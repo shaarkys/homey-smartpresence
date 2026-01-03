@@ -24,6 +24,7 @@
     "presence",
     "lastseen_date",
     "lastseen_time",
+    "lastseen_datetime",
     "device_type"
   ],
   "capabilitiesOptions": {
@@ -35,6 +36,11 @@
     "lastseen_time": {
       "title": {
         "en": "Time seen"
+      }
+    },
+    "lastseen_datetime": {
+      "title": {
+        "en": "Last seen (date/time)"
       }
     }
   },

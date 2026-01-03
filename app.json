@@ -1233,6 +1233,7 @@
         "presence",
         "lastseen_date",
         "lastseen_time",
+        "lastseen_datetime",
         "device_type"
       ],
       "capabilitiesOptions": {
@@ -1244,6 +1245,11 @@
         "lastseen_time": {
           "title": {
             "en": "Time seen"
+          }
+        },
+        "lastseen_datetime": {
+          "title": {
+            "en": "Last seen (date/time)"
           }
         }
       },
@@ -1796,6 +1802,16 @@
       "setable": false,
       "insights": false,
       "icon": "./assets/datesuccess.svg"
+    },
+    "lastseen_datetime": {
+      "type": "string",
+      "title": {
+        "en": "Last seen (date/time)"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "icon": "./assets/lastseen.svg"
     },
     "lastseen_time": {
       "type": "string",
