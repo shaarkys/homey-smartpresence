@@ -85,5 +85,8 @@
   },
   "0.9.6": {
     "en": "New logo + re-added combined last seen date time"
+  },
+  "0.9.7": {
+    "en": "Changed year date format to 2 digits"
   }
 }
