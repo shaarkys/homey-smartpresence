@@ -88,5 +88,8 @@
   },
   "0.9.7": {
     "en": "Changed year date format to 2 digits"
+  },
+  "0.9.8": {
+    "en": "Adjusted the Korean Flow condition titles"
   }
 }
