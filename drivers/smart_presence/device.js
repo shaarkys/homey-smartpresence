@@ -233,7 +233,14 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       return;
     }
 
-    const durationSeconds = Math.max(0, Math.round((lastAt - startedAt) / 1000));
+    const isRecovery = reason === "device detected again";
+    if (isRecovery && total < 2) {
+      this.resetOfflineProbeStats();
+      return;
+    }
+
+    const durationEnd = isRecovery ? Date.now() : lastAt;
+    const durationSeconds = Math.max(0, Math.round((durationEnd - startedAt) / 1000));
     this.log(
       `${host}:${port} Offline probe summary (${reason}): total=${total}, timeouts=${timeouts}, errors=${errors}, exceptions=${exceptions}, duration=${durationSeconds}s`,
     );
