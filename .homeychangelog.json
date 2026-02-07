@@ -94,5 +94,8 @@
   },
   "0.9.9": {
     "en": "Fixed async presence error handling, stress-mode bounds, and host input trimming."
+  },
+  "0.9.10": {
+    "en": "Reduced log noise by aggregating offline probe failures"
   }
 }
