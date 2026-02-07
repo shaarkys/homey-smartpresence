@@ -100,6 +100,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
     this._isInStressMode = false; // Initialize the stress mode status
     this._isUnreachable = false; // Initialize device responsiveness status
+    this.resetOfflineProbeStats();
 
     this.scan();
   }
@@ -194,6 +195,49 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   getLastSeen() {
     return this._lastSeen;
+  }
+
+  resetOfflineProbeStats() {
+    this._offlineProbeStats = {
+      host: undefined,
+      port: undefined,
+      startedAt: 0,
+      lastAt: 0,
+      timeouts: 0,
+      errors: 0,
+      exceptions: 0,
+    };
+  }
+
+  trackOfflineProbe(type, host, port) {
+    const now = Date.now();
+    if (!this._offlineProbeStats.startedAt) {
+      this._offlineProbeStats.startedAt = now;
+      this._offlineProbeStats.host = host;
+      this._offlineProbeStats.port = port;
+    }
+    this._offlineProbeStats.lastAt = now;
+    if (type === "timeout") {
+      this._offlineProbeStats.timeouts += 1;
+    } else if (type === "error") {
+      this._offlineProbeStats.errors += 1;
+    } else if (type === "exception") {
+      this._offlineProbeStats.exceptions += 1;
+    }
+  }
+
+  flushOfflineProbeStats(reason) {
+    const { host, port, startedAt, lastAt, timeouts, errors, exceptions } = this._offlineProbeStats;
+    const total = timeouts + errors + exceptions;
+    if (!total) {
+      return;
+    }
+
+    const durationSeconds = Math.max(0, Math.round((lastAt - startedAt) / 1000));
+    this.log(
+      `${host}:${port} Offline probe summary (${reason}): total=${total}, timeouts=${timeouts}, errors=${errors}, exceptions=${exceptions}, duration=${durationSeconds}s`,
+    );
+    this.resetOfflineProbeStats();
   }
 
   async setLastSeenCapabilities(timestamp) {
@@ -304,9 +348,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this.cancelCheck = this.homey.setTimeout(() => {
       this.destroyClient();
 
-      // Log timeout only if the device was previously online
       if (this._present) {
-        this.log(`${host}:${port} Timeout after ${Math.floor(timeout / 1000)}s -> Offline`);
+        this.trackOfflineProbe("timeout", host, port);
       }
 
       this._isUnreachable = true; // Device is unresponsive due to timeout
@@ -317,15 +360,15 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       this.destroyClient();
       if (err && (err.errno === "ECONNREFUSED" || err.code === "ECONNREFUSED")) {
         // Connection refused indicates the device is online
+        this.flushOfflineProbeStats("device detected again");
         if (!this._present) {
           this.log(`${host}:${port} Connection refused -> Online`);
         }
         this._isUnreachable = false; // Device is responsive
         this.setPresent(true).catch((err) => this.log("Failed to update presence after connection refused", err));
       } else {
-        // Log error only if the device was previously online
         if (this._present) {
-          this.log(`${host}:${port} Error -> Offline`);
+          this.trackOfflineProbe("error", host, port);
         }
         this._isUnreachable = true; // Device is unresponsive due to error
         this.setPresent(false).catch((err) => this.log("Failed to update presence after socket error", err));
@@ -335,6 +378,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     try {
       this.client.connect(port, host, () => {
         this.destroyClient();
+
+        this.flushOfflineProbeStats("device detected again");
 
         // Log connection only if the device was previously offline
         if (!this._present) {
@@ -347,9 +392,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     } catch (err) {
       this.destroyClient();
 
-      // Log connection error only if the device was previously online
       if (this._present) {
-        this.log(`${host}:${port} Connection error -> Offline`);
+        this.trackOfflineProbe("exception", host, port);
       }
 
       this._isUnreachable = true; // Device is unresponsive due to exception
@@ -362,6 +406,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     const tokens = this.getFlowCardTokens();
 
     if (present) {
+      this.flushOfflineProbeStats("device detected again");
+
       // Refresh last-seen even when already marked present so short drops don't trip away delay
       await this.updateLastSeen();
 
@@ -383,6 +429,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       }
     } else if (!present && currentPresent !== false) {
       if (!this.shouldDelayAwayStateSwitch()) {
+        this.flushOfflineProbeStats("device finally marked offline");
         this.log(`${this.getHost()} : is marked as offline`);
 
         // Update stress mode status
