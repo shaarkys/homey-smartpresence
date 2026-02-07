@@ -91,5 +91,8 @@
   },
   "0.9.8": {
     "en": "Adjusted the Korean Flow condition titles"
+  },
+  "0.9.9": {
+    "en": "Fixed async presence error handling, stress-mode bounds, and host input trimming."
   }
 }
