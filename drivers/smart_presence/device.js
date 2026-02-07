@@ -238,7 +238,10 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
     // previous method, triggered each time even when device was not in stress test period
     //return !!this.getPresenceStatus() && this.getAwayDelayInMillis() - this.getSeenMillisAgo() < this.getStressAtInMillis();
-    return this._isUnreachable && timeSinceLastSeen >= awayDelay - stressAt && timeSinceLastSeen < awayDelay;
+    if (!this._isUnreachable || stressAt <= 0 || stressAt >= awayDelay) {
+      return false;
+    }
+    return timeSinceLastSeen >= awayDelay - stressAt && timeSinceLastSeen < awayDelay;
   }
 
   clearScanTimer() {
@@ -307,7 +310,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       }
 
       this._isUnreachable = true; // Device is unresponsive due to timeout
-      this.setPresent(false);
+      this.setPresent(false).catch((err) => this.log("Failed to update presence after timeout", err));
     }, timeout);
 
     this.client.on("error", (err) => {
@@ -318,14 +321,14 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
           this.log(`${host}:${port} Connection refused -> Online`);
         }
         this._isUnreachable = false; // Device is responsive
-        this.setPresent(true);
+        this.setPresent(true).catch((err) => this.log("Failed to update presence after connection refused", err));
       } else {
         // Log error only if the device was previously online
         if (this._present) {
           this.log(`${host}:${port} Error -> Offline`);
         }
         this._isUnreachable = true; // Device is unresponsive due to error
-        this.setPresent(false);
+        this.setPresent(false).catch((err) => this.log("Failed to update presence after socket error", err));
       }
     });
 
@@ -339,7 +342,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         }
 
         this._isUnreachable = false; // Device is responsive
-        this.setPresent(true);
+        this.setPresent(true).catch((err) => this.log("Failed to update presence after connect", err));
       });
     } catch (err) {
       this.destroyClient();
@@ -350,7 +353,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       }
 
       this._isUnreachable = true; // Device is unresponsive due to exception
-      this.setPresent(false);
+      this.setPresent(false).catch((setPresentErr) => this.log("Failed to update presence after connection error", setPresentErr));
     }
   }
 

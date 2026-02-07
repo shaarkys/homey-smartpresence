@@ -126,7 +126,7 @@
   document.getElementById('add_device').onclick = (e) => {
     e.preventDefault();
     const devicename = document.getElementById("devicename").value;
-    const ip_address = document.getElementById("ip_address").value;
+    const ip_address = document.getElementById("ip_address").value.trim();
     const kid = document.getElementById("is_kid").checked;
     const guest = document.getElementById("is_guest").checked; // guestElement.checked;
 
