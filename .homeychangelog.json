@@ -97,5 +97,8 @@
   },
   "0.9.10": {
     "en": "Reduced log noise by aggregating offline probe failures"
+  },
+  "0.9.11": {
+    "en": "Fixed stale absence flow triggers after return, improved presence capability display, and added migration guard for missing presence capability on older devices."
   }
 }
