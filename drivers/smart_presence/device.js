@@ -125,6 +125,10 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         }
         await this.setStoreValue("ver", 2);
       }
+      if (!this.hasCapability("presence")) {
+        await this.addCapability("presence");
+        await this.setCapabilityValue("presence", false).catch(this.error);
+      }
     } catch (err) {
       this.log("Migration failed", err);
     }
