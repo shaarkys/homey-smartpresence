@@ -28,6 +28,14 @@
     "device_type"
   ],
   "capabilitiesOptions": {
+    "presence": {
+      "titleTrue": {
+        "en": "Present"
+      },
+      "titleFalse": {
+        "en": "Not present"
+      }
+    },
     "lastseen_date": {
       "title": {
         "en": "Date seen"
@@ -47,14 +55,9 @@
   "mobile": {
     "components": [
       {
-        "id": "icon",
-        "capabilities": [
-          "presence"
-        ]
-      },
-      {
         "id": "sensor",
         "capabilities": [
+          "presence",
           "lastseen_date",
           "lastseen_time"
         ]

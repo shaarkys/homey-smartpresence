@@ -17,6 +17,7 @@
   "getable": true,
   "setable": false,
   "insights": true,
+  "icon": "./assets/presence.svg",
   "uiQuickAction": true,
   "insightsTitleTrue": {
     "en": "Present",
@@ -46,5 +47,5 @@
     "ru": "Отсутствует",
     "ko": "없는"
   },
-  "uiComponent": null
+  "uiComponent": "sensor"
 }

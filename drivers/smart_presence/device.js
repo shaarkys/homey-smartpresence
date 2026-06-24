@@ -337,23 +337,35 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     }
   }
 
-  destroyClient() {
-    if (this.client) {
-      this.client.destroy();
+  destroyClient(client = this.client, cancelCheck = this.cancelCheck) {
+    const isCurrentClient = !client || this.client === client;
+    const isCurrentCancelCheck = !cancelCheck || this.cancelCheck === cancelCheck;
+
+    if (client) {
+      client.destroy();
+    }
+    if (isCurrentClient) {
       this.client = undefined;
     }
-    if (this.cancelCheck) {
-      this.homey.clearTimeout(this.cancelCheck);
+    if (cancelCheck) {
+      this.homey.clearTimeout(cancelCheck);
+    }
+    if (isCurrentCancelCheck) {
       this.cancelCheck = undefined;
     }
   }
 
   scanDevice(host, port, timeout) {
     this.destroyClient();
-    this.client = new net.Socket();
+    const client = new net.Socket();
+    this.client = client;
 
-    this.cancelCheck = this.homey.setTimeout(() => {
-      this.destroyClient();
+    const cancelCheck = this.homey.setTimeout(() => {
+      if (this.client !== client) {
+        return;
+      }
+
+      this.destroyClient(client, cancelCheck);
 
       if (this._present) {
         this.trackOfflineProbe("timeout", host, port);
@@ -362,9 +374,14 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       this._isUnreachable = true; // Device is unresponsive due to timeout
       this.setPresent(false).catch((err) => this.log("Failed to update presence after timeout", err));
     }, timeout);
+    this.cancelCheck = cancelCheck;
 
-    this.client.on("error", (err) => {
-      this.destroyClient();
+    client.on("error", (err) => {
+      if (this.client !== client) {
+        return;
+      }
+
+      this.destroyClient(client, cancelCheck);
       if (err && (err.errno === "ECONNREFUSED" || err.code === "ECONNREFUSED")) {
         // Connection refused indicates the device is online
         this.flushOfflineProbeStats("device detected again");
@@ -383,8 +400,13 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     });
 
     try {
-      this.client.connect(port, host, () => {
-        this.destroyClient();
+      client.connect(port, host, () => {
+        if (this.client !== client) {
+          client.destroy();
+          return;
+        }
+
+        this.destroyClient(client, cancelCheck);
 
         this.flushOfflineProbeStats("device detected again");
 
@@ -397,7 +419,11 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         this.setPresent(true).catch((err) => this.log("Failed to update presence after connect", err));
       });
     } catch (err) {
-      this.destroyClient();
+      if (this.client !== client) {
+        return;
+      }
+
+      this.destroyClient(client, cancelCheck);
 
       if (this._present) {
         this.trackOfflineProbe("exception", host, port);
@@ -446,7 +472,12 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
           this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period ended`);
         }
 
+        const offlineCandidateLastSeen = this.getLastSeen();
         await this.setPresenceStatus(present);
+        if (this.getPresenceStatus() !== false || this.getLastSeen() !== offlineCandidateLastSeen) {
+          this.log(`${this.getHost()} : skipped stale offline flow trigger`);
+          return;
+        }
         this.log(`Device is finally marked as unavailable`);
         await this.homey.app.deviceLeft(this, tokens);
         await this.homey.app.userLeftTrigger.trigger(this, tokens, {}).catch(this.error);
