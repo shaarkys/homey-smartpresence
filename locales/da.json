@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Navn:",
       "ip_address": "Værtsnavn eller IP-adresse:",
+      "manual_only": "Kun manuel tilstedeværelse:",
       "is_kid": "Er barn:",
       "is_guest": "Er gæst:",
       "add_device_btn": "Tilføj enhed",

@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Nom :",
       "ip_address": "Nom d'hôte ou adresse IP :",
+      "manual_only": "Présence manuelle uniquement :",
       "is_kid": "Est-ce un enfant :",
       "is_guest": "Est-ce un invité :",
       "add_device_btn": "Ajouter un appareil",

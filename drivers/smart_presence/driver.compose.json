@@ -22,6 +22,8 @@
   "class": "sensor",
   "capabilities": [
     "presence",
+    "presence_mode",
+    "measure_presence_override_remaining",
     "lastseen_date",
     "lastseen_time",
     "lastseen_datetime",
@@ -58,8 +60,15 @@
         "id": "sensor",
         "capabilities": [
           "presence",
+          "measure_presence_override_remaining",
           "lastseen_date",
           "lastseen_time"
+        ]
+      },
+      {
+        "id": "picker",
+        "capabilities": [
+          "presence_mode"
         ]
       }
     ]

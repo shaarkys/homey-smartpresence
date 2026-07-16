@@ -1,0 +1,38 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Override remaining",
+    "nl": "Resterende override",
+    "de": "Override verbleibend",
+    "no": "Gjenstående overstyring",
+    "da": "Resterende tilsidesættelse",
+    "sv": "Återstående åsidosättning",
+    "es": "Anulación restante",
+    "fr": "Forçage restant",
+    "it": "Override rimanente",
+    "pl": "Pozostały czas wymuszenia",
+    "ru": "Осталось переопределения",
+    "ko": "재정의 남은 시간"
+  },
+  "getable": true,
+  "setable": false,
+  "insights": false,
+  "decimals": 0,
+  "min": 0,
+  "units": {
+    "en": "min",
+    "nl": "min",
+    "de": "Min.",
+    "no": "min",
+    "da": "min",
+    "sv": "min",
+    "es": "min",
+    "fr": "min",
+    "it": "min",
+    "pl": "min",
+    "ru": "мин",
+    "ko": "분"
+  },
+  "uiComponent": "sensor",
+  "icon": "./assets/timesuccess.svg"
+}

@@ -1,7 +1,7 @@
 "use strict";
 
 const Homey = require("homey");
-const net = require("net");
+const { isValidHost, normalizeHost } = require("../../lib/host");
 
 module.exports = class SmartPresenceDriver extends Homey.Driver {
   /**
@@ -44,14 +44,14 @@ module.exports = class SmartPresenceDriver extends Homey.Driver {
   async onPair(session) {
     session.setHandler("device_input", async (data) => {
       //this.log('device_input', data);
-      const host = (data.ip_address || "").trim();
-      const hostnamePattern = /^(?=.{1,253}$)(?!-)[A-Za-z0-9-]{1,63}(?<!-)(\.(?!-)[A-Za-z0-9-]{1,63}(?<!-))*$/;
+      const host = normalizeHost(data.ip_address);
+      const manualOnly = !!data.manual_only;
 
       if (!data.devicename) {
         throw new Error(this.homey.__("pair.configuration.invalid_device_name"));
-      } else if (!host) {
+      } else if (!host && !manualOnly) {
         throw new Error(this.homey.__("pair.configuration.missing_ip_address"));
-      } else if (!net.isIP(host) && !hostnamePattern.test(host)) {
+      } else if (host && !isValidHost(host)) {
         throw new Error(this.homey.__("pair.configuration.invalid_ip_address"));
       }
 

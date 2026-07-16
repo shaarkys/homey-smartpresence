@@ -19,18 +19,18 @@
     "ko": "스마트 프레즌스"
   },
   "description": {
-    "en": "Presence detection based on smartphones connected to your Wi-Fi",
-    "nl": "Aanwezigheid bepalen aan de hand van smartphones die aan het locale Wi-Fi netwerk gekoppeld zijn",
-    "de": "Anwesenheitserkennung auf Grundlage mit Ihrem Wi-Fi verbundenen Smartphones",
-    "no": "Tilstedeværelse basert på smarttelefon koblet til Wi-Fi-nettverket",
-    "da": "Registrering af tilstedeværelse baseret på om din mobiltelefon er forbundet til Wi-Fi",
-    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket",
-    "es": "Detección de presencia basada en teléfonos inteligentes conectados a tu Wi-Fi",
-    "fr": "Détection de présence basée sur les smartphones connectés à votre Wi-Fi",
-    "it": "Rilevamento della presenza basato su smartphone connessi al tuo Wi-Fi",
-    "pl": "Detekcja obecności oparta na smartfonach podłączonych do twojego Wi-Fi",
-    "ru": "Обнаружение присутствия на основе смартфонов, подключенных к вашему Wi-Fi",
-    "ko": "Wi-Fi에 연결된 스마트폰을 기반으로 한 존재 감지"
+    "en": "Track presence through Wi-Fi or manual controls.",
+    "nl": "Houd aanwezigheid bij via wifi of handmatige bediening.",
+    "de": "Anwesenheit über WLAN oder manuelle Steuerung erfassen.",
+    "no": "Spor tilstedeværelse via Wi-Fi eller manuell styring.",
+    "da": "Registrer tilstedeværelse via Wi-Fi eller manuel styring.",
+    "sv": "Spåra närvaro via Wi-Fi eller manuell styrning.",
+    "es": "Controla la presencia mediante Wi-Fi o controles manuales.",
+    "fr": "Suivez la présence via le Wi-Fi ou des commandes manuelles.",
+    "it": "Rileva la presenza tramite Wi-Fi o controlli manuali.",
+    "pl": "Śledź obecność przez Wi-Fi lub ręczne sterowanie.",
+    "ru": "Отслеживайте присутствие по Wi-Fi или вручную.",
+    "ko": "Wi-Fi 또는 수동 제어로 재실 상태를 추적합니다."
   },
   "category": [
     "internet",

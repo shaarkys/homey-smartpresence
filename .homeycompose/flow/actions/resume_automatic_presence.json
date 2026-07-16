@@ -1,0 +1,38 @@
+{
+  "id": "resume_automatic_presence",
+  "title": {
+    "en": "Resume automatic presence",
+    "nl": "Hervat automatische aanwezigheid",
+    "de": "Automatische Anwesenheit fortsetzen",
+    "no": "Gjenoppta automatisk tilstedeværelse",
+    "da": "Genoptag automatisk tilstedeværelse",
+    "sv": "Återuppta automatisk närvaro",
+    "es": "Reanudar presencia automática",
+    "fr": "Reprendre la présence automatique",
+    "it": "Riprendi presenza automatica",
+    "pl": "Wznów automatyczną obecność",
+    "ru": "Возобновить автоопределение",
+    "ko": "자동 재실 감지 재개"
+  },
+  "titleFormatted": {
+    "en": "Resume automatic presence for [[device]]",
+    "nl": "Hervat automatische aanwezigheid voor [[device]]",
+    "de": "Automatische Anwesenheit für [[device]] fortsetzen",
+    "no": "Gjenoppta automatisk tilstedeværelse for [[device]]",
+    "da": "Genoptag automatisk tilstedeværelse for [[device]]",
+    "sv": "Återuppta automatisk närvaro för [[device]]",
+    "es": "Reanudar presencia automática para [[device]]",
+    "fr": "Reprendre la présence automatique pour [[device]]",
+    "it": "Riprendi presenza automatica per [[device]]",
+    "pl": "Wznów automatyczną obecność dla [[device]]",
+    "ru": "Возобновить автоопределение для [[device]]",
+    "ko": "[[device]]의 자동 재실 감지 재개"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=smart_presence"
+    }
+  ]
+}

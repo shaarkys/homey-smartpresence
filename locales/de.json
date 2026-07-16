@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Name:",
       "ip_address": "Host- oder IP-Adresse:",
+      "manual_only": "Nur manuelle Anwesenheit:",
       "is_kid": "Ist Kind:",
       "is_guest": "Ist Gast:",
       "add_device_btn": "Gerät hinzufügen",

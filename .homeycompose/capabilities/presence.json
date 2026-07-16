@@ -15,7 +15,7 @@
     "ko": "출석한"
   },
   "getable": true,
-  "setable": false,
+  "setable": true,
   "insights": true,
   "icon": "./assets/presence.svg",
   "uiQuickAction": true,

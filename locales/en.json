@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Name:",
       "ip_address": "Host or IP address:",
+      "manual_only": "Manual presence only:",
       "is_kid": "Is kid:",
       "is_guest": "Is guest:",
       "add_device_btn": "Add device",

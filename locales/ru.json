@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Имя:",
       "ip_address": "Имя хоста или IP-адрес:",
+      "manual_only": "Только ручное присутствие:",
       "is_kid": "Ребёнок:",
       "is_guest": "Гость:",
       "add_device_btn": "Добавить устройство",

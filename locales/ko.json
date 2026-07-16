@@ -6,6 +6,7 @@
     "configuration": {
       "name": "이름:",
       "ip_address": "호스트 또는 IP 주소:",
+      "manual_only": "수동 재실 전용:",
       "is_kid": "아이입니까:",
       "is_guest": "손님입니까:",
       "add_device_btn": "장치 추가",

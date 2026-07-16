@@ -1,0 +1,33 @@
+{
+  "id": "manual_only",
+  "type": "checkbox",
+  "value": false,
+  "label": {
+    "en": "Manual presence only",
+    "nl": "Alleen handmatige aanwezigheid",
+    "de": "Nur manuelle Anwesenheit",
+    "no": "Kun manuell tilstedeværelse",
+    "da": "Kun manuel tilstedeværelse",
+    "sv": "Endast manuell närvaro",
+    "es": "Solo presencia manual",
+    "fr": "Présence manuelle uniquement",
+    "it": "Solo presenza manuale",
+    "pl": "Tylko ręczna obecność",
+    "ru": "Только ручное присутствие",
+    "ko": "수동 재실 전용"
+  },
+  "hint": {
+    "en": "Disable network detection for this person. No host or IP address is required.",
+    "nl": "Schakel netwerkdetectie voor deze persoon uit. Een host- of IP-adres is niet vereist.",
+    "de": "Deaktiviert die Netzwerkerkennung für diese Person. Hostname oder IP-Adresse sind nicht erforderlich.",
+    "no": "Deaktiver nettverksregistrering for denne personen. Vertsnavn eller IP-adresse er ikke nødvendig.",
+    "da": "Deaktiver netværksregistrering for denne person. Værtsnavn eller IP-adresse er ikke påkrævet.",
+    "sv": "Inaktivera nätverksavkänning för den här personen. Värdnamn eller IP-adress krävs inte.",
+    "es": "Desactiva la detección de red para esta persona. No se requiere host ni dirección IP.",
+    "fr": "Désactive la détection réseau pour cette personne. Aucun hôte ni adresse IP n'est requis.",
+    "it": "Disabilita il rilevamento di rete per questa persona. Non è richiesto alcun host o indirizzo IP.",
+    "pl": "Wyłącza wykrywanie sieciowe tej osoby. Nazwa hosta ani adres IP nie są wymagane.",
+    "ru": "Отключает сетевое обнаружение для этого человека. Имя хоста или IP-адрес не требуются.",
+    "ko": "이 사람의 네트워크 감지를 비활성화합니다. 호스트 또는 IP 주소가 필요하지 않습니다."
+  }
+}

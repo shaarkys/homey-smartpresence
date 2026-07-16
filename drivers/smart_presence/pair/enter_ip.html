@@ -38,6 +38,28 @@
       </div>
 
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 grid_center grid_top">
+        <span data-i18n="pair.configuration.manual_only"
+              class="mdc-typography--subtitle2">Manual presence only:</span>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 grid_center">
+        <div class="mdc-checkbox">
+          <input type="checkbox"
+                 class="mdc-checkbox__native-control"
+                 id="manual_only"/>
+          <div class="mdc-checkbox__background">
+            <svg class="mdc-checkbox__checkmark"
+                 viewBox="0 0 24 24">
+              <path class="mdc-checkbox__checkmark-path"
+                    fill="none"
+                    d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+            </svg>
+            <div class="mdc-checkbox__mixedmark"></div>
+          </div>
+          <div class="mdc-checkbox__ripple"></div>
+        </div>
+      </div>
+
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 grid_center grid_top">
         <span data-i18n="pair.configuration.ip_address" class="mdc-typography--subtitle2">Host or IP address:</span>
       </div>
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4 grid_center">
@@ -122,6 +144,9 @@
       document.getElementById("is_kid").checked = false;
     }
   };
+  document.getElementById('manual_only').onchange = (e) => {
+    document.getElementById("ip_address").disabled = e.target.checked;
+  };
 
   document.getElementById('add_device').onclick = (e) => {
     e.preventDefault();
@@ -129,8 +154,9 @@
     const ip_address = document.getElementById("ip_address").value.trim();
     const kid = document.getElementById("is_kid").checked;
     const guest = document.getElementById("is_guest").checked; // guestElement.checked;
+    const manualOnly = document.getElementById("manual_only").checked;
 
-    Homey.emit('device_input', { devicename, ip_address, guest }, (err, result) => {
+    Homey.emit('device_input', { devicename, ip_address, guest, manual_only: manualOnly }, (err, result) => {
       Homey.hideLoadingOverlay();
       if (err) {
         Homey.alert(err, 'error', () => {
@@ -143,6 +169,8 @@
           },
           settings: {
             host: ip_address,
+            manual_only: manualOnly,
+            default_override_duration: 5,
             is_kid: kid,
             is_guest: guest
           }

@@ -20,18 +20,18 @@
     "ko": "스마트 프레즌스"
   },
   "description": {
-    "en": "Presence detection based on smartphones connected to your Wi-Fi",
-    "nl": "Aanwezigheid bepalen aan de hand van smartphones die aan het locale Wi-Fi netwerk gekoppeld zijn",
-    "de": "Anwesenheitserkennung auf Grundlage mit Ihrem Wi-Fi verbundenen Smartphones",
-    "no": "Tilstedeværelse basert på smarttelefon koblet til Wi-Fi-nettverket",
-    "da": "Registrering af tilstedeværelse baseret på om din mobiltelefon er forbundet til Wi-Fi",
-    "sv": "Närvaroavläsning baserad på om smartmobiler/enheter är uppkopplade till WiFi-nätverket",
-    "es": "Detección de presencia basada en teléfonos inteligentes conectados a tu Wi-Fi",
-    "fr": "Détection de présence basée sur les smartphones connectés à votre Wi-Fi",
-    "it": "Rilevamento della presenza basato su smartphone connessi al tuo Wi-Fi",
-    "pl": "Detekcja obecności oparta na smartfonach podłączonych do twojego Wi-Fi",
-    "ru": "Обнаружение присутствия на основе смартфонов, подключенных к вашему Wi-Fi",
-    "ko": "Wi-Fi에 연결된 스마트폰을 기반으로 한 존재 감지"
+    "en": "Track presence through Wi-Fi or manual controls.",
+    "nl": "Houd aanwezigheid bij via wifi of handmatige bediening.",
+    "de": "Anwesenheit über WLAN oder manuelle Steuerung erfassen.",
+    "no": "Spor tilstedeværelse via Wi-Fi eller manuell styring.",
+    "da": "Registrer tilstedeværelse via Wi-Fi eller manuel styring.",
+    "sv": "Spåra närvaro via Wi-Fi eller manuell styrning.",
+    "es": "Controla la presencia mediante Wi-Fi o controles manuales.",
+    "fr": "Suivez la présence via le Wi-Fi ou des commandes manuelles.",
+    "it": "Rileva la presenza tramite Wi-Fi o controlli manuali.",
+    "pl": "Śledź obecność przez Wi-Fi lub ręczne sterowanie.",
+    "ru": "Отслеживайте присутствие по Wi-Fi или вручную.",
+    "ko": "Wi-Fi 또는 수동 제어로 재실 상태를 추적합니다."
   },
   "category": [
     "internet",
@@ -1204,6 +1204,124 @@
           }
         ]
       }
+    ],
+    "actions": [
+      {
+        "id": "keep_away",
+        "title": {
+          "en": "Keep a person away",
+          "nl": "Houd een persoon afwezig",
+          "de": "Person abwesend halten",
+          "no": "Hold en person borte",
+          "da": "Hold en person væk",
+          "sv": "Håll en person borta",
+          "es": "Mantener a una persona ausente",
+          "fr": "Maintenir une personne absente",
+          "it": "Mantieni una persona assente",
+          "pl": "Utrzymaj osobę jako nieobecną",
+          "ru": "Считать человека отсутствующим",
+          "ko": "사람을 부재 상태로 유지"
+        },
+        "titleFormatted": {
+          "en": "Keep [[device]] away",
+          "nl": "Houd [[device]] afwezig",
+          "de": "[[device]] abwesend halten",
+          "no": "Hold [[device]] borte",
+          "da": "Hold [[device]] væk",
+          "sv": "Håll [[device]] borta",
+          "es": "Mantener a [[device]] ausente",
+          "fr": "Maintenir [[device]] absent",
+          "it": "Mantieni [[device]] assente",
+          "pl": "Utrzymaj [[device]] jako nieobecną osobę",
+          "ru": "Считать [[device]] отсутствующим",
+          "ko": "[[device]]을(를) 부재 상태로 유지"
+        },
+        "duration": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=smart_presence"
+          }
+        ]
+      },
+      {
+        "id": "keep_present",
+        "title": {
+          "en": "Keep a person present",
+          "nl": "Houd een persoon aanwezig",
+          "de": "Person anwesend halten",
+          "no": "Hold en person til stede",
+          "da": "Hold en person til stede",
+          "sv": "Håll en person närvarande",
+          "es": "Mantener a una persona presente",
+          "fr": "Maintenir une personne présente",
+          "it": "Mantieni una persona presente",
+          "pl": "Utrzymaj osobę jako obecną",
+          "ru": "Считать человека присутствующим",
+          "ko": "사람을 재실 상태로 유지"
+        },
+        "titleFormatted": {
+          "en": "Keep [[device]] present",
+          "nl": "Houd [[device]] aanwezig",
+          "de": "[[device]] anwesend halten",
+          "no": "Hold [[device]] til stede",
+          "da": "Hold [[device]] til stede",
+          "sv": "Håll [[device]] närvarande",
+          "es": "Mantener a [[device]] presente",
+          "fr": "Maintenir [[device]] présent",
+          "it": "Mantieni [[device]] presente",
+          "pl": "Utrzymaj [[device]] jako obecną osobę",
+          "ru": "Считать [[device]] присутствующим",
+          "ko": "[[device]]을(를) 재실 상태로 유지"
+        },
+        "duration": true,
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=smart_presence"
+          }
+        ]
+      },
+      {
+        "id": "resume_automatic_presence",
+        "title": {
+          "en": "Resume automatic presence",
+          "nl": "Hervat automatische aanwezigheid",
+          "de": "Automatische Anwesenheit fortsetzen",
+          "no": "Gjenoppta automatisk tilstedeværelse",
+          "da": "Genoptag automatisk tilstedeværelse",
+          "sv": "Återuppta automatisk närvaro",
+          "es": "Reanudar presencia automática",
+          "fr": "Reprendre la présence automatique",
+          "it": "Riprendi presenza automatica",
+          "pl": "Wznów automatyczną obecność",
+          "ru": "Возобновить автоопределение",
+          "ko": "자동 재실 감지 재개"
+        },
+        "titleFormatted": {
+          "en": "Resume automatic presence for [[device]]",
+          "nl": "Hervat automatische aanwezigheid voor [[device]]",
+          "de": "Automatische Anwesenheit für [[device]] fortsetzen",
+          "no": "Gjenoppta automatisk tilstedeværelse for [[device]]",
+          "da": "Genoptag automatisk tilstedeværelse for [[device]]",
+          "sv": "Återuppta automatisk närvaro för [[device]]",
+          "es": "Reanudar presencia automática para [[device]]",
+          "fr": "Reprendre la présence automatique pour [[device]]",
+          "it": "Riprendi presenza automatica per [[device]]",
+          "pl": "Wznów automatyczną obecność dla [[device]]",
+          "ru": "Возобновить автоопределение для [[device]]",
+          "ko": "[[device]]의 자동 재실 감지 재개"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=smart_presence"
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -1231,6 +1349,8 @@
       "class": "sensor",
       "capabilities": [
         "presence",
+        "presence_mode",
+        "measure_presence_override_remaining",
         "lastseen_date",
         "lastseen_time",
         "lastseen_datetime",
@@ -1267,8 +1387,15 @@
             "id": "sensor",
             "capabilities": [
               "presence",
+              "measure_presence_override_remaining",
               "lastseen_date",
               "lastseen_time"
+            ]
+          },
+          {
+            "id": "picker",
+            "capabilities": [
+              "presence_mode"
             ]
           }
         ]
@@ -1331,6 +1458,90 @@
                 "pl": "Wprowadź nazwę hosta lub adres IP. Preferuj statyczny adres IP/rezerwację DHCP; losowe adresy MAC w telefonach mogą wpływać na śledzenie.",
                 "ru": "Укажите имя хоста или IP-адрес. Лучше использовать статический IP/резервацию DHCP; случайные MAC-адреса на телефонах могут влиять на отслеживание.",
                 "ko": "호스트 이름 또는 IP 주소를 입력하세요. 고정 IP/DHCP 예약을 권장하며, 휴대폰의 랜덤 MAC 설정은 추적에 영향을 줄 수 있습니다."
+              }
+            },
+            {
+              "id": "manual_only",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Manual presence only",
+                "nl": "Alleen handmatige aanwezigheid",
+                "de": "Nur manuelle Anwesenheit",
+                "no": "Kun manuell tilstedeværelse",
+                "da": "Kun manuel tilstedeværelse",
+                "sv": "Endast manuell närvaro",
+                "es": "Solo presencia manual",
+                "fr": "Présence manuelle uniquement",
+                "it": "Solo presenza manuale",
+                "pl": "Tylko ręczna obecność",
+                "ru": "Только ручное присутствие",
+                "ko": "수동 재실 전용"
+              },
+              "hint": {
+                "en": "Disable network detection for this person. No host or IP address is required.",
+                "nl": "Schakel netwerkdetectie voor deze persoon uit. Een host- of IP-adres is niet vereist.",
+                "de": "Deaktiviert die Netzwerkerkennung für diese Person. Hostname oder IP-Adresse sind nicht erforderlich.",
+                "no": "Deaktiver nettverksregistrering for denne personen. Vertsnavn eller IP-adresse er ikke nødvendig.",
+                "da": "Deaktiver netværksregistrering for denne person. Værtsnavn eller IP-adresse er ikke påkrævet.",
+                "sv": "Inaktivera nätverksavkänning för den här personen. Värdnamn eller IP-adress krävs inte.",
+                "es": "Desactiva la detección de red para esta persona. No se requiere host ni dirección IP.",
+                "fr": "Désactive la détection réseau pour cette personne. Aucun hôte ni adresse IP n'est requis.",
+                "it": "Disabilita il rilevamento di rete per questa persona. Non è richiesto alcun host o indirizzo IP.",
+                "pl": "Wyłącza wykrywanie sieciowe tej osoby. Nazwa hosta ani adres IP nie są wymagane.",
+                "ru": "Отключает сетевое обнаружение для этого человека. Имя хоста или IP-адрес не требуются.",
+                "ko": "이 사람의 네트워크 감지를 비활성화합니다. 호스트 또는 IP 주소가 필요하지 않습니다."
+              }
+            },
+            {
+              "id": "default_override_duration",
+              "type": "number",
+              "value": 5,
+              "label": {
+                "en": "Default override duration",
+                "nl": "Standaard overrideduur",
+                "de": "Standard-Override-Dauer",
+                "no": "Standard overstyringsvarighet",
+                "da": "Standardvarighed for tilsidesættelse",
+                "sv": "Standardtid för åsidosättning",
+                "es": "Duración predeterminada de anulación",
+                "fr": "Durée de forçage par défaut",
+                "it": "Durata override predefinita",
+                "pl": "Domyślny czas wymuszenia",
+                "ru": "Длительность переопределения",
+                "ko": "기본 재정의 기간"
+              },
+              "attr": {
+                "min": 0,
+                "max": 10080
+              },
+              "units": {
+                "en": "minutes",
+                "nl": "minuten",
+                "de": "Minuten",
+                "no": "minutter",
+                "da": "minutter",
+                "sv": "minuter",
+                "es": "minutos",
+                "fr": "minutes",
+                "it": "minuti",
+                "pl": "minuty",
+                "ru": "минуты",
+                "ko": "분"
+              },
+              "hint": {
+                "en": "Used by the presence quick action and by Flow actions without a duration. Set to 0 to keep the override until it is cleared.",
+                "nl": "Gebruikt door de snelle aanwezigheidsactie en Flow-acties zonder duur. Stel in op 0 om de override actief te houden totdat deze wordt gewist.",
+                "de": "Wird von der Anwesenheits-Schnellaktion und Flow-Aktionen ohne Dauer verwendet. Bei 0 bleibt der Override bis zum Löschen aktiv.",
+                "no": "Brukes av hurtighandlingen for tilstedeværelse og Flow-handlinger uten varighet. Sett til 0 for å beholde overstyringen til den fjernes.",
+                "da": "Bruges af hurtighandlingen for tilstedeværelse og Flow-handlinger uden varighed. Indstil til 0 for at beholde tilsidesættelsen, indtil den ryddes.",
+                "sv": "Används av snabbåtgärden för närvaro och Flow-åtgärder utan varaktighet. Ange 0 för att behålla åsidosättningen tills den tas bort.",
+                "es": "Se usa con la acción rápida de presencia y las acciones de Flow sin duración. Usa 0 para mantener la anulación hasta borrarla.",
+                "fr": "Utilisée par l'action rapide de présence et les actions Flow sans durée. Réglez sur 0 pour conserver le forçage jusqu'à son annulation.",
+                "it": "Usata dall'azione rapida di presenza e dalle azioni Flow senza durata. Imposta 0 per mantenere l'override finché non viene annullato.",
+                "pl": "Używany przez szybką akcję obecności i akcje Flow bez czasu trwania. Ustaw 0, aby wymuszenie działało do jego usunięcia.",
+                "ru": "Используется быстрым действием присутствия и действиями Flow без длительности. Установите 0, чтобы переопределение действовало до отмены.",
+                "ko": "재실 빠른 작업과 기간이 없는 Flow 작업에 사용됩니다. 해제할 때까지 재정의를 유지하려면 0으로 설정하세요."
               }
             },
             {
@@ -1826,6 +2037,44 @@
       "insights": false,
       "icon": "./assets/timesuccess.svg"
     },
+    "measure_presence_override_remaining": {
+      "type": "number",
+      "title": {
+        "en": "Override remaining",
+        "nl": "Resterende override",
+        "de": "Override verbleibend",
+        "no": "Gjenstående overstyring",
+        "da": "Resterende tilsidesættelse",
+        "sv": "Återstående åsidosättning",
+        "es": "Anulación restante",
+        "fr": "Forçage restant",
+        "it": "Override rimanente",
+        "pl": "Pozostały czas wymuszenia",
+        "ru": "Осталось переопределения",
+        "ko": "재정의 남은 시간"
+      },
+      "getable": true,
+      "setable": false,
+      "insights": false,
+      "decimals": 0,
+      "min": 0,
+      "units": {
+        "en": "min",
+        "nl": "min",
+        "de": "Min.",
+        "no": "min",
+        "da": "min",
+        "sv": "min",
+        "es": "min",
+        "fr": "min",
+        "it": "min",
+        "pl": "min",
+        "ru": "мин",
+        "ko": "분"
+      },
+      "uiComponent": "sensor",
+      "icon": "./assets/timesuccess.svg"
+    },
     "presence": {
       "type": "boolean",
       "title": {
@@ -1843,7 +2092,7 @@
         "ko": "출석한"
       },
       "getable": true,
-      "setable": false,
+      "setable": true,
       "insights": true,
       "icon": "./assets/presence.svg",
       "uiQuickAction": true,
@@ -1876,6 +2125,81 @@
         "ko": "없는"
       },
       "uiComponent": "sensor"
+    },
+    "presence_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Presence mode",
+        "nl": "Aanwezigheidsmodus",
+        "de": "Anwesenheitsmodus",
+        "no": "Tilstedeværelsesmodus",
+        "da": "Tilstedeværelsestilstand",
+        "sv": "Närvaroläge",
+        "es": "Modo de presencia",
+        "fr": "Mode de présence",
+        "it": "Modalità presenza",
+        "pl": "Tryb obecności",
+        "ru": "Режим присутствия",
+        "ko": "재실 모드"
+      },
+      "values": [
+        {
+          "id": "automatic",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "no": "Automatisk",
+            "da": "Automatisk",
+            "sv": "Automatisk",
+            "es": "Automático",
+            "fr": "Automatique",
+            "it": "Automatico",
+            "pl": "Automatyczny",
+            "ru": "Автоматически",
+            "ko": "자동"
+          }
+        },
+        {
+          "id": "present",
+          "title": {
+            "en": "Kept present",
+            "nl": "Aanwezig gehouden",
+            "de": "Anwesend gehalten",
+            "no": "Holdt til stede",
+            "da": "Holdt til stede",
+            "sv": "Hålls närvarande",
+            "es": "Mantenido presente",
+            "fr": "Maintenu présent",
+            "it": "Mantenuto presente",
+            "pl": "Utrzymany obecny",
+            "ru": "Принудительно дома",
+            "ko": "재실 유지"
+          }
+        },
+        {
+          "id": "away",
+          "title": {
+            "en": "Kept away",
+            "nl": "Afwezig gehouden",
+            "de": "Abwesend gehalten",
+            "no": "Holdt borte",
+            "da": "Holdt væk",
+            "sv": "Hålls borta",
+            "es": "Mantenido ausente",
+            "fr": "Maintenu absent",
+            "it": "Mantenuto assente",
+            "pl": "Utrzymany nieobecny",
+            "ru": "Принудительно вне дома",
+            "ko": "부재 유지"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "insights": false,
+      "uiComponent": "picker",
+      "icon": "./assets/home.svg"
     }
   }
 }

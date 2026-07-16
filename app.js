@@ -37,6 +37,12 @@ module.exports = class SmartPresenceApp extends Homey.App {
   }
 
   async initFlows() {
+    this.homey.flow.getActionCard("keep_present").registerRunListener((args) => args.device.setPresenceOverride(true, args.duration));
+
+    this.homey.flow.getActionCard("keep_away").registerRunListener((args) => args.device.setPresenceOverride(false, args.duration));
+
+    this.homey.flow.getActionCard("resume_automatic_presence").registerRunListener((args) => args.device.clearPresenceOverride());
+
     this.firstGuestArrivedTrigger = this.homey.flow.getTriggerCard("first_guest_arrived");
 
     this.firstHouseholdMemberArrivedTrigger = this.homey.flow.getTriggerCard("first_household_member_arrived");

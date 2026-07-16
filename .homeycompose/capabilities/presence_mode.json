@@ -1,0 +1,75 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Presence mode",
+    "nl": "Aanwezigheidsmodus",
+    "de": "Anwesenheitsmodus",
+    "no": "Tilstedeværelsesmodus",
+    "da": "Tilstedeværelsestilstand",
+    "sv": "Närvaroläge",
+    "es": "Modo de presencia",
+    "fr": "Mode de présence",
+    "it": "Modalità presenza",
+    "pl": "Tryb obecności",
+    "ru": "Режим присутствия",
+    "ko": "재실 모드"
+  },
+  "values": [
+    {
+      "id": "automatic",
+      "title": {
+        "en": "Automatic",
+        "nl": "Automatisch",
+        "de": "Automatisch",
+        "no": "Automatisk",
+        "da": "Automatisk",
+        "sv": "Automatisk",
+        "es": "Automático",
+        "fr": "Automatique",
+        "it": "Automatico",
+        "pl": "Automatyczny",
+        "ru": "Автоматически",
+        "ko": "자동"
+      }
+    },
+    {
+      "id": "present",
+      "title": {
+        "en": "Kept present",
+        "nl": "Aanwezig gehouden",
+        "de": "Anwesend gehalten",
+        "no": "Holdt til stede",
+        "da": "Holdt til stede",
+        "sv": "Hålls närvarande",
+        "es": "Mantenido presente",
+        "fr": "Maintenu présent",
+        "it": "Mantenuto presente",
+        "pl": "Utrzymany obecny",
+        "ru": "Принудительно дома",
+        "ko": "재실 유지"
+      }
+    },
+    {
+      "id": "away",
+      "title": {
+        "en": "Kept away",
+        "nl": "Afwezig gehouden",
+        "de": "Abwesend gehalten",
+        "no": "Holdt borte",
+        "da": "Holdt væk",
+        "sv": "Hålls borta",
+        "es": "Mantenido ausente",
+        "fr": "Maintenu absent",
+        "it": "Mantenuto assente",
+        "pl": "Utrzymany nieobecny",
+        "ru": "Принудительно вне дома",
+        "ko": "부재 유지"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "insights": false,
+  "uiComponent": "picker",
+  "icon": "./assets/home.svg"
+}

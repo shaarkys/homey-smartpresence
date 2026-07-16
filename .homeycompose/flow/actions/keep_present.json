@@ -1,0 +1,39 @@
+{
+  "id": "keep_present",
+  "title": {
+    "en": "Keep a person present",
+    "nl": "Houd een persoon aanwezig",
+    "de": "Person anwesend halten",
+    "no": "Hold en person til stede",
+    "da": "Hold en person til stede",
+    "sv": "Håll en person närvarande",
+    "es": "Mantener a una persona presente",
+    "fr": "Maintenir une personne présente",
+    "it": "Mantieni una persona presente",
+    "pl": "Utrzymaj osobę jako obecną",
+    "ru": "Считать человека присутствующим",
+    "ko": "사람을 재실 상태로 유지"
+  },
+  "titleFormatted": {
+    "en": "Keep [[device]] present",
+    "nl": "Houd [[device]] aanwezig",
+    "de": "[[device]] anwesend halten",
+    "no": "Hold [[device]] til stede",
+    "da": "Hold [[device]] til stede",
+    "sv": "Håll [[device]] närvarande",
+    "es": "Mantener a [[device]] presente",
+    "fr": "Maintenir [[device]] présent",
+    "it": "Mantieni [[device]] presente",
+    "pl": "Utrzymaj [[device]] jako obecną osobę",
+    "ru": "Считать [[device]] присутствующим",
+    "ko": "[[device]]을(를) 재실 상태로 유지"
+  },
+  "duration": true,
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=smart_presence"
+    }
+  ]
+}

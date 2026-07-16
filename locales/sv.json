@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Namn:",
       "ip_address": "Värdnamn eller IP-adress:",
+      "manual_only": "Endast manuell närvaro:",
       "is_kid": "Är barn:",
       "is_guest": "Är gäst:",
       "add_device_btn": "Lägg till enhet",

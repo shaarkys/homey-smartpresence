@@ -21,6 +21,14 @@
         "id": "host"
       },
       {
+        "$extends": "manual_only",
+        "id": "manual_only"
+      },
+      {
+        "$extends": "default_override_duration",
+        "id": "default_override_duration"
+      },
+      {
         "$extends": "port",
         "id": "port"
       },

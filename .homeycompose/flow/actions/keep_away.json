@@ -1,0 +1,39 @@
+{
+  "id": "keep_away",
+  "title": {
+    "en": "Keep a person away",
+    "nl": "Houd een persoon afwezig",
+    "de": "Person abwesend halten",
+    "no": "Hold en person borte",
+    "da": "Hold en person væk",
+    "sv": "Håll en person borta",
+    "es": "Mantener a una persona ausente",
+    "fr": "Maintenir une personne absente",
+    "it": "Mantieni una persona assente",
+    "pl": "Utrzymaj osobę jako nieobecną",
+    "ru": "Считать человека отсутствующим",
+    "ko": "사람을 부재 상태로 유지"
+  },
+  "titleFormatted": {
+    "en": "Keep [[device]] away",
+    "nl": "Houd [[device]] afwezig",
+    "de": "[[device]] abwesend halten",
+    "no": "Hold [[device]] borte",
+    "da": "Hold [[device]] væk",
+    "sv": "Håll [[device]] borta",
+    "es": "Mantener a [[device]] ausente",
+    "fr": "Maintenir [[device]] absent",
+    "it": "Mantieni [[device]] assente",
+    "pl": "Utrzymaj [[device]] jako nieobecną osobę",
+    "ru": "Считать [[device]] отсутствующим",
+    "ko": "[[device]]을(를) 부재 상태로 유지"
+  },
+  "duration": true,
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=smart_presence"
+    }
+  ]
+}

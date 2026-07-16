@@ -6,6 +6,7 @@
     "configuration": {
       "name": "Naam:",
       "ip_address": "Host of IP-adres:",
+      "manual_only": "Alleen handmatige aanwezigheid:",
       "is_kid": "Is kind:",
       "is_guest": "Is gast:",
       "add_device_btn": "Voeg apparaat toe",

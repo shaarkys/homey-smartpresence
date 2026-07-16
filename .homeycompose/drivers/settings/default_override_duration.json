@@ -1,0 +1,51 @@
+{
+  "id": "default_override_duration",
+  "type": "number",
+  "value": 5,
+  "label": {
+    "en": "Default override duration",
+    "nl": "Standaard overrideduur",
+    "de": "Standard-Override-Dauer",
+    "no": "Standard overstyringsvarighet",
+    "da": "Standardvarighed for tilsidesættelse",
+    "sv": "Standardtid för åsidosättning",
+    "es": "Duración predeterminada de anulación",
+    "fr": "Durée de forçage par défaut",
+    "it": "Durata override predefinita",
+    "pl": "Domyślny czas wymuszenia",
+    "ru": "Длительность переопределения",
+    "ko": "기본 재정의 기간"
+  },
+  "attr": {
+    "min": 0,
+    "max": 10080
+  },
+  "units": {
+    "en": "minutes",
+    "nl": "minuten",
+    "de": "Minuten",
+    "no": "minutter",
+    "da": "minutter",
+    "sv": "minuter",
+    "es": "minutos",
+    "fr": "minutes",
+    "it": "minuti",
+    "pl": "minuty",
+    "ru": "минуты",
+    "ko": "분"
+  },
+  "hint": {
+    "en": "Used by the presence quick action and by Flow actions without a duration. Set to 0 to keep the override until it is cleared.",
+    "nl": "Gebruikt door de snelle aanwezigheidsactie en Flow-acties zonder duur. Stel in op 0 om de override actief te houden totdat deze wordt gewist.",
+    "de": "Wird von der Anwesenheits-Schnellaktion und Flow-Aktionen ohne Dauer verwendet. Bei 0 bleibt der Override bis zum Löschen aktiv.",
+    "no": "Brukes av hurtighandlingen for tilstedeværelse og Flow-handlinger uten varighet. Sett til 0 for å beholde overstyringen til den fjernes.",
+    "da": "Bruges af hurtighandlingen for tilstedeværelse og Flow-handlinger uden varighed. Indstil til 0 for at beholde tilsidesættelsen, indtil den ryddes.",
+    "sv": "Används av snabbåtgärden för närvaro och Flow-åtgärder utan varaktighet. Ange 0 för att behålla åsidosättningen tills den tas bort.",
+    "es": "Se usa con la acción rápida de presencia y las acciones de Flow sin duración. Usa 0 para mantener la anulación hasta borrarla.",
+    "fr": "Utilisée par l'action rapide de présence et les actions Flow sans durée. Réglez sur 0 pour conserver le forçage jusqu'à son annulation.",
+    "it": "Usata dall'azione rapida di presenza e dalle azioni Flow senza durata. Imposta 0 per mantenere l'override finché non viene annullato.",
+    "pl": "Używany przez szybką akcję obecności i akcje Flow bez czasu trwania. Ustaw 0, aby wymuszenie działało do jego usunięcia.",
+    "ru": "Используется быстрым действием присутствия и действиями Flow без длительности. Установите 0, чтобы переопределение действовало до отмены.",
+    "ko": "재실 빠른 작업과 기간이 없는 Flow 작업에 사용됩니다. 해제할 때까지 재정의를 유지하려면 0으로 설정하세요."
+  }
+}
