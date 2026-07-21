@@ -100,5 +100,8 @@
   },
   "0.9.11": {
     "en": "Fixed stale absence flow triggers after return, improved presence capability display, and added migration guard for missing presence capability on older devices."
+  },
+  "0.9.12": {
+    "en": "Add timed manual presence overrides"
   }
 }
