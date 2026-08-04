@@ -190,8 +190,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     if (host && !isValidHost(host)) {
       throw new Error(this.homey.__("pair.configuration.invalid_ip_address"));
     }
-    newSettings.host = host;
-    this._settings = newSettings;
+    this._settings = { ...newSettings, host };
     if (changedKeys.includes("is_guest") || changedKeys.includes("is_kid")) {
       await this.updateDeviceTypeCapability();
     }
