@@ -156,7 +156,7 @@
     const guest = document.getElementById("is_guest").checked; // guestElement.checked;
     const manualOnly = document.getElementById("manual_only").checked;
 
-    Homey.emit('device_input', { devicename, ip_address, guest, manual_only: manualOnly }, (err, result) => {
+    Homey.emit('device_input', { devicename, ip_address, is_kid: kid, is_guest: guest, manual_only: manualOnly }, (err, result) => {
       Homey.hideLoadingOverlay();
       if (err) {
         Homey.alert(err, 'error', () => {

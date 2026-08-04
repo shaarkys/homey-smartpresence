@@ -641,7 +641,7 @@
         "id": "kid_left",
         "title": {
           "en": "A kid left",
-          "nl": "Een kind heeeft het huis verlaten",
+          "nl": "Een kind heeft het huis verlaten",
           "de": "Ein Kind ist gegangen",
           "no": "Et barn forlot hjemmet",
           "da": "Et barn forlod hjemmet",
@@ -845,7 +845,7 @@
         "id": "last_person_left",
         "title": {
           "en": "The last person left",
-          "nl": "Laatste persoon die het huis verlaten",
+          "nl": "De laatste persoon heeft het huis verlaten",
           "de": "Die letzte Person ist gegangen",
           "no": "Siste person dro hjemmefra",
           "da": "Den sidste person forlod hjemmet",
@@ -1064,7 +1064,7 @@
           "es": "Un usuario específico se fue",
           "fr": "Un utilisateur spécifique est parti",
           "it": "Un utente specifico se n'è andato",
-          "pl": "Konkretne użytkownik opuścił",
+          "pl": "Konkretny użytkownik opuścił",
           "ru": "Определенный пользователь ушел",
           "ko": "특정 사용자가 떠났습니다"
         },
