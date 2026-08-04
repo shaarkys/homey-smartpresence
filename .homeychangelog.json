@@ -106,5 +106,8 @@
   },
   "0.9.13": {
     "en": "Fixed Flow card translation errors and ensured kid and guest settings are saved correctly when pairing new devices"
+  },
+  "0.9.14": {
+    "en": "Fixed device Settings saving error"
   }
 }
