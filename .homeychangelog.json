@@ -103,5 +103,8 @@
   },
   "0.9.12": {
     "en": "Add timed manual presence overrides"
+  },
+  "0.9.13": {
+    "en": "Fixed Flow card translation errors and ensured kid and guest settings are saved correctly when pairing new devices"
   }
 }
