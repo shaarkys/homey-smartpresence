@@ -109,5 +109,8 @@
   },
   "0.9.14": {
     "en": "Fixed device Settings saving error"
+  },
+  "0.9.15": {
+    "en": "Fixed an issue where automatic presence detection could get stuck until the app was restarted."
   }
 }
