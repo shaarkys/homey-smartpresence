@@ -71,8 +71,12 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   async onInit() {
     this._settings = this.getSettings();
-    this._presenceUpdateQueue = Promise.resolve();
+    this._presenceOverrideQueue = Promise.resolve();
     this._detectionSequence = 0;
+    this._detectedPresencePersistence = undefined;
+    this._detectedPresencePersistenceDirty = false;
+    this._effectivePresenceGeneration = 0;
+    this._effectivePresenceTarget = undefined;
     await this._migrate();
     this._present = this.getCapabilityValue("presence");
     if (this._present === null || typeof this._present === "undefined") {
@@ -86,6 +90,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     await this.loadPresenceOverride();
     this._lastSeen = this.getStoreValue("lastSeen") || 0;
     this._lastSeenPersisted = this._lastSeen;
+    this._lastSeenPersistence = undefined;
 
     try {
       if (this.hasCapability("lastseen")) {
@@ -291,11 +296,11 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     this._overrideExpiresAt = hasExpiration ? expiresAt : null;
   }
 
-  enqueuePresenceUpdate(operation) {
-    const queuedOperation = this._presenceUpdateQueue
-      .catch((err) => this.log("Previous presence update failed", err))
+  enqueuePresenceOverrideUpdate(operation) {
+    const queuedOperation = this._presenceOverrideQueue
+      .catch((err) => this.log("Previous presence override update failed", err))
       .then(operation);
-    this._presenceUpdateQueue = queuedOperation;
+    this._presenceOverrideQueue = queuedOperation;
     return queuedOperation;
   }
 
@@ -308,7 +313,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   }
 
   async setPresenceOverride(present, duration) {
-    return this.enqueuePresenceUpdate(async () => {
+    return this.enqueuePresenceOverrideUpdate(async () => {
       const overrideDuration = this.getRequestedOverrideDuration(duration);
       this._presenceOverride = !!present;
       this._overrideExpiresAt = overrideDuration === null ? null : Date.now() + overrideDuration;
@@ -327,7 +332,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   }
 
   async clearPresenceOverride() {
-    return this.enqueuePresenceUpdate(async () => {
+    return this.enqueuePresenceOverrideUpdate(async () => {
       if (this._presenceOverride === null) {
         return;
       }
@@ -465,22 +470,35 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     await this.setCapabilityValue("lastseen_datetime", lastSeenDateTime).catch(this.error);
   }
 
-  async updateLastSeen() {
+  updateLastSeen() {
     const now = Date.now();
 
     // Always refresh in-memory timestamp so short drops do not accumulate "time since last seen"
     this._lastSeen = now;
 
     // Persist to capabilities/store at most once per minute to avoid noisy writes
-    if (!this._lastSeenPersisted || now - this._lastSeenPersisted > 60000) {
-      try {
-        await this.setLastSeenCapabilities(now);
-        await this.setStoreValue("lastSeen", now);
-        this._lastSeenPersisted = now;
-      } catch (err) {
-        this.log("Error updating last seen:", err.message);
-      }
+    if (this._lastSeenPersistence) {
+      return this._lastSeenPersistence;
     }
+    if (!this._lastSeenPersisted || now - this._lastSeenPersisted > 60000) {
+      const persistence = (async () => {
+        try {
+          await this.setLastSeenCapabilities(now);
+          await this.setStoreValue("lastSeen", now);
+          this._lastSeenPersisted = now;
+        } catch (err) {
+          this.log("Error updating last seen:", err.message);
+        }
+      })();
+      this._lastSeenPersistence = persistence;
+      persistence.then(() => {
+        if (this._lastSeenPersistence === persistence) {
+          this._lastSeenPersistence = undefined;
+        }
+      });
+      return persistence;
+    }
+    return Promise.resolve();
   }
 
   getSeenMillisAgo() {
@@ -648,54 +666,100 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     }
   }
 
-  async setDetectedPresent(present, { immediate = false } = {}) {
-    const detectionSequence = ++this._detectionSequence;
-    return this.enqueuePresenceUpdate(async () => {
-      if (present) {
-        this.flushOfflineProbeStats("device detected again");
+  persistDetectedPresence() {
+    this._detectedPresencePersistenceDirty = true;
+    if (this._detectedPresencePersistence) {
+      return this._detectedPresencePersistence;
+    }
 
-        // Refresh last-seen even when already detected so short drops don't trip away delay
-        await this.updateLastSeen();
-        if (detectionSequence !== this._detectionSequence) {
+    let persistence;
+    persistence = (async () => {
+      while (this._detectedPresencePersistenceDirty) {
+        this._detectedPresencePersistenceDirty = false;
+        const present = this._detectedPresent;
+        try {
+          await this.setStoreValue(DETECTED_PRESENCE_STORE_KEY, present);
+        } catch (err) {
+          this.log("Failed to persist detected presence", err);
           return;
         }
-        if (!this._detectedPresent) {
-          this._detectedPresent = true;
-          await this.setStoreValue(DETECTED_PRESENCE_STORE_KEY, true);
-          await this.reconcilePresence(detectionSequence);
+      }
+    })().finally(() => {
+      if (this._detectedPresencePersistence === persistence) {
+        this._detectedPresencePersistence = undefined;
+        if (this._detectedPresencePersistenceDirty) {
+          void this.persistDetectedPresence();
         }
-        return;
-      }
-
-      if (!this._detectedPresent || (!immediate && this.shouldDelayAwayStateSwitch())) {
-        return;
-      }
-
-      this.flushOfflineProbeStats("device finally marked offline");
-      this.log(`${this.getHost() || this.getName()} : is marked as offline by network detection`);
-
-      if (this._isInStressMode) {
-        const timeSinceLastSeen = Math.floor(this.getSeenMillisAgo() / 1000);
-        this._isInStressMode = false;
-        this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period ended`);
-      }
-
-      this._detectedPresent = false;
-      await this.setStoreValue(DETECTED_PRESENCE_STORE_KEY, false);
-      if (detectionSequence === this._detectionSequence) {
-        await this.reconcilePresence(detectionSequence);
       }
     });
+    this._detectedPresencePersistence = persistence;
+    return persistence;
   }
 
-  async reconcilePresence(expectedDetectionSequence) {
-    const effectivePresent = this._presenceOverride === null
+  async setDetectedPresent(present, { immediate = false } = {}) {
+    const detectionSequence = ++this._detectionSequence;
+    if (present) {
+      this.flushOfflineProbeStats("device detected again");
+
+      // Persist last-seen in the background so a pending Homey write cannot block detection.
+      void this.updateLastSeen();
+      if (detectionSequence !== this._detectionSequence) {
+        return;
+      }
+      if (!this._detectedPresent) {
+        this._detectedPresent = true;
+        void this.persistDetectedPresence();
+        await this.reconcilePresence();
+      }
+      return;
+    }
+
+    if (!this._detectedPresent || (!immediate && this.shouldDelayAwayStateSwitch())) {
+      return;
+    }
+
+    this.flushOfflineProbeStats("device finally marked offline");
+    this.log(`${this.getHost() || this.getName()} : is marked as offline by network detection`);
+
+    if (this._isInStressMode) {
+      const timeSinceLastSeen = Math.floor(this.getSeenMillisAgo() / 1000);
+      this._isInStressMode = false;
+      this.log(`Time since last seen: ${timeSinceLastSeen}s - Stress period ended`);
+    }
+
+    this._detectedPresent = false;
+    void this.persistDetectedPresence();
+    if (detectionSequence === this._detectionSequence) {
+      await this.reconcilePresence();
+    }
+  }
+
+  getEffectivePresence() {
+    return this._presenceOverride === null
       ? this._detectedPresent
       : this._presenceOverride;
-    await this.applyEffectivePresence(effectivePresent, expectedDetectionSequence);
   }
 
-  async applyEffectivePresence(present, expectedDetectionSequence) {
+  async reconcilePresence() {
+    const effectivePresent = this.getEffectivePresence();
+    if (this._effectivePresenceTarget !== effectivePresent) {
+      this._effectivePresenceTarget = effectivePresent;
+      this._effectivePresenceGeneration += 1;
+    }
+    await this.applyEffectivePresence(effectivePresent, this._effectivePresenceGeneration);
+  }
+
+  isEffectiveTransitionCurrent(present, transitionGeneration) {
+    return this._effectivePresenceGeneration === transitionGeneration
+      && this._effectivePresenceTarget === present
+      && this.getEffectivePresence() === present;
+  }
+
+  async applyEffectivePresence(present, transitionGeneration) {
+    const isCurrent = () => this.isEffectiveTransitionCurrent(present, transitionGeneration);
+    if (!isCurrent()) {
+      return;
+    }
     const currentPresent = this.getPresenceStatus();
     if (currentPresent === present) {
       return;
@@ -705,14 +769,23 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     if (present) {
       this.log(`${this.getName()}: is present`);
       await this.setPresenceStatus(true);
-      await this.homey.app.deviceArrived(this);
+      if (!isCurrent()) {
+        this.log("Skipped stale present flow trigger");
+        return;
+      }
+      await this.homey.app.deviceArrived(this, isCurrent);
+      if (!isCurrent()) return;
       await this.homey.app.userEnteredTrigger.trigger(this, tokens, {}).catch((err) => this.error(err));
+      if (!isCurrent()) return;
       await this.homey.app.someoneEnteredTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+      if (!isCurrent()) return;
       if (this.isHouseHoldMember()) {
         await this.homey.app.householdMemberArrivedTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+        if (!isCurrent()) return;
       }
       if (this.isKid()) {
         await this.homey.app.kidArrivedTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+        if (!isCurrent()) return;
       }
       if (this.isGuest()) {
         await this.homey.app.guestArrivedTrigger.trigger(tokens, {}).catch((err) => this.error(err));
@@ -722,23 +795,24 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
     this.log(`${this.getName()}: is away`);
     await this.setPresenceStatus(false);
-    if (
-      typeof expectedDetectionSequence === "number"
-      && expectedDetectionSequence !== this._detectionSequence
-      && this._presenceOverride === null
-    ) {
+    if (!isCurrent()) {
       this.log("Skipped stale offline flow trigger");
       return;
     }
     this.log("Device is finally marked as unavailable");
-    await this.homey.app.deviceLeft(this, tokens);
+    await this.homey.app.deviceLeft(this, tokens, isCurrent);
+    if (!isCurrent()) return;
     await this.homey.app.userLeftTrigger.trigger(this, tokens, {}).catch((err) => this.error(err));
+    if (!isCurrent()) return;
     await this.homey.app.someoneLeftTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+    if (!isCurrent()) return;
     if (this.isHouseHoldMember()) {
       await this.homey.app.householdMemberLeftTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+      if (!isCurrent()) return;
     }
     if (this.isKid()) {
       await this.homey.app.kidLeftTrigger.trigger(tokens, {}).catch((err) => this.error(err));
+      if (!isCurrent()) return;
     }
     if (this.isGuest()) {
       await this.homey.app.guestLeftTrigger.trigger(tokens, {}).catch((err) => this.error(err));

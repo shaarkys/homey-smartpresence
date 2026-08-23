@@ -122,7 +122,7 @@ module.exports = class SmartPresenceApp extends Homey.App {
     return status;
   }
 
-  async deviceArrived(device) {
+  async deviceArrived(device, isCurrent = () => true) {
     const currentPresenceStatus = this.getPresenceStatus();
     const tokens = device.getFlowCardTokens();
     const deviceId = device.getData().id;
@@ -143,25 +143,25 @@ module.exports = class SmartPresenceApp extends Homey.App {
       }
     }
 
-    if (isFirstPerson) {
+    if (isFirstPerson && isCurrent()) {
       await this.homey.app.firstPersonEnteredTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Arrived as First Person. <<<`);
     }
-    if (isFirstHouseholdMember) {
+    if (isFirstHouseholdMember && isCurrent()) {
       await this.homey.app.firstHouseholdMemberArrivedTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Arrived as First HouseHold Member. <<<`);
     }
-    if (isFirstKid) {
+    if (isFirstKid && isCurrent()) {
       await this.homey.app.firstKidArrivedTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Arrived as First Kid. <<<`);
     }
-    if (isFirstGuest) {
+    if (isFirstGuest && isCurrent()) {
       await this.homey.app.firstGuestArrivedTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Arrived as First Guest. <<<`);
     }
   }
 
-  async deviceLeft(device, tokens) {
+  async deviceLeft(device, tokens, isCurrent = () => true) {
     const currentPresenceStatus = this.getPresenceStatus();
     const lastSeenFormatted = formatLastSeen(device.getLastSeen(), this.homey);
     this.log(`Device ${device.getName()} Left. Last Seen: ${lastSeenFormatted}`);
@@ -180,19 +180,19 @@ module.exports = class SmartPresenceApp extends Homey.App {
       }
     }
 
-    if (isLastPerson) {
+    if (isLastPerson && isCurrent()) {
       await this.homey.app.lastPersonLeftTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Left as Last Person  <<<`);
     }
-    if (isLastHouseholdMember) {
+    if (isLastHouseholdMember && isCurrent()) {
       await this.homey.app.lastHouseholdMemberLeftTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Left as Last House Hold Member. <<<`);
     }
-    if (isLastKid) {
+    if (isLastKid && isCurrent()) {
       await this.homey.app.lastKidLeftTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Left as Last Kid. <<<`);
     }
-    if (isLastGuest) {
+    if (isLastGuest && isCurrent()) {
       await this.homey.app.lastGuestLeftTrigger.trigger(tokens, {}).catch(this.error);
       this.log(`>>> Device ${device.getName()} Left as Last Guest. <<<`);
     }
