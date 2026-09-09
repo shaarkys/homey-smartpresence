@@ -122,8 +122,7 @@ module.exports = class SmartPresenceApp extends Homey.App {
     return status;
   }
 
-  async deviceArrived(device, isCurrent = () => true) {
-    const currentPresenceStatus = this.getPresenceStatus();
+  async deviceArrived(device, isCurrent = () => true, currentPresenceStatus = this.getPresenceStatus()) {
     const tokens = device.getFlowCardTokens();
     const deviceId = device.getData().id;
     const lastSeenFormatted = formatLastSeen(device.getLastSeen(), this.homey);
@@ -161,8 +160,7 @@ module.exports = class SmartPresenceApp extends Homey.App {
     }
   }
 
-  async deviceLeft(device, tokens, isCurrent = () => true) {
-    const currentPresenceStatus = this.getPresenceStatus();
+  async deviceLeft(device, tokens, isCurrent = () => true, currentPresenceStatus = this.getPresenceStatus()) {
     const lastSeenFormatted = formatLastSeen(device.getLastSeen(), this.homey);
     this.log(`Device ${device.getName()} Left. Last Seen: ${lastSeenFormatted}`);
 
@@ -171,7 +169,9 @@ module.exports = class SmartPresenceApp extends Homey.App {
     let isLastKid = device.isKid();
     let isLastGuest = device.isGuest();
 
-    for (const status of currentPresenceStatus) {
+    // The snapshot selects the last departure; live peers can have returned
+    // while its capability write was pending, making an empty-group Flow stale.
+    for (const status of [...currentPresenceStatus, ...this.getPresenceStatus()]) {
       if (status.id !== device.getData().id && status.present) {
         isLastPerson = false;
         if (!status.guest) isLastHouseholdMember = false;

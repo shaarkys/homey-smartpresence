@@ -74,6 +74,152 @@ function createDevice(overrides = {}) {
   return device;
 }
 
+function createHousehold(members) {
+  const calls = [];
+  const app = Object.create(SmartPresenceApp.prototype);
+  app.log = () => {};
+  app.error = (err) => { throw err; };
+  const devices = [];
+  const homey = {
+    app,
+    clock: { getTimezone: () => "UTC" },
+    i18n: { getLanguage: () => "en", getCountry: () => "GB" },
+    drivers: { getDriver: () => ({ getDevices: () => devices }) },
+  };
+  app.homey = homey;
+  for (const name of [
+    "firstPersonEntered", "firstHouseholdMemberArrived", "firstKidArrived", "firstGuestArrived",
+    "lastPersonLeft", "lastHouseholdMemberLeft", "lastKidLeft", "lastGuestLeft",
+    "userEntered", "someoneEntered", "householdMemberArrived", "kidArrived", "guestArrived",
+    "userLeft", "someoneLeft", "householdMemberLeft", "kidLeft", "guestLeft",
+  ]) {
+    app[`${name}Trigger`] = {
+      trigger: async (...args) => {
+        const tokens = args[name.startsWith("user") ? 1 : 0];
+        calls.push({ name, who: tokens.who });
+      },
+    };
+  }
+  for (const { present, guest = false, kid = false } of members) {
+    const id = `phone-${devices.length + 1}`;
+    devices.push(createDevice({
+      _present: present,
+      _detectedPresent: present,
+      homey,
+      error: app.error,
+      getData: () => ({ id }),
+      getName: () => id,
+      getLastSeen: () => 0,
+      isGuest: () => guest,
+      isKid: () => kid,
+      isHouseHoldMember: () => !guest,
+      reconcilePresence: SmartPresenceDevice.prototype.reconcilePresence,
+      setCapabilityValue: async () => {},
+    }));
+  }
+  return { app, devices, calls };
+}
+
+for (const group of [
+  { label: "members", guest: false, kid: false },
+  { label: "kids", guest: false, kid: true },
+  { label: "guests", guest: true, kid: false },
+  { label: "guest kids", guest: true, kid: true },
+]) {
+  for (const present of [false, true]) {
+    for (const reverse of [false, true]) {
+      test(`overlapping ${group.label} ${present ? "arrivals" : "departures"}, ${reverse ? "reverse" : "forward"} writes`, async () => {
+        const { devices, calls } = createHousehold([
+          { ...group, present: !present }, { ...group, present: !present },
+        ]);
+        const writes = devices.map(() => createDeferred());
+        devices.forEach((device, index) => {
+          device.setCapabilityValue = () => writes[index].promise;
+        });
+        const transitions = devices.map((device) => device.setDetectedPresent(present, { immediate: true }));
+        assert.deepEqual(devices.map((device) => device.getPresenceStatus()), [present, present]);
+        assert.deepEqual(calls, []);
+        for (const index of reverse ? [1, 0] : [0, 1]) {
+          writes[index].resolve();
+          await settlesWithin(transitions[index]);
+        }
+
+        const aggregateNames = [present ? "firstPersonEntered" : "lastPersonLeft"];
+        if (!group.guest) aggregateNames.push(present ? "firstHouseholdMemberArrived" : "lastHouseholdMemberLeft");
+        if (group.kid) aggregateNames.push(present ? "firstKidArrived" : "lastKidLeft");
+        if (group.guest) aggregateNames.push(present ? "firstGuestArrived" : "lastGuestLeft");
+        const who = devices[present ? 0 : 1].getName();
+        assert.deepEqual(
+          calls.filter(({ name }) => name.startsWith("first") || name.startsWith("last")),
+          aggregateNames.map((name) => ({ name, who })),
+        );
+        const individualNames = present ? ["userEntered", "someoneEntered"] : ["userLeft", "someoneLeft"];
+        if (!group.guest) individualNames.push(present ? "householdMemberArrived" : "householdMemberLeft");
+        if (group.kid) individualNames.push(present ? "kidArrived" : "kidLeft");
+        if (group.guest) individualNames.push(present ? "guestArrived" : "guestLeft");
+        for (const device of devices) {
+          assert.deepEqual(
+            calls.filter((call) => call.who === device.getName() && !call.name.startsWith("first") && !call.name.startsWith("last"))
+              .map(({ name }) => name),
+            individualNames,
+          );
+        }
+      });
+    }
+  }
+}
+
+for (const present of [false, true]) {
+  test(`overlapping kid ${present ? "arrivals" : "departures"} while an adult stays home`, async () => {
+    const { devices, calls } = createHousehold([
+      { present: !present, kid: true }, { present: !present, kid: true }, { present: true },
+    ]);
+    await Promise.all(devices.slice(0, 2).map((device) => device.setDetectedPresent(present, { immediate: true })));
+    assert.deepEqual(
+      calls.filter(({ name }) => name.startsWith("first") || name.startsWith("last")),
+      [{ name: present ? "firstKidArrived" : "lastKidLeft", who: devices[present ? 0 : 1].getName() }],
+    );
+  });
+}
+
+for (const guest of [false, true]) {
+  test(`a ${guest ? "guest" : "member"} arriving during a pending departure prevents stale empty-group Flows`, async () => {
+    const { devices: [leaving, arriving], calls } = createHousehold([
+      { present: true }, { present: false, guest },
+    ]);
+    const write = createDeferred();
+    leaving.setCapabilityValue = () => write.promise;
+    const departure = leaving.setDetectedPresent(false, { immediate: true });
+    await arriving.setDetectedPresent(true);
+    write.resolve();
+    await settlesWithin(departure);
+    assert.deepEqual(
+      calls.filter(({ name }) => name.startsWith("last")),
+      guest ? [{ name: "lastHouseholdMemberLeft", who: leaving.getName() }] : [],
+    );
+    assert.equal(calls.filter(({ name }) => name === "userLeft").length, 1);
+  });
+}
+
+test("real aggregate departure handling suppresses an old leave-return-leave transition", async () => {
+  const { devices: [device], calls } = createHousehold([{ present: true }]);
+  const write = createDeferred();
+  let writes = 0;
+  device.setCapabilityValue = async () => {
+    if (++writes === 1) await write.promise;
+  };
+  const oldDeparture = device.setDetectedPresent(false, { immediate: true });
+  await device.setDetectedPresent(true);
+  await device.setDetectedPresent(false, { immediate: true });
+  write.resolve();
+  await settlesWithin(oldDeparture);
+  assert.deepEqual(calls.filter(({ name }) => name.startsWith("last")), [
+    { name: "lastPersonLeft", who: device.getName() },
+    { name: "lastHouseholdMemberLeft", who: device.getName() },
+  ]);
+  assert.equal(calls.filter(({ name }) => name === "userLeft").length, 1);
+});
+
 test("a pending last-seen write does not block an online detection", async () => {
   const pendingLastSeen = new Promise(() => {});
   const device = createDevice({
@@ -172,6 +318,7 @@ test("a repeated offline probe does not suppress the legitimate departure flows"
     getFlowCardTokens: () => ({ who: "Test phone" }),
     homey: {
       app: {
+        getPresenceStatus: () => [],
         deviceLeft: async () => calls.push("deviceLeft"),
         householdMemberLeftTrigger: trigger("householdMemberLeft"),
         someoneLeftTrigger: trigger("someoneLeft"),
@@ -206,6 +353,7 @@ test("a return suppresses departure flows still waiting on a capability write", 
     getFlowCardTokens: () => ({ who: "Test phone" }),
     homey: {
       app: {
+        getPresenceStatus: () => [],
         deviceLeft: async () => calls.push("deviceLeft"),
       },
     },
@@ -240,6 +388,7 @@ test("an ABA transition does not dispatch duplicate departure flows", async () =
     getFlowCardTokens: () => ({ who: "Test phone" }),
     homey: {
       app: {
+        getPresenceStatus: () => [],
         deviceArrived: async () => calls.push("deviceArrived"),
         deviceLeft: async () => calls.push("deviceLeft"),
         householdMemberArrivedTrigger: trigger("householdMemberArrived"),
@@ -290,6 +439,7 @@ test("a pending aggregate departure notification cannot release stale device flo
     getFlowCardTokens: () => ({ who: "Test phone" }),
     homey: {
       app: {
+        getPresenceStatus: () => [],
         deviceArrived: async () => {},
         deviceLeft: async () => {
           calls.push("deviceLeft");

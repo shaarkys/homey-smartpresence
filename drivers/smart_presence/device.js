@@ -766,6 +766,10 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     }
     const tokens = this.getFlowCardTokens();
 
+    // Capture peers before setPresenceStatus changes _present synchronously. Waiting
+    // for its capability write first can duplicate last-person or miss first-person Flows.
+    const presenceBeforeTransition = this.homey.app.getPresenceStatus();
+
     if (present) {
       this.log(`${this.getName()}: is present`);
       await this.setPresenceStatus(true);
@@ -773,7 +777,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
         this.log("Skipped stale present flow trigger");
         return;
       }
-      await this.homey.app.deviceArrived(this, isCurrent);
+      await this.homey.app.deviceArrived(this, isCurrent, presenceBeforeTransition);
       if (!isCurrent()) return;
       await this.homey.app.userEnteredTrigger.trigger(this, tokens, {}).catch((err) => this.error(err));
       if (!isCurrent()) return;
@@ -800,7 +804,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
       return;
     }
     this.log("Device is finally marked as unavailable");
-    await this.homey.app.deviceLeft(this, tokens, isCurrent);
+    await this.homey.app.deviceLeft(this, tokens, isCurrent, presenceBeforeTransition);
     if (!isCurrent()) return;
     await this.homey.app.userLeftTrigger.trigger(this, tokens, {}).catch((err) => this.error(err));
     if (!isCurrent()) return;
