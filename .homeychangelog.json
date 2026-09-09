@@ -112,5 +112,8 @@
   },
   "0.9.15": {
     "en": "Fixed an issue where automatic presence detection could get stuck until the app was restarted."
+  },
+  "0.9.16": {
+    "en": "Fixed duplicate “last person left” triggers and missed “first person arrived” triggers when multiple devices change presence simultaneously."
   }
 }
