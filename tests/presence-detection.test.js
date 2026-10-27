@@ -17,6 +17,7 @@ Module._load = function loadWithHomeyMock(request, parent, isMain) {
 
 const SmartPresenceDevice = require("../drivers/smart_presence/device");
 const SmartPresenceApp = require("../app");
+const { DurationTriggers } = require("../lib/duration-triggers");
 
 after(() => {
   Module._load = originalLoad;
@@ -120,6 +121,35 @@ function createHousehold(members) {
   return { app, devices, calls };
 }
 
+function enableDurationTriggers(app) {
+  const timers = new Set();
+  const calls = [];
+  const card = (id, deviceCard) => ({
+    registerRunListener(listener) { this.listener = listener; },
+    getArgumentValues: async () => [{ duration: 5, unit: "seconds" }],
+    async trigger(...args) {
+      const [tokens, state] = args.slice(deviceCard ? 1 : 0);
+      if (this.listener({ duration: 5, unit: "seconds" }, JSON.parse(JSON.stringify(state)))) {
+        calls.push({ id, who: tokens.who });
+      }
+    },
+  });
+  app.homey.flow = {
+    getTriggerCard: (id) => card(id, false),
+    getDeviceTriggerCard: (id) => card(id, true),
+  };
+  app.homey.setTimeout = (callback) => { timers.add(callback); return callback; };
+  app.homey.clearTimeout = (callback) => timers.delete(callback);
+  app.durationTriggers = new DurationTriggers(app);
+  return {
+    calls,
+    async expire() {
+      for (const callback of [...timers]) { timers.delete(callback); callback(); }
+      await new Promise((resolve) => setImmediate(resolve));
+    },
+  };
+}
+
 for (const group of [
   { label: "members", guest: false, kid: false },
   { label: "kids", guest: false, kid: true },
@@ -129,9 +159,10 @@ for (const group of [
   for (const present of [false, true]) {
     for (const reverse of [false, true]) {
       test(`overlapping ${group.label} ${present ? "arrivals" : "departures"}, ${reverse ? "reverse" : "forward"} writes`, async () => {
-        const { devices, calls } = createHousehold([
+        const { app, devices, calls } = createHousehold([
           { ...group, present: !present }, { ...group, present: !present },
         ]);
+        const duration = enableDurationTriggers(app);
         const writes = devices.map(() => createDeferred());
         devices.forEach((device, index) => {
           device.setCapabilityValue = () => writes[index].promise;
@@ -164,6 +195,13 @@ for (const group of [
             individualNames,
           );
         }
+        assert.equal(duration.calls.length, 0);
+        await duration.expire();
+        const expected = calls.map(({ name, who }) => ({
+          id: `${name.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`)}_for_duration`, who,
+        }));
+        const sort = (values) => values.sort((a, b) => `${a.id}:${a.who}`.localeCompare(`${b.id}:${b.who}`));
+        assert.deepEqual(sort(duration.calls), sort(expected));
       });
     }
   }
@@ -510,6 +548,23 @@ test("aggregate arrival Flows stop when their transition becomes stale", async (
   await settlesWithin(notification);
 
   assert.deepEqual(calls, ["firstPerson"]);
+});
+
+test("manual effective presence overrides use duration triggers and stop cleanly", async () => {
+  const { app, devices: [device] } = createHousehold([{ present: false }]);
+  const duration = enableDurationTriggers(app);
+  device._presenceOverride = true;
+  await device.reconcilePresence();
+  await duration.expire();
+  assert.ok(duration.calls.some(({ id }) => id === "user_entered_for_duration"));
+  device._presenceOverride = false;
+  await device.reconcilePresence();
+  await device.onUninit();
+  await duration.expire();
+  assert.equal(duration.calls.some(({ id }) => id === "user_left_for_duration"), false);
+  assert.equal(app.durationTriggers.pending.size, 0);
+  await app.onUninit();
+  assert.equal(app.durationTriggers.stopped, true);
 });
 
 test("pending last-seen persistence is kept single-flight", async () => {

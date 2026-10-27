@@ -70,6 +70,8 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
   }
 
   async onInit() {
+    this._durationTriggersStopped = false;
+    this.homey.app.durationTriggers?.cancelWhere((event) => event.device === this, "device initialized");
     this._settings = this.getSettings();
     this._presenceOverrideQueue = Promise.resolve();
     this._detectionSequence = 0;
@@ -180,10 +182,16 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
 
   onDeleted() {
     this._deleted = true;
+    this.homey.app.durationTriggers?.cancelWhere((event) => event.device === this, "device deleted");
     this.destroyClient();
     this.clearScanTimer();
     this.clearPresenceOverrideTimer();
     this.log(`Device ${this.getName()} Deleted.`);
+  }
+
+  async onUninit() {
+    this._durationTriggersStopped = true;
+    this.homey.app.durationTriggers?.cancelWhere((event) => event.device === this, "device stopped");
   }
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -197,6 +205,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     }
     this._settings = { ...newSettings, host };
     if (changedKeys.includes("is_guest") || changedKeys.includes("is_kid")) {
+      this.homey.app.durationTriggers?.clear("person category changed");
       await this.updateDeviceTypeCapability();
     }
     if (changedKeys.includes("host") || changedKeys.includes("port") || changedKeys.includes("manual_only")) {
@@ -769,6 +778,7 @@ module.exports = class SmartPresenceDevice extends Homey.Device {
     // Capture peers before setPresenceStatus changes _present synchronously. Waiting
     // for its capability write first can duplicate last-person or miss first-person Flows.
     const presenceBeforeTransition = this.homey.app.getPresenceStatus();
+    this.homey.app.durationTriggers?.transition(this, present, presenceBeforeTransition, isCurrent);
 
     if (present) {
       this.log(`${this.getName()}: is present`);

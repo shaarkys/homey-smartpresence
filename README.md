@@ -31,6 +31,25 @@ Ensure you are using PHONE MAC in the settings of your Wifi connection on your p
 - The last guest left
 - The last person left
 
+Each trigger also has a duration variant, for example **The first person arrived
+and stayed home for 2 minutes**. Choose a duration (1–35791) and seconds or minutes.
+These cards fire once per qualifying arrival/departure, after continuous presence
+or absence; they do not repeat while that state continues. Each Flow can use its
+own duration. The `Who` token identifies the person who arrived or left.
+
+For first-arrival cards, that same person must stay home, even if others arrive
+later. For last-departure cards, the relevant group must remain empty: a return by
+anyone in that group cancels the timer. For the other cards, reversing the selected
+person's state cancels the timer. A new qualifying transition starts a fresh timer.
+Both automatic detection and manual presence overrides use these rules. Durations
+start when Smart Presence changes its effective presence state, after any configured
+away delay, rather than when a phone first disconnects from Wi-Fi.
+
+Pending duration timers are cleared when the app restarts, the relevant device
+stops or is deleted, or a person's guest/kid category changes. They are not restored
+or fired retroactively after a restart. Changes to a Flow's duration apply to the
+next qualifying transition. Existing instant triggers are unchanged.
+
 #### Conditions
 
 - Household members home / No household members home
@@ -130,3 +149,13 @@ Please report issues at the [issues section on Github](https://github.com/shaark
 #### 0.5.1
 
 - Device tile will now grey out when an user is not home and vice versa
+
+## Support development
+
+If this integration is useful to you, you can optionally support my ongoing development and maintenance:
+
+- [GitHub Sponsors](https://github.com/sponsors/shaarkys)
+- [Ko-fi](https://ko-fi.com/bretislavkubesa)
+- [PayPal](https://www.paypal.com/paypalme/bkubesa)
+
+Contributions are appreciated, never required, and do not affect features or support.

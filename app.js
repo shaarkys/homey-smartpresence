@@ -1,6 +1,7 @@
 "use strict";
 
 const Homey = require("homey");
+const { DurationTriggers } = require("./lib/duration-triggers");
 
 function formatLastSeen(timestamp, homey) {
   const timezone = homey.clock.getTimezone();
@@ -37,6 +38,8 @@ module.exports = class SmartPresenceApp extends Homey.App {
   }
 
   async initFlows() {
+    this.durationTriggers?.stop("Flow initialization");
+    this.durationTriggers = new DurationTriggers(this);
     this.homey.flow.getActionCard("keep_present").registerRunListener((args) => args.device.setPresenceOverride(true, args.duration));
 
     this.homey.flow.getActionCard("keep_away").registerRunListener((args) => args.device.setPresenceOverride(false, args.duration));
@@ -92,6 +95,10 @@ module.exports = class SmartPresenceApp extends Homey.App {
 
   async householdMemberIsHome(args, state) {
     return this.getPresenceStatus().filter((d) => d.present && !d.guest).length > 0;
+  }
+
+  async onUninit() {
+    this.durationTriggers?.stop("app stopped");
   }
 
   async kidsAtHome(args, state) {

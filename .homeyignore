@@ -5,3 +5,6 @@
 .idea
 docs/*
 tests/*
+AGENTS.md
+TESTS/
+tests/

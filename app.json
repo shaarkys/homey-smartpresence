@@ -176,6 +176,9 @@
   },
   "contributing": {
     "donate": {
+      "githubSponsors": {
+        "username": "shaarkys"
+      },
       "paypal": {
         "username": "bkubesa"
       }
@@ -236,6 +239,150 @@
         ]
       },
       {
+        "id": "first_guest_arrived_for_duration",
+        "title": {
+          "en": "The first guest arrived and stayed home",
+          "nl": "Eerste gast is aangekomen en bleef thuis",
+          "de": "Der erste Gast ist angekommen und blieb zu Hause",
+          "no": "Første gjest ankom og ble hjemme",
+          "da": "Den første gæst ankom og blev hjemme",
+          "sv": "Den första gästen anlände och stannade hemma",
+          "es": "El primer invitado llegó y permaneció en casa",
+          "fr": "Le premier invité est arrivé et est resté à la maison",
+          "it": "Il primo ospite è arrivato ed è rimasto a casa",
+          "pl": "Pierwszy gość przybył i pozostał w domu",
+          "ru": "Первый гость прибыл и остался дома",
+          "ko": "첫 번째 손님 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "The first guest arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Eerste gast is aangekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Der erste Gast ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Første gjest ankom og ble hjemme i [[duration]] [[unit]]",
+          "da": "Den første gæst ankom og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Den första gästen anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "El primer invitado llegó y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Le premier invité est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "Il primo ospite è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Pierwszy gość przybył i pozostał w domu przez [[duration]] [[unit]]",
+          "ru": "Первый гость прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "첫 번째 손님 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "first_household_member_arrived",
         "title": {
           "en": "The first household member arrived",
@@ -283,6 +430,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "first_household_member_arrived_for_duration",
+        "title": {
+          "en": "The first household member arrived and stayed home",
+          "nl": "Eerste gezinslid is aangekomen en bleef thuis",
+          "de": "Das erste Haushaltsmitglied ist angekommen und blieb zu Hause",
+          "no": "Første medlem av husstanden kom hjem og ble hjemme",
+          "da": "Det første medlem i husstanden kom hjem og blev hjemme",
+          "sv": "Den första personen i hushållet anlände och stannade hemma",
+          "es": "El primer miembro del hogar llegó y permaneció en casa",
+          "fr": "Le premier membre du foyer est arrivé et est resté à la maison",
+          "it": "Il primo membro della famiglia è arrivato ed è rimasto a casa",
+          "pl": "Pierwszy członek gospodarstwa domowego przybył i pozostał w domu",
+          "ru": "Первый член семьи прибыл и остался дома",
+          "ko": "첫 번째 가구 구성원 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "The first household member arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Eerste gezinslid is aangekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Das erste Haushaltsmitglied ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Første medlem av husstanden kom hjem og ble hjemme i [[duration]] [[unit]]",
+          "da": "Det første medlem i husstanden kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Den första personen i hushållet anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "El primer miembro del hogar llegó y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Le premier membre du foyer est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "Il primo membro della famiglia è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Pierwszy członek gospodarstwa domowego przybył i pozostał w domu przez [[duration]] [[unit]]",
+          "ru": "Первый член семьи прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "첫 번째 가구 구성원 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -338,6 +629,150 @@
         ]
       },
       {
+        "id": "first_kid_arrived_for_duration",
+        "title": {
+          "en": "The first kid arrived and stayed home",
+          "nl": "Het eerste kind is thuisgekomen en bleef thuis",
+          "de": "Das erste Kind ist angekommen und blieb zu Hause",
+          "no": "Første barn ankom og ble hjemme",
+          "da": "Første barn kom hjem og blev hjemme",
+          "sv": "Det första barnet anlände och stannade hemma",
+          "es": "El primer niño llegó y permaneció en casa",
+          "fr": "Le premier enfant est arrivé et est resté à la maison",
+          "it": "È arrivato il primo bambino ed è rimasto a casa",
+          "pl": "Pierwsze dziecko przybyło i pozostało w domu",
+          "ru": "Первый ребенок прибыл и остался дома",
+          "ko": "첫 번째 아이 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "The first kid arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Het eerste kind is thuisgekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Das erste Kind ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Første barn ankom og ble hjemme i [[duration]] [[unit]]",
+          "da": "Første barn kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Det första barnet anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "El primer niño llegó y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Le premier enfant est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "È arrivato il primo bambino ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Pierwsze dziecko przybyło i pozostało w domu przez [[duration]] [[unit]]",
+          "ru": "Первый ребенок прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "첫 번째 아이 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "first_person_entered",
         "title": {
           "en": "The first person arrived",
@@ -385,6 +820,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "first_person_entered_for_duration",
+        "title": {
+          "en": "The first person arrived and stayed home",
+          "nl": "Eerste persoon die binnen komt en bleef thuis",
+          "de": "Die erste Person ist angekommen und blieb zu Hause",
+          "no": "Første person kom hjem og ble hjemme",
+          "da": "Den første person kom hjem og blev hjemme",
+          "sv": "Den första personen anlände och stannade hemma",
+          "es": "La primera persona llegó y permaneció en casa",
+          "fr": "La première personne est arrivée et est restée à la maison",
+          "it": "La prima persona è arrivata ed è rimasta a casa",
+          "pl": "Pierwsza osoba przybyła i pozostała w domu",
+          "ru": "Первый человек прибыл и остался дома",
+          "ko": "첫 번째 사람 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "The first person arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Eerste persoon die binnen komt en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Die erste Person ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Første person kom hjem og ble hjemme i [[duration]] [[unit]]",
+          "da": "Den første person kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Den första personen anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "La primera persona llegó y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "La première personne est arrivée et est restée à la maison pendant [[duration]] [[unit]]",
+          "it": "La prima persona è arrivata ed è rimasta a casa per [[duration]] [[unit]]",
+          "pl": "Pierwsza osoba przybyła i pozostała w domu przez [[duration]] [[unit]]",
+          "ru": "Первый человек прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "첫 번째 사람 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -440,6 +1019,150 @@
         ]
       },
       {
+        "id": "guest_arrived_for_duration",
+        "title": {
+          "en": "A guest arrived and stayed home",
+          "nl": "Een gast is aangekomen en bleef thuis",
+          "de": "Ein Gast ist angekommen und blieb zu Hause",
+          "no": "En gjest ankom og ble hjemme",
+          "da": "En gæst ankom og blev hjemme",
+          "sv": "En gäst anlände och stannade hemma",
+          "es": "Un invitado ha llegado y permaneció en casa",
+          "fr": "Un invité est arrivé et est resté à la maison",
+          "it": "È arrivato un ospite ed è rimasto a casa",
+          "pl": "Gość przybył i pozostał w domu",
+          "ru": "Гость прибыл и остался дома",
+          "ko": "손님 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "A guest arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Een gast is aangekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Ein Gast ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "En gjest ankom og ble hjemme i [[duration]] [[unit]]",
+          "da": "En gæst ankom og blev hjemme i [[duration]] [[unit]]",
+          "sv": "En gäst anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "Un invitado ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Un invité est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "È arrivato un ospite ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Gość przybył i pozostał w domu przez [[duration]] [[unit]]",
+          "ru": "Гость прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "손님 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "guest_left",
         "title": {
           "en": "A guest left",
@@ -487,6 +1210,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "guest_left_for_duration",
+        "title": {
+          "en": "A guest left and stayed away",
+          "nl": "Een gast is weggegaan en bleef afwezig",
+          "de": "Ein Gast ist gegangen und blieb abwesend",
+          "no": "En gjest forlot hjemmet og forble borte",
+          "da": "En gæst forlod hjemmet og forble væk",
+          "sv": "En gäst lämnade och förblev borta",
+          "es": "Un invitado se fue y permaneció ausente",
+          "fr": "Un invité est parti et est resté absent",
+          "it": "Un ospite è andato via ed è rimasto assente",
+          "pl": "Gość wyszedł i pozostał poza domem",
+          "ru": "Гость ушел и оставался вне дома",
+          "ko": "손님 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "A guest left and stayed away for [[duration]] [[unit]]",
+          "nl": "Een gast is weggegaan en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Ein Gast ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "En gjest forlot hjemmet og forble borte i [[duration]] [[unit]]",
+          "da": "En gæst forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "En gäst lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "Un invitado se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Un invité est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "Un ospite è andato via ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Gość wyszedł i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Гость ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "손님 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed away continuously for the selected duration. Returning cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -542,6 +1409,150 @@
         ]
       },
       {
+        "id": "household_member_arrived_for_duration",
+        "title": {
+          "en": "A household member arrived and stayed home",
+          "nl": "Een gezinslid is aangekomen en bleef thuis",
+          "de": "Ein Haushaltsmitglied ist angekommen und blieb zu Hause",
+          "no": "Et medlem av husstanden kom hjem og ble hjemme",
+          "da": "Et medlem af husstanden kom hjem og blev hjemme",
+          "sv": "En person i hushållet anlände och stannade hemma",
+          "es": "Un miembro del hogar ha llegado y permaneció en casa",
+          "fr": "Un membre du foyer est arrivé et est resté à la maison",
+          "it": "Un membro della famiglia è arrivato ed è rimasto a casa",
+          "pl": "Członek gospodarstwa domowego przybył i pozostał w domu",
+          "ru": "Член семьи прибыл и остался дома",
+          "ko": "가구 구성원 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "A household member arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Een gezinslid is aangekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Ein Haushaltsmitglied ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Et medlem av husstanden kom hjem og ble hjemme i [[duration]] [[unit]]",
+          "da": "Et medlem af husstanden kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "En person i hushållet anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "Un miembro del hogar ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Un membre du foyer est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "Un membro della famiglia è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Członek gospodarstwa domowego przybył i pozostał w domu przez [[duration]] [[unit]]",
+          "ru": "Член семьи прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "가구 구성원 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "household_member_left",
         "title": {
           "en": "A household member left",
@@ -593,6 +1604,150 @@
         ]
       },
       {
+        "id": "household_member_left_for_duration",
+        "title": {
+          "en": "A household member left and stayed away",
+          "nl": "Een gezinslid is weggegaan en bleef afwezig",
+          "de": "Ein Haushaltsmitglied ist gegangen und blieb abwesend",
+          "no": "Et medlem av husstanden dro hjemmefra og forble borte",
+          "da": "Et medlem af husstanden forlod hjemmet og forble væk",
+          "sv": "En person i hushållet lämnade och förblev borta",
+          "es": "Un miembro del hogar se fue y permaneció ausente",
+          "fr": "Un membre de la famille est parti et est resté absent",
+          "it": "Un membro della famiglia se n'è andato ed è rimasto assente",
+          "pl": "Członek gospodarstwa domowego odszedł i pozostał poza domem",
+          "ru": "Член домохозяйства ушел и оставался вне дома",
+          "ko": "가구 구성원 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "A household member left and stayed away for [[duration]] [[unit]]",
+          "nl": "Een gezinslid is weggegaan en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Ein Haushaltsmitglied ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Et medlem av husstanden dro hjemmefra og forble borte i [[duration]] [[unit]]",
+          "da": "Et medlem af husstanden forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "En person i hushållet lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "Un miembro del hogar se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Un membre de la famille est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "Un membro della famiglia se n'è andato ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Członek gospodarstwa domowego odszedł i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Член домохозяйства ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "가구 구성원 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed away continuously for the selected duration. Returning cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "kid_arrived",
         "title": {
           "en": "A kid arrived",
@@ -634,6 +1789,144 @@
               "da": "Navn Navnesen",
               "sv": "Medel Svensson"
             }
+          }
+        ]
+      },
+      {
+        "id": "kid_arrived_for_duration",
+        "title": {
+          "en": "A kid arrived and stayed home",
+          "nl": "Een kind is thuisgekomen en bleef thuis",
+          "de": "Ein Kind ist angekommen und blieb zu Hause",
+          "no": "Et barn ankom og ble hjemme",
+          "da": "Et barn kom hjem og blev hjemme",
+          "sv": "Ett barn anlände och stannade hemma",
+          "es": "Un niño ha llegado y permaneció en casa",
+          "fr": "Un enfant est arrivé et est resté à la maison",
+          "it": "È arrivato un bambino ed è rimasto a casa",
+          "pl": "Dziecko przybyło i pozostało w domu",
+          "ru": "Ребенок прибыл и остался дома",
+          "ko": "아이 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "A kid arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Een kind is thuisgekomen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Ein Kind ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Et barn ankom og ble hjemme i [[duration]] [[unit]]",
+          "da": "Et barn kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Ett barn anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "Un niño ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Un enfant est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "È arrivato un bambino ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Dziecko przybyło i pozostało w domu przez [[duration]] [[unit]]",
+          "ru": "Ребенок прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "아이 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -689,6 +1982,150 @@
         ]
       },
       {
+        "id": "kid_left_for_duration",
+        "title": {
+          "en": "A kid left and stayed away",
+          "nl": "Een kind heeft het huis verlaten en bleef afwezig",
+          "de": "Ein Kind ist gegangen und blieb abwesend",
+          "no": "Et barn forlot hjemmet og forble borte",
+          "da": "Et barn forlod hjemmet og forble væk",
+          "sv": "Ett barn lämnade och förblev borta",
+          "es": "Un niño se fue y permaneció ausente",
+          "fr": "Un enfant est parti et est resté absent",
+          "it": "Un bambino è partito ed è rimasto assente",
+          "pl": "Dziecko odeszło i pozostało poza domem",
+          "ru": "Ребёнок ушел и оставался вне дома",
+          "ko": "아이 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "A kid left and stayed away for [[duration]] [[unit]]",
+          "nl": "Een kind heeft het huis verlaten en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Ein Kind ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Et barn forlot hjemmet og forble borte i [[duration]] [[unit]]",
+          "da": "Et barn forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Ett barn lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "Un niño se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Un enfant est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "Un bambino è partito ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Dziecko odeszło i pozostało poza domem przez [[duration]] [[unit]]",
+          "ru": "Ребёнок ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "아이 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed away continuously for the selected duration. Returning cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "last_guest_left",
         "title": {
           "en": "The last guest left",
@@ -736,6 +2173,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "last_guest_left_for_duration",
+        "title": {
+          "en": "The last guest left and stayed away",
+          "nl": "Laatste gast is weggegaan en bleef afwezig",
+          "de": "Der letzte Gast ist gegangen und blieb abwesend",
+          "no": "Den siste gjesten forlot hjemmet og forble borte",
+          "da": "Den sidste gæst forlod hjemmet og forble væk",
+          "sv": "Den sista gästen lämnade och förblev borta",
+          "es": "El último invitado se fue y permaneció ausente",
+          "fr": "Le dernier invité est parti et est resté absent",
+          "it": "L'ultimo ospite se n'è andato ed è rimasto assente",
+          "pl": "Ostatni gość wyszedł i pozostał poza domem",
+          "ru": "Последний гость ушел и оставался вне дома",
+          "ko": "마지막 손님 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "The last guest left and stayed away for [[duration]] [[unit]]",
+          "nl": "Laatste gast is weggegaan en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Der letzte Gast ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Den siste gjesten forlot hjemmet og forble borte i [[duration]] [[unit]]",
+          "da": "Den sidste gæst forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Den sista gästen lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "El último invitado se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Le dernier invité est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "L'ultimo ospite se n'è andato ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Ostatni gość wyszedł i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Последний гость ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "마지막 손님 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this group has remained empty continuously for the selected duration. A return cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -791,6 +2372,150 @@
         ]
       },
       {
+        "id": "last_household_member_left_for_duration",
+        "title": {
+          "en": "The last household member left and stayed away",
+          "nl": "Laatste gezinslid is weggegaan en bleef afwezig",
+          "de": "Das letzte Haushaltsmitglied ist gegangen und blieb abwesend",
+          "no": "Siste medlem av husstanden dro hjemmefra og forble borte",
+          "da": "Det sidste medlem af husstanden forlod hjemmet og forble væk",
+          "sv": "Den sista personen i hushållet lämnade och förblev borta",
+          "es": "El último miembro del hogar se fue y permaneció ausente",
+          "fr": "Le dernier membre du foyer est parti et est resté absent",
+          "it": "L'ultimo membro della famiglia è partito ed è rimasto assente",
+          "pl": "Ostatni członek gospodarstwa domowego wyszedł i pozostał poza domem",
+          "ru": "Последний член семьи ушёл и оставался вне дома",
+          "ko": "마지막 가구 구성원 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "The last household member left and stayed away for [[duration]] [[unit]]",
+          "nl": "Laatste gezinslid is weggegaan en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Das letzte Haushaltsmitglied ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Siste medlem av husstanden dro hjemmefra og forble borte i [[duration]] [[unit]]",
+          "da": "Det sidste medlem af husstanden forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Den sista personen i hushållet lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "El último miembro del hogar se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Le dernier membre du foyer est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "L'ultimo membro della famiglia è partito ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Ostatni członek gospodarstwa domowego wyszedł i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Последний член семьи ушёл и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "마지막 가구 구성원 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this group has remained empty continuously for the selected duration. A return cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "last_kid_left",
         "title": {
           "en": "The last kid left",
@@ -838,6 +2563,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "last_kid_left_for_duration",
+        "title": {
+          "en": "The last kid left and stayed away",
+          "nl": "Laatste kind is uit huis vertrokken en bleef afwezig",
+          "de": "Das letzte Kind ist gegangen und blieb abwesend",
+          "no": "Det siste barnet forlot hjemmet og forble borte",
+          "da": "Det sidste barn forlod hjemmet og forble væk",
+          "sv": "Det sista barnet lämnade och förblev borta",
+          "es": "El último niño se fue y permaneció ausente",
+          "fr": "Le dernier enfant est parti et est resté absent",
+          "it": "L'ultimo bambino è andato via ed è rimasto assente",
+          "pl": "Ostatnie dziecko odeszło i pozostało poza domem",
+          "ru": "Последний ребенок ушел и оставался вне дома",
+          "ko": "마지막 아이 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "The last kid left and stayed away for [[duration]] [[unit]]",
+          "nl": "Laatste kind is uit huis vertrokken en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Das letzte Kind ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Det siste barnet forlot hjemmet og forble borte i [[duration]] [[unit]]",
+          "da": "Det sidste barn forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Det sista barnet lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "El último niño se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Le dernier enfant est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "L'ultimo bambino è andato via ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Ostatnie dziecko odeszło i pozostało poza domem przez [[duration]] [[unit]]",
+          "ru": "Последний ребенок ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "마지막 아이 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this group has remained empty continuously for the selected duration. A return cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -893,6 +2762,150 @@
         ]
       },
       {
+        "id": "last_person_left_for_duration",
+        "title": {
+          "en": "The last person left and stayed away",
+          "nl": "De laatste persoon heeft het huis verlaten en bleef afwezig",
+          "de": "Die letzte Person ist gegangen und blieb abwesend",
+          "no": "Siste person dro hjemmefra og forble borte",
+          "da": "Den sidste person forlod hjemmet og forble væk",
+          "sv": "Den sista personen lämnade och förblev borta",
+          "es": "La última persona se fue y permaneció ausente",
+          "fr": "La dernière personne est partie et est restée absent",
+          "it": "L'ultima persona è partita ed è rimasta assente",
+          "pl": "Ostatnia osoba wyszła i pozostała poza domem",
+          "ru": "Последний человек ушёл и оставался вне дома",
+          "ko": "마지막 사람 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "The last person left and stayed away for [[duration]] [[unit]]",
+          "nl": "De laatste persoon heeft het huis verlaten en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Die letzte Person ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Siste person dro hjemmefra og forble borte i [[duration]] [[unit]]",
+          "da": "Den sidste person forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Den sista personen lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "La última persona se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "La dernière personne est partie et est restée absent pendant [[duration]] [[unit]]",
+          "it": "L'ultima persona è partita ed è rimasta assente per [[duration]] [[unit]]",
+          "pl": "Ostatnia osoba wyszła i pozostała poza domem przez [[duration]] [[unit]]",
+          "ru": "Последний человек ушёл и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "마지막 사람 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this group has remained empty continuously for the selected duration. A return cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "someone_entered",
         "title": {
           "en": "Someone arrived",
@@ -944,6 +2957,150 @@
         ]
       },
       {
+        "id": "someone_entered_for_duration",
+        "title": {
+          "en": "Someone arrived and stayed home",
+          "nl": "Iemand kwam binnen en bleef thuis",
+          "de": "Jemand ist angekommen und blieb zu Hause",
+          "no": "Noen kom hjem og ble hjemme",
+          "da": "Nogen kom hjem og blev hjemme",
+          "sv": "Någon anlände och stannade hemma",
+          "es": "Alguien ha llegado y permaneció en casa",
+          "fr": "Quelqu'un est arrivé et est resté à la maison",
+          "it": "Qualcuno è arrivato ed è rimasto a casa",
+          "pl": "Ktoś przybył i pozostał w domu",
+          "ru": "Кто-то пришёл и остался дома",
+          "ko": "누군가 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "Someone arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Iemand kwam binnen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Jemand ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "Noen kom hjem og ble hjemme i [[duration]] [[unit]]",
+          "da": "Nogen kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Någon anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "Alguien ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Quelqu'un est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "Qualcuno è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Ktoś przybył i pozostał w domu przez [[duration]] [[unit]]",
+          "ru": "Кто-то пришёл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "누군가 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "someone_left",
         "title": {
           "en": "Someone left",
@@ -991,6 +3148,150 @@
               "ru": "Иван Иванов",
               "ko": "홍길동"
             }
+          }
+        ]
+      },
+      {
+        "id": "someone_left_for_duration",
+        "title": {
+          "en": "Someone left and stayed away",
+          "nl": "Iemand ging weg en bleef afwezig",
+          "de": "Jemand ist gegangen und blieb abwesend",
+          "no": "Noen dro hjemmefra og forble borte",
+          "da": "Nogen forlod hjemmet og forble væk",
+          "sv": "Någon lämnade och förblev borta",
+          "es": "Alguien se fue y permaneció ausente",
+          "fr": "Quelqu'un est parti et est resté absent",
+          "it": "Qualcuno è andato via ed è rimasto assente",
+          "pl": "Ktoś odszedł i pozostał poza domem",
+          "ru": "Кто-то ушел и оставался вне дома",
+          "ko": "누군가 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "Someone left and stayed away for [[duration]] [[unit]]",
+          "nl": "Iemand ging weg en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Jemand ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "Noen dro hjemmefra og forble borte i [[duration]] [[unit]]",
+          "da": "Nogen forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Någon lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "Alguien se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Quelqu'un est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "Qualcuno è andato via ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Ktoś odszedł i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Кто-то ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "누군가 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed away continuously for the selected duration. Returning cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       },
@@ -1053,6 +3354,155 @@
         ]
       },
       {
+        "id": "user_entered_for_duration",
+        "title": {
+          "en": "A specific user arrived and stayed home",
+          "nl": "Gebruiker kwam binnen en bleef thuis",
+          "de": "Ein bestimmter Benutzer ist angekommen und blieb zu Hause",
+          "no": "En bestemt person kom hjem og ble hjemme",
+          "da": "En bestemt person kom hjem og blev hjemme",
+          "sv": "Personen anlände och stannade hemma",
+          "es": "Un usuario específico ha llegado y permaneció en casa",
+          "fr": "Un utilisateur spécifique est arrivé et est resté à la maison",
+          "it": "Un utente specifico è arrivato ed è rimasto a casa",
+          "pl": "Konkretna osoba dotarła i pozostała w domu",
+          "ru": "Определенный пользователь прибыл и остался дома",
+          "ko": "특정 사용자 도착 후 집에 머무름"
+        },
+        "titleFormatted": {
+          "en": "A specific user arrived and stayed home for [[duration]] [[unit]]",
+          "nl": "Gebruiker kwam binnen en bleef thuis gedurende [[duration]] [[unit]]",
+          "de": "Ein bestimmter Benutzer ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+          "no": "En bestemt person kom hjem og ble hjemme i [[duration]] [[unit]]",
+          "da": "En bestemt person kom hjem og blev hjemme i [[duration]] [[unit]]",
+          "sv": "Personen anlände och stannade hemma i [[duration]] [[unit]]",
+          "es": "Un usuario específico ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+          "fr": "Un utilisateur spécifique est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+          "it": "Un utente specifico è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+          "pl": "Konkretna osoba dotarła i pozostała w domu przez [[duration]] [[unit]]",
+          "ru": "Определенный пользователь прибыл и остался дома в течение [[duration]] [[unit]]",
+          "ko": "특정 사용자 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=smart_presence"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "user_left",
         "title": {
           "en": "A specific user left",
@@ -1107,6 +3557,155 @@
             "name": "device",
             "type": "device",
             "filter": "driver_id=smart_presence"
+          }
+        ]
+      },
+      {
+        "id": "user_left_for_duration",
+        "title": {
+          "en": "A specific user left and stayed away",
+          "nl": "Gebruiker ging weg en bleef afwezig",
+          "de": "Ein bestimmter Benutzer ist gegangen und blieb abwesend",
+          "no": "En bestemt person dro hjemmefra og forble borte",
+          "da": "En bestemt person forlod hjemmet og forble væk",
+          "sv": "Personen lämnade och förblev borta",
+          "es": "Un usuario específico se fue y permaneció ausente",
+          "fr": "Un utilisateur spécifique est parti et est resté absent",
+          "it": "Un utente specifico se n'è andato ed è rimasto assente",
+          "pl": "Konkretny użytkownik opuścił i pozostał poza domem",
+          "ru": "Определенный пользователь ушел и оставался вне дома",
+          "ko": "특정 사용자 떠난 후 부재 상태 유지"
+        },
+        "titleFormatted": {
+          "en": "A specific user left and stayed away for [[duration]] [[unit]]",
+          "nl": "Gebruiker ging weg en bleef afwezig gedurende [[duration]] [[unit]]",
+          "de": "Ein bestimmter Benutzer ist gegangen und blieb abwesend für [[duration]] [[unit]]",
+          "no": "En bestemt person dro hjemmefra og forble borte i [[duration]] [[unit]]",
+          "da": "En bestemt person forlod hjemmet og forble væk i [[duration]] [[unit]]",
+          "sv": "Personen lämnade och förblev borta i [[duration]] [[unit]]",
+          "es": "Un usuario específico se fue y permaneció ausente durante [[duration]] [[unit]]",
+          "fr": "Un utilisateur spécifique est parti et est resté absent pendant [[duration]] [[unit]]",
+          "it": "Un utente specifico se n'è andato ed è rimasto assente per [[duration]] [[unit]]",
+          "pl": "Konkretny użytkownik opuścił i pozostał poza domem przez [[duration]] [[unit]]",
+          "ru": "Определенный пользователь ушел и оставался вне дома в течение [[duration]] [[unit]]",
+          "ko": "특정 사용자 떠난 후 [[duration]][[unit]] 동안 부재 상태 유지"
+        },
+        "hint": {
+          "en": "Fires once after this person has stayed away continuously for the selected duration. Returning cancels the timer. Pending timers are cleared on app restart or person category changes."
+        },
+        "tokens": [
+          {
+            "name": "who",
+            "type": "string",
+            "title": {
+              "en": "Who",
+              "nl": "Wie",
+              "de": "Wer",
+              "no": "Hvem",
+              "da": "Hvem",
+              "sv": "Vem",
+              "es": "Quién",
+              "fr": "Qui",
+              "it": "Chi",
+              "pl": "Kto",
+              "ru": "Кто",
+              "ko": "누구"
+            },
+            "example": {
+              "en": "John Doe",
+              "nl": "Jan Jansen",
+              "de": "Max Mustermann",
+              "no": "Ola Nordmann",
+              "da": "Navn Navnesen",
+              "sv": "Medel Svensson",
+              "es": "Juan Pérez",
+              "fr": "Jean Dupont",
+              "it": "Mario Rossi",
+              "pl": "Jan Kowalski",
+              "ru": "Иван Иванов",
+              "ko": "홍길동"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=smart_presence"
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "min": 1,
+            "max": 35791,
+            "title": {
+              "en": "Duration",
+              "nl": "Duur",
+              "de": "Dauer",
+              "no": "Varighet",
+              "da": "Varighed",
+              "sv": "Varaktighet",
+              "es": "Duración",
+              "fr": "Durée",
+              "it": "Durata",
+              "pl": "Czas trwania",
+              "ru": "Длительность",
+              "ko": "기간"
+            }
+          },
+          {
+            "name": "unit",
+            "type": "dropdown",
+            "title": {
+              "en": "Unit",
+              "nl": "Eenheid",
+              "de": "Einheit",
+              "no": "Enhet",
+              "da": "Enhed",
+              "sv": "Enhet",
+              "es": "Unidad",
+              "fr": "Unité",
+              "it": "Unità",
+              "pl": "Jednostka",
+              "ru": "Единица",
+              "ko": "단위"
+            },
+            "values": [
+              {
+                "id": "seconds",
+                "label": {
+                  "en": "seconds",
+                  "nl": "seconden",
+                  "de": "Sekunden",
+                  "no": "sekunder",
+                  "da": "sekunder",
+                  "sv": "sekunder",
+                  "es": "segundos",
+                  "fr": "secondes",
+                  "it": "secondi",
+                  "pl": "sekund",
+                  "ru": "секунд",
+                  "ko": "초"
+                }
+              },
+              {
+                "id": "minutes",
+                "label": {
+                  "en": "minutes",
+                  "nl": "minuten",
+                  "de": "Minuten",
+                  "no": "minutter",
+                  "da": "minutter",
+                  "sv": "minuter",
+                  "es": "minutos",
+                  "fr": "minutes",
+                  "it": "minuti",
+                  "pl": "minut",
+                  "ru": "минут",
+                  "ko": "분"
+                }
+              }
+            ]
           }
         ]
       }

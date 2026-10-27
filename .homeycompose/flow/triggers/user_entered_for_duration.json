@@ -1,0 +1,149 @@
+{
+  "id": "user_entered_for_duration",
+  "title": {
+    "en": "A specific user arrived and stayed home",
+    "nl": "Gebruiker kwam binnen en bleef thuis",
+    "de": "Ein bestimmter Benutzer ist angekommen und blieb zu Hause",
+    "no": "En bestemt person kom hjem og ble hjemme",
+    "da": "En bestemt person kom hjem og blev hjemme",
+    "sv": "Personen anlände och stannade hemma",
+    "es": "Un usuario específico ha llegado y permaneció en casa",
+    "fr": "Un utilisateur spécifique est arrivé et est resté à la maison",
+    "it": "Un utente specifico è arrivato ed è rimasto a casa",
+    "pl": "Konkretna osoba dotarła i pozostała w domu",
+    "ru": "Определенный пользователь прибыл и остался дома",
+    "ko": "특정 사용자 도착 후 집에 머무름"
+  },
+  "titleFormatted": {
+    "en": "A specific user arrived and stayed home for [[duration]] [[unit]]",
+    "nl": "Gebruiker kwam binnen en bleef thuis gedurende [[duration]] [[unit]]",
+    "de": "Ein bestimmter Benutzer ist angekommen und blieb zu Hause für [[duration]] [[unit]]",
+    "no": "En bestemt person kom hjem og ble hjemme i [[duration]] [[unit]]",
+    "da": "En bestemt person kom hjem og blev hjemme i [[duration]] [[unit]]",
+    "sv": "Personen anlände och stannade hemma i [[duration]] [[unit]]",
+    "es": "Un usuario específico ha llegado y permaneció en casa durante [[duration]] [[unit]]",
+    "fr": "Un utilisateur spécifique est arrivé et est resté à la maison pendant [[duration]] [[unit]]",
+    "it": "Un utente specifico è arrivato ed è rimasto a casa per [[duration]] [[unit]]",
+    "pl": "Konkretna osoba dotarła i pozostała w domu przez [[duration]] [[unit]]",
+    "ru": "Определенный пользователь прибыл и остался дома в течение [[duration]] [[unit]]",
+    "ko": "특정 사용자 도착 후 [[duration]][[unit]] 동안 집에 머무름"
+  },
+  "hint": {
+    "en": "Fires once after this person has stayed home continuously for the selected duration. Leaving cancels the timer. Pending timers are cleared on app restart or person category changes."
+  },
+  "tokens": [
+    {
+      "name": "who",
+      "type": "string",
+      "title": {
+        "en": "Who",
+        "nl": "Wie",
+        "de": "Wer",
+        "no": "Hvem",
+        "da": "Hvem",
+        "sv": "Vem",
+        "es": "Quién",
+        "fr": "Qui",
+        "it": "Chi",
+        "pl": "Kto",
+        "ru": "Кто",
+        "ko": "누구"
+      },
+      "example": {
+        "en": "John Doe",
+        "nl": "Jan Jansen",
+        "de": "Max Mustermann",
+        "no": "Ola Nordmann",
+        "da": "Navn Navnesen",
+        "sv": "Medel Svensson",
+        "es": "Juan Pérez",
+        "fr": "Jean Dupont",
+        "it": "Mario Rossi",
+        "pl": "Jan Kowalski",
+        "ru": "Иван Иванов",
+        "ko": "홍길동"
+      }
+    }
+  ],
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=smart_presence"
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "min": 1,
+      "max": 35791,
+      "title": {
+        "en": "Duration",
+        "nl": "Duur",
+        "de": "Dauer",
+        "no": "Varighet",
+        "da": "Varighed",
+        "sv": "Varaktighet",
+        "es": "Duración",
+        "fr": "Durée",
+        "it": "Durata",
+        "pl": "Czas trwania",
+        "ru": "Длительность",
+        "ko": "기간"
+      }
+    },
+    {
+      "name": "unit",
+      "type": "dropdown",
+      "title": {
+        "en": "Unit",
+        "nl": "Eenheid",
+        "de": "Einheit",
+        "no": "Enhet",
+        "da": "Enhed",
+        "sv": "Enhet",
+        "es": "Unidad",
+        "fr": "Unité",
+        "it": "Unità",
+        "pl": "Jednostka",
+        "ru": "Единица",
+        "ko": "단위"
+      },
+      "values": [
+        {
+          "id": "seconds",
+          "label": {
+            "en": "seconds",
+            "nl": "seconden",
+            "de": "Sekunden",
+            "no": "sekunder",
+            "da": "sekunder",
+            "sv": "sekunder",
+            "es": "segundos",
+            "fr": "secondes",
+            "it": "secondi",
+            "pl": "sekund",
+            "ru": "секунд",
+            "ko": "초"
+          }
+        },
+        {
+          "id": "minutes",
+          "label": {
+            "en": "minutes",
+            "nl": "minuten",
+            "de": "Minuten",
+            "no": "minutter",
+            "da": "minutter",
+            "sv": "minuter",
+            "es": "minutos",
+            "fr": "minutes",
+            "it": "minuti",
+            "pl": "minut",
+            "ru": "минут",
+            "ko": "분"
+          }
+        }
+      ]
+    }
+  ]
+}
