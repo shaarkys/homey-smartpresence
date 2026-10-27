@@ -115,5 +115,8 @@
   },
   "0.9.16": {
     "en": "Fixed duplicate “last person left” triggers and missed “first person arrived” triggers when multiple devices change presence simultaneously."
+  },
+  "0.9.17": {
+    "en": "Added duration-based arrival and departure Flow triggers for users, household members, kids and guests, including first-arrival and last-departure variants with selectable seconds or minutes."
   }
 }
